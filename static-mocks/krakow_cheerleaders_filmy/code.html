@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="light" lang="pl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cheerleaders Krakow - Filmy</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#ec4899", 
+              "primary-hover": "#db2777",
+              "accent": "#fbcfe8",
+              "background-light": "#ffffff",
+              "background-soft": "#fff0f5",
+              "text-dark": "#333333", 
+              "charcoal": "#1f2937",
+              "soft-grey": "#f3f4f6",
+              "peach": "#ffedd5",
+            },
+            fontFamily: {
+              "sans": ["DM Sans", "sans-serif"],
+              "serif": ["Playfair Display", "serif"],
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1rem", "2xl": "1.5rem", "full": "9999px"},
+            backgroundImage: {
+                'hero-gradient': 'linear-gradient(180deg, #ffffff 0%, #fff0f5 40%, #fce7f3 100%)',
+                'shimmer': 'linear-gradient(45deg, rgba(255,255,255,0) 40%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 60%)'
+            }
+          },
+        },
+      }
+    </script>
+<style>::-webkit-scrollbar {
+    width: 8px;
+    height: 8px
+    }
+::-webkit-scrollbar-track {
+    background: #fff1f2
+    }
+::-webkit-scrollbar-thumb {
+    background: #fbcfe8;
+    border-radius: 4px
+    }
+.shining-badge {
+    background-size: 200% auto;
+    animation: shine 3s linear infinite
+    }
+@keyframes shine {
+    to {
+        background-position: 200% center;
+        }
+    }
+.no-scrollbar::-webkit-scrollbar {
+    display: none
+    }
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none
+    }
+.grain-overlay {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuB6FNrTDIwpWv9RSnbs8F4zKS9VtDFMczCDPAFMTXOqLmg-mM65t92pp6qAnzBo5XcGnVHPmiKnPVXthrt5GXA4HrAz4_T00huvjtcS7kfJuRBDBbCkdMw1SpOgRBVgCCmsjJaiG7_1Zau8EaNlkaczALR7TLNHF-wWlkYb4EivMuWxEZM7txoiV-0zQu1aRLu1yZbx4fHa8KePZMiaKwOv0GJ08O9Xq3luCwlmg0YNpWBC2ocR4s6p6d7KSgQmYKkiechxk-fN7Ptl);
+    opacity: 0.15;
+    mix-blend-mode: overlay
+    }</style>
+</head>
+<body class="bg-background-soft text-gray-800 font-sans overflow-x-hidden flex flex-col min-h-screen selection:bg-primary selection:text-white">
+<header class="sticky top-0 z-50 w-full border-b border-pink-100 bg-white/90 backdrop-blur-md px-4 lg:px-10 py-4 transition-all duration-300">
+<div class="max-w-[1280px] mx-auto flex items-center justify-between">
+<div class="flex items-center gap-3">
+<a class="text-text-dark text-2xl font-serif font-bold tracking-tight hover:opacity-80 transition-opacity" href="#">Cheerleaders Krakow</a>
+</div>
+<div class="hidden lg:flex flex-1 justify-end gap-10 items-center">
+<nav class="flex items-center gap-8">
+<a class="text-gray-600 text-[15px] font-medium hover:text-primary transition-colors font-serif italic" href="#">Strona Główna</a>
+<div class="group relative flex items-center gap-1 cursor-pointer py-2">
+<span class="text-gray-600 text-[15px] font-medium group-hover:text-primary transition-colors font-serif italic">Stowarzyszenie</span>
+<span class="material-symbols-outlined text-sm pt-0.5 text-gray-400 group-hover:text-primary transition-colors">expand_more</span>
+<div class="absolute top-full left-0 mt-2 w-56 bg-white shadow-[0_10px_40px_-15px_rgba(0,0,0,0.1)] rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 p-2 border border-pink-50">
+<a class="block px-4 py-2.5 text-sm text-gray-600 hover:bg-pink-50 hover:text-primary rounded-lg transition-colors" href="#">O nas</a>
+<a class="block px-4 py-2.5 text-sm text-gray-600 hover:bg-pink-50 hover:text-primary rounded-lg transition-colors" href="#">Marka</a>
+<a class="block px-4 py-2.5 text-sm text-gray-600 hover:bg-pink-50 hover:text-primary rounded-lg transition-colors" href="#">Statut</a>
+</div>
+</div>
+<a class="text-gray-600 text-[15px] font-medium hover:text-primary transition-colors font-serif italic" href="#">Zespoły</a>
+<a class="text-primary text-[15px] font-bold font-serif italic" href="#">Filmy</a>
+</nav>
+<button class="group flex items-center justify-center overflow-hidden rounded-full h-11 px-8 bg-primary text-white text-sm font-semibold tracking-wide hover:bg-primary-hover transition-all shadow-lg shadow-pink-200 hover:shadow-pink-300 hover:-translate-y-0.5">
+<span>Skontaktuj się</span>
+</button>
+</div>
+<button class="lg:hidden text-gray-800 p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main>
+<section class="relative w-full border-b border-pink-100 overflow-hidden py-24 bg-hero-gradient">
+<div class="absolute inset-0 grain-overlay pointer-events-none z-10"></div>
+<div class="relative z-20 max-w-5xl mx-auto px-4 text-center">
+<span class="inline-block py-1 px-3 rounded-full bg-white/60 border border-pink-200 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-sm shadow-sm">
+                Video Archive
+            </span>
+<h1 class="text-text-dark text-5xl sm:text-6xl md:text-7xl font-serif font-bold leading-[1.1] tracking-tight mb-6 drop-shadow-sm">
+                Nasze <span class="italic text-primary-hover relative inline-block">Filmy</span>
+</h1>
+<p class="text-gray-700 text-xl font-light max-w-2xl mx-auto leading-relaxed">
+                Zobacz nasze najnowsze choreografie, relacje z turniejów i występy na żywo.
+                Zbiór emocji, energii i pasji w ruchu.
+            </p>
+</div>
+</section>
+<section class="py-24 bg-white border-b border-pink-50 min-h-screen">
+<div class="max-w-[1280px] mx-auto px-4 lg:px-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
+<article class="group cursor-pointer flex flex-col gap-6">
+<div class="relative aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-sm group-hover:shadow-[0_20px_40px_-15px_rgba(236,72,153,0.3)] transition-all duration-500 border border-pink-50 ring-1 ring-black/5">
+<img alt="Cheer performance" class="object-cover w-full h-full opacity-95 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDztepytPQ8eRl3z3EPoJrTGVMUeqCEn3jbN9nFGKQYF2s8FgVLG96_YXKAEHB3Enlpm7vW1UG2sMjLJFcQLj99BP7fFdsMJ0u7uqRU2qyw6gsjBIivm0-WHxXPxLcjoveJsm_bUHfM_31GnQD2D2UHnqiCELeeMWLrlVBa8XozScYctdjz7e6NagD5AZXl06DmxlP1kqHFSTyIDYQmcmnE5umT1IOX5jvR9LXFYwWlKMVL6oE1EVrcgFgxPOSSbfkEAC2gfsHQVsPw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-20 h-20 bg-primary/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg shadow-pink-500/30 group-hover:scale-110 group-hover:bg-primary transition-all duration-300 border border-white/20">
+<span class="material-symbols-outlined text-4xl text-white ml-1">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 px-1">
+<div class="flex items-center gap-4 text-xs font-bold tracking-[0.15em] text-gray-400 uppercase">
+<span class="text-primary">24 Marzec 2024</span>
+<span class="w-1 h-1 rounded-full bg-gray-300"></span>
+<span>Mistrzostwa Polski</span>
+</div>
+<h2 class="text-3xl font-serif font-bold text-gray-900 group-hover:text-primary transition-colors leading-tight">
+                            Złoty medal: Finałowy układ taneczny w Krakowie
+                        </h2>
+</div>
+</article>
+<article class="group cursor-pointer flex flex-col gap-6">
+<div class="relative aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-sm group-hover:shadow-[0_20px_40px_-15px_rgba(236,72,153,0.3)] transition-all duration-500 border border-pink-50 ring-1 ring-black/5">
+<img alt="Game performance" class="object-cover w-full h-full opacity-95 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB45qdgxCx0MgWnaBDy7lRx8l_h7Yk0QA9omtyCrGoFVm9k4oZ1FBDKjFvRkdCvj68hqJPDY0PbNQmxjJzdVlKaZwO-3kqVxRK_qVy1x0hnMNAGIV0TaAUxdYAyj56y3vMgc-2_rQ_LgqsTbpMJAgT9aJqnyvK9mJIppixclwgHAz2jKzxaZM0B5ZUw8fsAh8uASBUI_AM8UnhsUyCwSgovm8PAL4bYBe0x7gWTFuYo683PA1PmhcsgSpfhPFomtRjSL-PU4fh3Z4LI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-20 h-20 bg-primary/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg shadow-pink-500/30 group-hover:scale-110 group-hover:bg-primary transition-all duration-300 border border-white/20">
+<span class="material-symbols-outlined text-4xl text-white ml-1">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 px-1">
+<div class="flex items-center gap-4 text-xs font-bold tracking-[0.15em] text-gray-400 uppercase">
+<span class="text-primary">15 Luty 2024</span>
+<span class="w-1 h-1 rounded-full bg-gray-300"></span>
+<span>Euroliga Kobiet</span>
+</div>
+<h2 class="text-3xl font-serif font-bold text-gray-900 group-hover:text-primary transition-colors leading-tight">
+                            Przerwa meczowa: Wisła CanPack vs Fenerbahce
+                        </h2>
+</div>
+</article>
+<article class="group cursor-pointer flex flex-col gap-6">
+<div class="relative aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-sm group-hover:shadow-[0_20px_40px_-15px_rgba(236,72,153,0.3)] transition-all duration-500 border border-pink-50 ring-1 ring-black/5">
+<img alt="Backstage" class="object-cover w-full h-full opacity-95 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLyRk5fS6eHtKWOlwCpXb6NPA02ba4rCmEjWCbjdQRTlOE6ioLVPTaF-l17PVoJnJY6sKqIO7kAf0svoTUb7xQiEWWj1aF6UMbod7PvzM9RCnjQC4hPa5iGVBiLzGNY3whTDR5Rf25BLd0P2Tw77k9r4QYWnhYeM9NJ8OwT1Aiamvs7vYZpazxvUEisO4nhPbX4_mHsOtC1sKaIFbau7yHozHABvPf4nwelhyY-fj7863oENfPBD0xze0ojKd_i2x69dqlRNPx4usm"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-20 h-20 bg-primary/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg shadow-pink-500/30 group-hover:scale-110 group-hover:bg-primary transition-all duration-300 border border-white/20">
+<span class="material-symbols-outlined text-4xl text-white ml-1">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 px-1">
+<div class="flex items-center gap-4 text-xs font-bold tracking-[0.15em] text-gray-400 uppercase">
+<span class="text-primary">02 Styczeń 2024</span>
+<span class="w-1 h-1 rounded-full bg-gray-300"></span>
+<span>Backstage</span>
+</div>
+<h2 class="text-3xl font-serif font-bold text-gray-900 group-hover:text-primary transition-colors leading-tight">
+                            Kulisy sesji zdjęciowej "New Era"
+                        </h2>
+</div>
+</article>
+<article class="group cursor-pointer flex flex-col gap-6">
+<div class="relative aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-sm group-hover:shadow-[0_20px_40px_-15px_rgba(236,72,153,0.3)] transition-all duration-500 border border-pink-50 ring-1 ring-black/5">
+<img alt="Gala event" class="object-cover w-full h-full opacity-95 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK4EohHZ6GNh1T09tm-pfk4xVaxk7_oWGGkMWFs1m5kcoWFy9z01z3aOqiZbJAjZO1tZl1rWO-gmSfX5kSIe1pkMqeR_dPJxBXTOBTxkHCO-EXufKQgYQpW3vO_U43iFVDx0yxNf9sNMxcglvw-2VsZ-jE7NzvBQfJmcB8bFc0b8tajTdei_syvzvxB5JjBYaAGFn93MEIgXPejbloarN0GXIMVKdBZUXYPyoSyDVHWP3yEu63h9UOatImH9oCrOhAc8eof9b3e5Eu"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-20 h-20 bg-primary/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg shadow-pink-500/30 group-hover:scale-110 group-hover:bg-primary transition-all duration-300 border border-white/20">
+<span class="material-symbols-outlined text-4xl text-white ml-1">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 px-1">
+<div class="flex items-center gap-4 text-xs font-bold tracking-[0.15em] text-gray-400 uppercase">
+<span class="text-primary">10 Grudzień 2023</span>
+<span class="w-1 h-1 rounded-full bg-gray-300"></span>
+<span>Event</span>
+</div>
+<h2 class="text-3xl font-serif font-bold text-gray-900 group-hover:text-primary transition-colors leading-tight">
+                            Gala Sportu Małopolskiego - Otwarcie
+                        </h2>
+</div>
+</article>
+<article class="group cursor-pointer flex flex-col gap-6">
+<div class="relative aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-sm group-hover:shadow-[0_20px_40px_-15px_rgba(236,72,153,0.3)] transition-all duration-500 border border-pink-50 ring-1 ring-black/5">
+<img alt="Outdoor training" class="object-cover w-full h-full opacity-95 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgzOFVLHZu8tuDqZsKa_5ZBnff9x-xuKtcqzpSqkWJ7kGUuqTQbkmJJ1prwUxO1choy3_Av2j24BeT23XgvEn7zqDg2OW1a_xHtzRq7z4XI0g199OWroG4AWowCAcDMir_A2XhmLMnKCvyi01cT3kUak7rkvCA4aaFZN04lAJSD4f7XEYwUxUSJD5o66fntjomPaCbcF4d9y5uGm_9TV3YGkVKKfxs10Jr7Yfo0GfHZiYmka_3W8M3Kxw3Nss2KZiyufVzjV5e0JBx"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-20 h-20 bg-primary/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg shadow-pink-500/30 group-hover:scale-110 group-hover:bg-primary transition-all duration-300 border border-white/20">
+<span class="material-symbols-outlined text-4xl text-white ml-1">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 px-1">
+<div class="flex items-center gap-4 text-xs font-bold tracking-[0.15em] text-gray-400 uppercase">
+<span class="text-primary">05 Wrzesień 2023</span>
+<span class="w-1 h-1 rounded-full bg-gray-300"></span>
+<span>Obóz Letni</span>
+</div>
+<h2 class="text-3xl font-serif font-bold text-gray-900 group-hover:text-primary transition-colors leading-tight">
+                            Podsumowanie obozu kondycyjnego w Zakopanem
+                        </h2>
+</div>
+</article>
+<article class="group cursor-pointer flex flex-col gap-6">
+<div class="relative aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-sm group-hover:shadow-[0_20px_40px_-15px_rgba(236,72,153,0.3)] transition-all duration-500 border border-pink-50 ring-1 ring-black/5">
+<img alt="TV show" class="object-cover w-full h-full opacity-95 group-hover:scale-105 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA2VxJDTtt31pvPmy3iyuv1CP1tecPhEEG-_5DM7Sd8sfop5WS8wWOBr8kxICNTtRLXRkjY3m0dbqQ9Gb-aPj31lKMOjN8FQEjdnxKazvpXSpTAPp8vwfoIffAvErtI_gGaAbrgzxfb6M2zfjlGU6fcsCiXSSqTMQ5Dcz2GGJTZfna46wcNKmjtAmwbkUqxXxCxl80izI92MXrsdrFY9o2HjCbgBg2v0fv0hCfB_dsWATIRWIjU_wrtXm--sJSGSh_eu963AsInK5a"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-20 h-20 bg-primary/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg shadow-pink-500/30 group-hover:scale-110 group-hover:bg-primary transition-all duration-300 border border-white/20">
+<span class="material-symbols-outlined text-4xl text-white ml-1">play_arrow</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-3 px-1">
+<div class="flex items-center gap-4 text-xs font-bold tracking-[0.15em] text-gray-400 uppercase">
+<span class="text-primary">28 Sierpień 2023</span>
+<span class="w-1 h-1 rounded-full bg-gray-300"></span>
+<span>Media</span>
+</div>
+<h2 class="text-3xl font-serif font-bold text-gray-900 group-hover:text-primary transition-colors leading-tight">
+                            Wywiad dla telewizji śniadaniowej
+                        </h2>
+</div>
+</article>
+</div>
+<div class="mt-24 text-center">
+<button class="inline-flex items-center gap-3 px-10 py-4 rounded-full border border-gray-200 text-xs font-bold text-gray-500 uppercase tracking-[0.2em] hover:border-primary hover:text-primary hover:bg-pink-50 transition-all group bg-white shadow-sm">
+                    Załaduj starsze filmy
+                    <span class="material-symbols-outlined text-lg group-hover:translate-y-0.5 transition-transform">expand_more</span>
+</button>
+</div>
+</div>
+</section>
+<section class="py-20 bg-background-soft border-t border-pink-100 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 translate-x-1/2 -translate-y-1/2"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 -translate-x-1/2 translate-y-1/2"></div>
+<div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+<span class="material-symbols-outlined text-5xl text-primary mb-6">subscriptions</span>
+<h2 class="text-3xl md:text-4xl font-serif font-bold text-text-dark mb-4">Nie przegap żadnego występu</h2>
+<p class="text-gray-500 mb-8 max-w-lg mx-auto">Subskrybuj nasz kanał YouTube, aby być na bieżąco z nowymi choreografiami i relacjami zza kulis.</p>
+<a class="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-3 rounded-full font-bold text-sm tracking-wide shadow-lg shadow-pink-200 hover:shadow-pink-400 hover:bg-primary-hover hover:-translate-y-0.5 transition-all" href="#">
+<span>Przejdź do YouTube</span>
+<span class="material-symbols-outlined text-lg">open_in_new</span>
+</a>
+</div>
+</section>
+</main>
+<footer class="bg-white border-t border-pink-100 pt-24 pb-12 mt-auto">
+<div class="max-w-[1280px] mx-auto px-4 lg:px-10">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3 text-primary">
+<h2 class="text-text-dark text-xl font-serif font-bold uppercase tracking-wide">Cheerleaders<br/>Krakow</h2>
+</div>
+<p class="text-gray-500 text-sm leading-relaxed max-w-xs font-light">
+                        Profesjonalne stowarzyszenie promujące taniec i cheerleading w Polsce. Elegancja, dyscyplina i siła charakteru.
+                    </p>
+</div>
+<div class="flex flex-col gap-6">
+<h3 class="text-text-dark font-serif font-bold text-lg">Na skróty</h3>
+<div class="flex flex-col gap-3">
+<a class="text-gray-500 text-sm hover:text-primary transition-colors flex items-center gap-2 group" href="#">
+<span class="w-1 h-1 rounded-full bg-pink-200 group-hover:bg-primary transition-colors"></span> Strona Główna
+                        </a>
+<a class="text-gray-500 text-sm hover:text-primary transition-colors flex items-center gap-2 group" href="#">
+<span class="w-1 h-1 rounded-full bg-pink-200 group-hover:bg-primary transition-colors"></span> O nas
+                        </a>
+<a class="text-gray-500 text-sm hover:text-primary transition-colors flex items-center gap-2 group" href="#">
+<span class="w-1 h-1 rounded-full bg-pink-200 group-hover:bg-primary transition-colors"></span> Zespoły
+                        </a>
+<a class="text-gray-500 text-sm hover:text-primary transition-colors flex items-center gap-2 group" href="#">
+<span class="w-1 h-1 rounded-full bg-pink-200 group-hover:bg-primary transition-colors"></span> Filmy
+                        </a>
+<a class="text-gray-500 text-sm hover:text-primary transition-colors flex items-center gap-2 group" href="#">
+<span class="w-1 h-1 rounded-full bg-pink-200 group-hover:bg-primary transition-colors"></span> Aktualności
+                        </a>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<h3 class="text-text-dark font-serif font-bold text-lg">Współpraca</h3>
+<div class="flex flex-col gap-3">
+<a class="text-gray-500 text-sm hover:text-primary transition-colors flex items-center gap-2 group" href="#">
+<span class="w-1 h-1 rounded-full bg-pink-200 group-hover:bg-primary transition-colors"></span> Sponsorzy
+                        </a>
+<a class="text-gray-500 text-sm hover:text-primary transition-colors flex items-center gap-2 group" href="#">
+<span class="w-1 h-1 rounded-full bg-pink-200 group-hover:bg-primary transition-colors"></span> Media
+                        </a>
+<a class="text-gray-500 text-sm hover:text-primary transition-colors flex items-center gap-2 group" href="#">
+<span class="w-1 h-1 rounded-full bg-pink-200 group-hover:bg-primary transition-colors"></span> Pokazy
+                        </a>
+<a class="text-gray-500 text-sm hover:text-primary transition-colors flex items-center gap-2 group" href="#">
+<span class="w-1 h-1 rounded-full bg-pink-200 group-hover:bg-primary transition-colors"></span> Kontakt
+                        </a>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<h3 class="text-text-dark font-serif font-bold text-lg">Kontakt</h3>
+<div class="flex flex-col gap-4">
+<div class="flex items-start gap-3 text-gray-500 text-sm">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5 font-light">mail</span>
+<span class="hover:text-primary cursor-pointer transition-colors">kontakt@cheerkrakow.pl</span>
+</div>
+<div class="flex items-start gap-3 text-gray-500 text-sm">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5 font-light">call</span>
+<span class="hover:text-primary cursor-pointer transition-colors">+48 123 456 789</span>
+</div>
+<div class="flex items-start gap-3 text-gray-500 text-sm">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5 font-light">location_on</span>
+<span>ul. Sportowa 12,<br/>31-123 Kraków</span>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-pink-50 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+<p class="text-gray-400 text-xs text-center md:text-left font-light">
+                    © 2024 Cheerleaders Krakow. Wszystkie prawa zastrzeżone.
+                </p>
+<div class="flex items-center gap-6">
+<a class="text-gray-400 hover:text-primary transition-colors hover:scale-110 transform" href="#"><span class="text-xs font-bold uppercase tracking-wider">Facebook</span></a>
+<a class="text-gray-400 hover:text-primary transition-colors hover:scale-110 transform" href="#"><span class="text-xs font-bold uppercase tracking-wider">Instagram</span></a>
+<a class="text-gray-400 hover:text-primary transition-colors hover:scale-110 transform" href="#"><span class="text-xs font-bold uppercase tracking-wider">YouTube</span></a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

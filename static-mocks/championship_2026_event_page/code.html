@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Championship 2026 - Cheer Krakow</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#db2777", // Brand Magenta (Vibrant Pink)
+                        "primary-dark": "#be185d", // Darker Magenta
+                        "secondary": "#fce7f3", // Blush Pink (Soft)
+                        "accent": "#fdf2f8", // Very light pink
+                        "background-light": "#ffffff",
+                        "background-dark": "#1f1f1f",
+                        "text-main": "#374151", // Charcoal Grey
+                        "text-muted": "#6b7280", // Muted Grey
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#2d2d2d",
+                        "pastel-pink": "#fce7f3",
+                        "pastel-cream": "#fff1f2",
+                    },
+                    fontFamily: {
+                        "display": ["Playfair Display", "serif"],
+                        "body": ["DM Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "2xl": "1.5rem",
+                        "3xl": "2rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        "soft": "0 10px 40px -10px rgba(219, 39, 119, 0.1)",
+                        "glow": "0 0 20px rgba(219, 39, 119, 0.25)",
+                        "card": "0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)"
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 300,
+            'GRAD' 0,
+            'opsz' 24
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1;
+        }
+        .delicate-icon {
+            font-variation-settings: 'wght' 200;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main font-body antialiased min-h-screen flex flex-col selection:bg-primary/20 selection:text-primary-dark">
+<header class="sticky top-0 z-50 w-full bg-white/90 dark:bg-surface-dark/95 backdrop-blur-md border-b border-pink-100 dark:border-white/5 px-6 py-4 shadow-sm transition-all duration-300">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-3 text-text-main dark:text-white group">
+<div class="size-10 flex items-center justify-center rounded-full bg-pastel-pink text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-2xl filled">sports_gymnastics</span>
+</div>
+<h2 class="text-2xl font-display font-bold leading-tight tracking-tight text-text-main dark:text-white">Cheer Krakow</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-10 items-center">
+<nav class="flex items-center gap-8">
+<a class="text-text-main dark:text-gray-200 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Home</a>
+<a class="text-primary font-bold text-sm leading-normal border-b-2 border-primary pb-0.5" href="#">Events</a>
+<a class="text-text-main dark:text-gray-200 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">About Us</a>
+<a class="text-text-main dark:text-gray-200 hover:text-primary dark:hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Contact</a>
+</nav>
+<button class="flex items-center justify-center overflow-hidden rounded-full h-11 px-8 bg-primary hover:bg-primary-dark transition-all hover:scale-105 text-white text-sm font-bold shadow-soft shadow-primary/30">
+<span>Login</span>
+</button>
+</div>
+<button class="md:hidden text-text-main dark:text-white p-2 rounded-full hover:bg-pastel-pink transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<div class="w-full relative min-h-[60vh] flex flex-col justify-center overflow-hidden">
+<div class="absolute inset-0 z-0 bg-gradient-to-br from-white via-pink-50 to-pink-100"></div>
+<div class="absolute inset-0 z-0 opacity-[0.03]" style="background-image: radial-gradient(#db2777 1px, transparent 1px); background-size: 32px 32px;"></div>
+<div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-pink-200/30 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative z-20 max-w-7xl mx-auto px-6 py-20 w-full flex flex-col justify-center items-center text-center gap-8">
+<div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white border border-pink-100 text-primary text-xs font-bold uppercase tracking-widest shadow-sm">
+<span class="size-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_currentColor]"></span>
+                Official Event
+            </div>
+<h1 class="text-text-main dark:text-white font-display text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.1] tracking-tight max-w-5xl drop-shadow-sm">
+<span class="italic text-primary/80 font-normal mr-2">XII</span>Championship<br/><span class="text-primary font-bold">2026</span>
+</h1>
+<div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-text-main/80 text-sm md:text-lg font-medium tracking-wide">
+<div class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/50 shadow-sm">
+<span class="material-symbols-outlined text-primary text-xl delicate-icon">calendar_month</span>
+                    March 15-16, 2026
+                </div>
+<div class="hidden md:block w-px h-8 bg-text-main/10"></div>
+<div class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/50 shadow-sm">
+<span class="material-symbols-outlined text-primary text-xl delicate-icon">location_on</span>
+                    Suche Stawy, Krakow
+                </div>
+</div>
+<div class="mt-8 flex flex-col sm:flex-row gap-5 w-full justify-center">
+<button class="h-14 px-10 rounded-full bg-primary hover:bg-primary-dark text-white font-bold text-lg transition-all hover:-translate-y-1 shadow-glow flex items-center justify-center gap-3 group">
+<span>Register Team</span>
+<span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform delicate-icon">arrow_forward</span>
+</button>
+<button class="h-14 px-10 rounded-full bg-white hover:bg-pink-50 text-text-main font-bold text-lg transition-all flex items-center justify-center gap-3 shadow-card hover:shadow-lg border border-pink-100">
+<span>Watch Trailer</span>
+<span class="material-symbols-outlined text-xl text-primary delicate-icon">play_circle</span>
+</button>
+</div>
+</div>
+</div>
+<main class="flex-grow w-full max-w-7xl mx-auto px-6 py-12 md:py-20">
+<div class="flex flex-col lg:flex-row gap-16">
+<aside class="hidden lg:block w-72 shrink-0">
+<div class="sticky top-28 flex flex-col gap-8">
+<div class="p-2 bg-pink-50/50 dark:bg-white/5 rounded-2xl flex items-center gap-2 border border-pink-100">
+<span class="text-xs font-bold text-text-main uppercase tracking-widest px-3 opacity-60">Lang:</span>
+<div class="flex flex-1 bg-white dark:bg-surface-dark rounded-xl p-1 shadow-sm border border-pink-50">
+<button class="flex-1 py-1.5 rounded-lg text-xs font-bold bg-pink-50 text-text-main shadow-sm text-center transition-all">PL</button>
+<button class="flex-1 py-1.5 rounded-lg text-xs font-bold text-text-muted hover:text-text-main hover:bg-pink-50/50 text-center transition-all">EN</button>
+</div>
+</div>
+<nav class="flex flex-col gap-3">
+<p class="text-xs font-bold text-text-muted uppercase tracking-widest px-4 mb-2 opacity-70">Navigation</p>
+<a class="group flex items-center gap-4 px-5 py-3.5 rounded-full bg-white shadow-card text-primary font-bold transition-all hover:translate-x-1 border border-pink-100" href="#welcome">
+<span class="material-symbols-outlined text-xl filled text-primary">waving_hand</span>
+                            Welcome
+                        </a>
+<a class="group flex items-center gap-4 px-5 py-3.5 rounded-full hover:bg-pink-50 text-text-main hover:text-primary transition-all hover:translate-x-1 border border-transparent" href="#regulations">
+<span class="material-symbols-outlined text-xl delicate-icon text-text-muted group-hover:text-primary">gavel</span>
+                            Regulations
+                        </a>
+<a class="group flex items-center gap-4 px-5 py-3.5 rounded-full hover:bg-pink-50 text-text-main hover:text-primary transition-all hover:translate-x-1 border border-transparent" href="#other-files">
+<span class="material-symbols-outlined text-xl delicate-icon text-text-muted group-hover:text-primary">folder_open</span>
+                            Other Files
+                        </a>
+<a class="group flex items-center gap-4 px-5 py-3.5 rounded-full hover:bg-pink-50 text-text-main hover:text-primary transition-all hover:translate-x-1 border border-transparent" href="#venue">
+<span class="material-symbols-outlined text-xl delicate-icon text-text-muted group-hover:text-primary">map</span>
+                            Venue
+                        </a>
+<a class="group flex items-center gap-4 px-5 py-3.5 rounded-full hover:bg-pink-50 text-text-main hover:text-primary transition-all hover:translate-x-1 border border-transparent" href="#accommodation">
+<span class="material-symbols-outlined text-xl delicate-icon text-text-muted group-hover:text-primary">luggage</span>
+                            Travel Info
+                        </a>
+<a class="group flex items-center gap-4 px-5 py-3.5 rounded-full hover:bg-pink-50 text-text-main hover:text-primary transition-all hover:translate-x-1 border border-transparent" href="#press">
+<span class="material-symbols-outlined text-xl delicate-icon text-text-muted group-hover:text-primary">newsmode</span>
+                            Press Area
+                        </a>
+</nav>
+<div class="p-8 bg-gradient-to-br from-primary to-pink-600 rounded-3xl text-white shadow-glow mt-4 relative overflow-hidden group">
+<div class="absolute -right-6 -top-6 size-32 bg-white/20 rounded-full blur-2xl group-hover:bg-white/30 transition-all"></div>
+<p class="font-display font-bold text-xl mb-2 relative z-10">Need Assistance?</p>
+<p class="text-sm text-white/90 mb-6 leading-relaxed relative z-10 font-normal">Contact the organizing committee for urgent inquiries.</p>
+<a class="inline-flex items-center gap-2 text-sm font-bold bg-white text-primary hover:bg-pink-50 px-5 py-2.5 rounded-full transition-colors relative z-10 shadow-sm" href="#">
+                            Contact Support
+                            <span class="material-symbols-outlined text-sm delicate-icon">arrow_outward</span>
+</a>
+</div>
+</div>
+</aside>
+<div class="flex-1 flex flex-col gap-24 min-w-0">
+<div class="flex items-center flex-wrap gap-3 text-xs uppercase tracking-widest text-text-muted">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-xs delicate-icon">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Events</a>
+<span class="material-symbols-outlined text-xs delicate-icon">chevron_right</span>
+<span class="text-primary font-bold">Championship 2026</span>
+</div>
+<section class="scroll-mt-32" id="welcome">
+<h2 class="text-4xl md:text-5xl font-display font-bold text-text-main dark:text-white mb-8">Welcome to <span class="text-primary italic">Krakow</span></h2>
+<div class="prose prose-lg text-text-main dark:text-gray-300 max-w-none font-normal leading-loose">
+<p class="mb-6 first-letter:text-5xl first-letter:font-display first-letter:text-primary first-letter:mr-3 first-letter:float-left">
+                            We are thrilled to invite your team to the <strong class="text-primary-dark font-medium">XII Championship 2026</strong>. This year marks a special anniversary for our association, bringing together over 50 teams from across Europe to compete in the historic city of Krakow.
+                        </p>
+<p>
+                            Prepare for two days of high-energy performances, world-class judging, and an unforgettable atmosphere. Whether you are competing in All-Girl, Coed, or Performance Cheer divisions, this event promises to be the highlight of the 2026 season.
+                        </p>
+</div>
+</section>
+<section class="scroll-mt-32" id="regulations">
+<h2 class="text-3xl font-display font-bold text-text-main dark:text-white mb-8">Regulations</h2>
+<div class="bg-white dark:bg-surface-dark border border-pink-100 dark:border-white/5 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-8 shadow-card hover:shadow-soft transition-all duration-300">
+<div class="size-20 flex items-center justify-center bg-pink-50 rounded-2xl text-primary shrink-0">
+<span class="material-symbols-outlined text-4xl filled">gavel</span>
+</div>
+<div class="flex-1 text-center md:text-left">
+<h3 class="font-display font-bold text-2xl text-text-main dark:text-white mb-2">Championship Regulations 2026</h3>
+<p class="text-text-muted font-normal text-sm mb-4">Complete rulebook including safety guidelines, age grids, and scoring criteria.</p>
+<div class="flex flex-wrap gap-3 justify-center md:justify-start">
+<span class="text-[10px] font-bold tracking-widest uppercase text-text-muted bg-gray-50 px-3 py-1 rounded-full border border-gray-100">PDF • 2.4 MB</span>
+<span class="text-[10px] font-bold tracking-widest uppercase text-primary bg-pink-50/50 px-3 py-1 rounded-full border border-pink-100">Version 2.0</span>
+</div>
+</div>
+<button class="h-12 px-8 rounded-full bg-primary hover:bg-primary-dark text-white font-bold text-sm transition-all hover:scale-105 shadow-glow flex items-center gap-2">
+<span>Download PDF</span>
+<span class="material-symbols-outlined text-lg delicate-icon">download</span>
+</button>
+</div>
+</section>
+<section class="scroll-mt-32" id="other-files">
+<h2 class="text-3xl font-display font-bold text-text-main dark:text-white mb-8">Other Files</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<a class="group flex items-center gap-5 bg-white dark:bg-surface-dark border border-pink-100/50 dark:border-white/5 hover:border-primary/30 p-5 rounded-2xl transition-all shadow-sm hover:shadow-card hover:-translate-y-1" href="#">
+<div class="size-12 rounded-xl bg-pink-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-2xl delicate-icon">description</span>
+</div>
+<div>
+<h4 class="font-display font-bold text-lg text-text-main dark:text-white group-hover:text-primary transition-colors">Team Entry Form</h4>
+<p class="text-xs text-text-muted font-normal mt-0.5">DOCX Template</p>
+</div>
+<div class="ml-auto">
+<span class="material-symbols-outlined text-pink-200 group-hover:text-primary transition-colors">download</span>
+</div>
+</a>
+<a class="group flex items-center gap-5 bg-white dark:bg-surface-dark border border-pink-100/50 dark:border-white/5 hover:border-primary/30 p-5 rounded-2xl transition-all shadow-sm hover:shadow-card hover:-translate-y-1" href="#">
+<div class="size-12 rounded-xl bg-pink-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-2xl delicate-icon">music_note</span>
+</div>
+<div>
+<h4 class="font-display font-bold text-lg text-text-main dark:text-white group-hover:text-primary transition-colors">Music Submission</h4>
+<p class="text-xs text-text-muted font-normal mt-0.5">Upload Portal</p>
+</div>
+<div class="ml-auto">
+<span class="material-symbols-outlined text-pink-200 group-hover:text-primary transition-colors">open_in_new</span>
+</div>
+</a>
+<a class="group flex items-center gap-5 bg-white dark:bg-surface-dark border border-pink-100/50 dark:border-white/5 hover:border-primary/30 p-5 rounded-2xl transition-all shadow-sm hover:shadow-card hover:-translate-y-1" href="#">
+<div class="size-12 rounded-xl bg-pink-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-2xl delicate-icon">verified_user</span>
+</div>
+<div>
+<h4 class="font-display font-bold text-lg text-text-main dark:text-white group-hover:text-primary transition-colors">Athlete Waiver</h4>
+<p class="text-xs text-text-muted font-normal mt-0.5">Mandatory PDF</p>
+</div>
+<div class="ml-auto">
+<span class="material-symbols-outlined text-pink-200 group-hover:text-primary transition-colors">download</span>
+</div>
+</a>
+</div>
+</section>
+<section class="scroll-mt-32" id="venue">
+<h2 class="text-3xl font-display font-bold text-text-main dark:text-white mb-8">Venue &amp; Location</h2>
+<div class="bg-white dark:bg-surface-dark rounded-3xl overflow-hidden border border-gray-100 dark:border-white/5 shadow-card">
+<div class="h-80 w-full bg-gray-100 relative group">
+<div class="w-full h-full bg-cover bg-center grayscale opacity-90 group-hover:grayscale-0 transition-all duration-700" data-alt="Map view showing location pin" data-location="Krakow" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCgkLdOnP03RpHZplioh2s3CYvGS3vXTzH2i72Ofurl_3W4-jrr6SFhiSV7qwrq_21jdXPfn2rncnQhhbB1PeOnO0LyDzmjKxAbyAuRly1qu3CsP6t039rVt_HDJPB7RhnNs1DAaOZhnYrhiuu4tCl576fmZVAppZ9M6d8iXBeVih6ZUItlw5lxEOFvEGxP6J-tEkgZmad7PyoL4lwOTv87fSkOtrVh7nFtBfDbDIzxdp4AzZZI_87nCEhOrROjtyaKYIYZwE1z6ztH');"></div>
+<div class="absolute inset-0 bg-primary/5 mix-blend-multiply pointer-events-none"></div>
+<a class="absolute bottom-6 right-6 bg-white dark:bg-background-dark py-2.5 px-5 rounded-full shadow-lg text-xs font-bold text-primary hover:bg-primary hover:text-white transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-sm delicate-icon">map</span>
+                                Open in Google Maps
+                            </a>
+</div>
+<div class="p-8 grid md:grid-cols-2 gap-10">
+<div>
+<h3 class="font-display font-bold text-3xl text-text-main dark:text-white mb-2">Suche Stawy</h3>
+<p class="text-primary font-bold text-sm tracking-wide mb-1">Hala Widowiskowo-Sportowa Hutnik</p>
+<p class="text-text-muted font-normal text-sm mb-6">Tadeusza Ptaszyckiego 4, 30-079 Kraków</p>
+<div class="inline-flex items-center gap-3 text-sm text-text-main font-bold bg-pink-50 px-4 py-2 rounded-full border border-pink-100">
+<span class="material-symbols-outlined text-lg delicate-icon text-primary">directions_car</span>
+<span>Free parking on premises</span>
+</div>
+</div>
+<div class="flex flex-col gap-6 border-l border-gray-100 dark:border-white/5 pl-0 md:pl-10">
+<div class="flex items-start gap-4">
+<div class="p-2 bg-pink-50 rounded-full text-primary">
+<span class="material-symbols-outlined delicate-icon">tram</span>
+</div>
+<div>
+<span class="block text-sm font-bold text-text-main dark:text-white uppercase tracking-wide">Public Transport</span>
+<span class="text-sm text-text-muted font-normal">Tram stop "Suche Stawy" or "Klasztorna"</span>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="p-2 bg-pink-50 rounded-full text-primary">
+<span class="material-symbols-outlined delicate-icon">flight</span>
+</div>
+<div>
+<span class="block text-sm font-bold text-text-main dark:text-white uppercase tracking-wide">Distance from Center</span>
+<span class="text-sm text-text-muted font-normal">~25 min by car from Main Square</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="scroll-mt-32" id="accommodation">
+<h2 class="text-3xl font-display font-bold text-text-main dark:text-white mb-6">Travel &amp; Accommodation</h2>
+<div class="bg-gradient-to-br from-pink-50/50 to-white dark:bg-surface-dark border border-pink-100 dark:border-white/5 rounded-3xl p-8 md:p-10 shadow-sm">
+<div class="flex items-start gap-6">
+<div class="hidden md:flex size-14 rounded-full bg-white text-primary items-center justify-center shadow-sm shrink-0 border border-pink-50">
+<span class="material-symbols-outlined text-3xl">hotel</span>
+</div>
+<div class="prose prose-stone dark:prose-invert max-w-none">
+<h3 class="font-display font-bold text-xl text-text-main mb-4 mt-0">Accommodation Information</h3>
+<p class="font-normal leading-relaxed text-text-main">
+                                    We do not have exclusive partnerships with specific hotels this year, allowing teams the flexibility to choose accommodation that best suits their budget and preferences. The venue is located in the Nowa Huta district, which offers several affordable options.
+                                </p>
+<p class="font-normal leading-relaxed text-text-main">
+                                    For teams wishing to stay closer to the city center, we recommend looking for hotels near the main tram lines leading to Nowa Huta. Large groups are advised to book well in advance, as March is a busy season in Krakow.
+                                </p>
+<div class="bg-white dark:bg-black/20 p-5 rounded-xl border-l-4 border-primary mt-6 not-prose shadow-sm">
+<p class="text-sm font-bold text-primary mb-1 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">lightbulb</span> Travel Tip
+                                    </p>
+<p class="text-sm text-text-muted">We recommend using Uber or Bolt for group transport if not using a chartered bus, as it is often cost-effective in Krakow.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="scroll-mt-32" id="press">
+<h2 class="text-3xl font-display font-bold text-text-main dark:text-white mb-8">Media &amp; Press</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-white dark:bg-surface-dark border border-gray-100 dark:border-white/5 rounded-3xl p-8 shadow-card flex flex-col justify-center">
+<h3 class="font-display font-bold text-2xl text-text-main dark:text-white mb-4">Media Accreditation</h3>
+<p class="text-text-muted font-normal text-sm mb-6 leading-relaxed">
+                                Journalists and photographers wishing to cover the XII Championship 2026 must apply for accreditation.
+                            </p>
+<div class="flex flex-col gap-4 mt-auto">
+<a class="group flex items-center gap-4 p-3 rounded-xl hover:bg-pink-50 transition-colors" href="mailto:press@cheerkrakow.pl">
+<div class="size-10 rounded-full bg-pink-50 group-hover:bg-white flex items-center justify-center text-primary shadow-sm transition-colors">
+<span class="material-symbols-outlined text-lg">mail</span>
+</div>
+<span class="text-sm font-bold text-text-main group-hover:text-primary transition-colors">press@cheerkrakow.pl</span>
+</a>
+<div class="flex items-center gap-4 p-3 rounded-xl hover:bg-pink-50 transition-colors">
+<div class="size-10 rounded-full bg-pink-50 flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-lg">call</span>
+</div>
+<span class="text-sm font-bold text-text-main">+48 123 456 789</span>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-surface-dark border border-pink-100 dark:border-white/5 rounded-3xl p-8 shadow-card flex flex-col items-center text-center gap-4 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-pink-50/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="size-20 bg-pink-50 rounded-2xl shadow-inner flex items-center justify-center text-primary mb-2 relative z-10 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl filled">folder_zip</span>
+</div>
+<div class="relative z-10">
+<h4 class="font-display font-bold text-xl text-text-main">Official Press Pack</h4>
+<p class="text-sm text-text-muted mt-2 max-w-xs mx-auto">Contains high-res logos, previous event photos, and the official press release.</p>
+</div>
+<div class="flex gap-2 mt-4 w-full relative z-10">
+<button class="flex-1 py-3 rounded-xl bg-primary text-white font-bold text-sm shadow-glow hover:bg-primary-dark transition-all flex items-center justify-center gap-2">
+<span>Download ZIP</span>
+<span class="material-symbols-outlined text-sm">download</span>
+</button>
+<button class="size-11 rounded-xl bg-white border border-gray-200 text-text-muted hover:text-primary hover:border-primary transition-colors flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-xl">share</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<footer class="bg-white dark:bg-surface-dark border-t border-gray-100 dark:border-white/5 py-16 px-6 mt-12">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-12">
+<div class="flex flex-col gap-6 max-w-sm">
+<div class="flex items-center gap-3 text-text-main dark:text-white">
+<span class="material-symbols-outlined text-3xl text-primary filled">sports_gymnastics</span>
+<span class="text-xl font-display font-bold">Cheer Krakow</span>
+</div>
+<p class="text-sm text-text-muted leading-relaxed font-normal">
+                    The official organization for professional cheerleading in Krakow. Promoting sportsmanship, athleticism, and team spirit with elegance since 2014.
+                </p>
+<div class="flex gap-4 mt-2">
+<a class="size-10 flex items-center justify-center rounded-full bg-pink-50 text-primary hover:bg-primary hover:text-white transition-colors" href="#"><span class="material-symbols-outlined text-lg delicate-icon">public</span></a>
+<a class="size-10 flex items-center justify-center rounded-full bg-pink-50 text-primary hover:bg-primary hover:text-white transition-colors" href="#"><span class="material-symbols-outlined text-lg delicate-icon">mail</span></a>
+<a class="size-10 flex items-center justify-center rounded-full bg-pink-50 text-primary hover:bg-primary hover:text-white transition-colors" href="#"><span class="material-symbols-outlined text-lg delicate-icon">call</span></a>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-10 text-sm">
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-text-main dark:text-white uppercase tracking-widest text-xs opacity-70">Events</h4>
+<a class="text-text-muted hover:text-primary transition-colors font-normal" href="#">Championship 2026</a>
+<a class="text-text-muted hover:text-primary transition-colors font-normal" href="#">Spring Cup</a>
+<a class="text-text-muted hover:text-primary transition-colors font-normal" href="#">Workshops</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-text-main dark:text-white uppercase tracking-widest text-xs opacity-70">Association</h4>
+<a class="text-text-muted hover:text-primary transition-colors font-normal" href="#">About Us</a>
+<a class="text-text-muted hover:text-primary transition-colors font-normal" href="#">Statute</a>
+<a class="text-text-muted hover:text-primary transition-colors font-normal" href="#">Join Us</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-text-main dark:text-white uppercase tracking-widest text-xs opacity-70">Resources</h4>
+<a class="text-text-muted hover:text-primary transition-colors font-normal" href="#">Rules &amp; Regulations</a>
+<a class="text-text-muted hover:text-primary transition-colors font-normal" href="#">Music Guidelines</a>
+<a class="text-text-muted hover:text-primary transition-colors font-normal" href="#">Judging Scoresheet</a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-100 dark:border-white/5 text-center flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="text-xs text-text-muted font-normal">
+                © 2025 Cheer Krakow Association. All rights reserved.
+            </div>
+<div class="flex gap-6 text-xs text-text-muted font-bold tracking-wider">
+<a class="hover:text-primary" href="#">PRIVACY</a>
+<a class="hover:text-primary" href="#">TERMS</a>
+</div>
+</div>
+</footer>
+
+</body></html>
