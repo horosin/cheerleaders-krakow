@@ -1,0 +1,798 @@
+media:
+  input: public/uploads
+  output: /uploads
+
+content:
+  - name: site_settings
+    label: Site Settings
+    type: file
+    path: content/site.md
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: tagline
+        label: Tagline
+        type: text
+      - name: nav
+        label: Navigation
+        type: list
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: href
+            label: Href
+            type: string
+          - name: badge
+            label: Badge
+            type: string
+          - name: autoChildren
+            label: Auto Children
+            type: string
+          - name: children
+            label: Children
+            type: list
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: href
+                label: Href
+                type: string
+      - name: cta
+        label: CTA
+        type: object
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: href
+            label: Href
+            type: string
+      - name: footerColumns
+        label: Footer Columns
+        type: list
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: links
+            label: Links
+            type: list
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: href
+                label: Href
+                type: string
+      - name: contact
+        label: Contact
+        type: object
+        fields:
+          - name: email
+            label: Email
+            type: string
+          - name: phone
+            label: Phone
+            type: string
+          - name: addressLines
+            label: Address Lines
+            type: list
+            field:
+              name: line
+              label: Line
+              type: string
+      - name: socials
+        label: Socials
+        type: list
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: href
+            label: Href
+            type: string
+      - name: legal
+        label: Legal
+        type: object
+        fields:
+          - name: copyright
+            label: Copyright
+            type: string
+
+  - name: home
+    label: Home Page
+    type: file
+    path: content/home.md
+    fields:
+      - name: hero
+        label: Hero
+        type: object
+        fields:
+          - name: season
+            label: Season
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: subtitle
+            label: Subtitle
+            type: text
+          - name: primaryCta
+            label: Primary CTA
+            type: object
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: href
+                label: Href
+                type: string
+          - name: secondaryCta
+            label: Secondary CTA
+            type: object
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: href
+                label: Href
+                type: string
+      - name: teamsSection
+        label: Teams Section
+        type: object
+        fields:
+          - name: eyebrow
+            label: Eyebrow
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: subtitle
+            label: Subtitle
+            type: text
+      - name: newsSection
+        label: News Section
+        type: object
+        fields:
+          - name: eyebrow
+            label: Eyebrow
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: ctaLabel
+            label: CTA Label
+            type: string
+          - name: ctaHref
+            label: CTA Href
+            type: string
+      - name: eventHighlight
+        label: Event Highlight
+        type: object
+        fields:
+          - name: eyebrow
+            label: Eyebrow
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: date
+            label: Date
+            type: string
+          - name: time
+            label: Time
+            type: string
+          - name: location
+            label: Location
+            type: string
+          - name: venue
+            label: Venue
+            type: string
+          - name: primaryCta
+            label: Primary CTA
+            type: object
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: href
+                label: Href
+                type: string
+          - name: secondaryCta
+            label: Secondary CTA
+            type: object
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: href
+                label: Href
+                type: string
+      - name: videoHighlight
+        label: Video Highlight
+        type: object
+        fields:
+          - name: eyebrow
+            label: Eyebrow
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: ctaLabel
+            label: CTA Label
+            type: string
+          - name: ctaHref
+            label: CTA Href
+            type: string
+          - name: youtubeId
+            label: YouTube ID
+            type: string
+      - name: ctaBand
+        label: CTA Band
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: primaryCta
+            label: Primary CTA
+            type: object
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: href
+                label: Href
+                type: string
+          - name: secondaryCta
+            label: Secondary CTA
+            type: object
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: href
+                label: Href
+                type: string
+      - name: sponsorsSection
+        label: Sponsors Section
+        type: object
+        fields:
+          - name: eyebrow
+            label: Eyebrow
+            type: string
+          - name: title
+            label: Title
+            type: string
+      - name: fundingSummarySection
+        label: Funding Summary Section
+        type: object
+        fields:
+          - name: eyebrow
+            label: Eyebrow
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: ctaLabel
+            label: CTA Label
+            type: string
+          - name: ctaHref
+            label: CTA Href
+            type: string
+
+  - name: news_index
+    label: News Index
+    type: file
+    path: content/news/index.md
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: text
+
+  - name: news_posts
+    label: News Posts
+    type: collection
+    path: content/news
+    exclude:
+      - index.md
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: date
+        label: Date
+        type: string
+      - name: category
+        label: Category
+        type: string
+      - name: excerpt
+        label: Excerpt
+        type: text
+      - name: heroImage
+        label: Hero Image
+        type: image
+      - name: body
+        label: Body
+        type: markdown
+
+  - name: championship_pl_index
+    label: Championship (PL) Index
+    type: file
+    path: content/championship/pl/index.md
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: subtitle
+        label: Subtitle
+        type: string
+      - name: dateStart
+        label: Date Start
+        type: string
+      - name: dateEnd
+        label: Date End
+        type: string
+      - name: location
+        label: Location
+        type: string
+      - name: ctas
+        label: CTAs
+        type: list
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: href
+            label: Href
+            type: string
+          - name: variant
+            label: Variant
+            type: string
+      - name: sidebarHelp
+        label: Sidebar Help
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: ctaLabel
+            label: CTA Label
+            type: string
+          - name: ctaHref
+            label: CTA Href
+            type: string
+      - name: sectionsOrder
+        label: Sections Order
+        type: list
+        field:
+          name: section
+          label: Section
+          type: string
+
+  - name: championship_pl_pages
+    label: Championship (PL) Pages
+    type: collection
+    path: content/championship/pl
+    exclude:
+      - index.md
+    fields:
+      - name: id
+        label: ID
+        type: string
+      - name: navLabel
+        label: Navigation Label
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: icon
+        label: Icon
+        type: string
+      - name: cards
+        label: Cards
+        type: list
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: href
+            label: Href
+            type: file
+          - name: meta
+            label: Meta
+            type: string
+          - name: icon
+            label: Icon
+            type: string
+      - name: body
+        label: Body
+        type: markdown
+
+  - name: championship_en_index
+    label: Championship (EN) Index
+    type: file
+    path: content/championship/en/index.md
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: subtitle
+        label: Subtitle
+        type: string
+      - name: dateStart
+        label: Date Start
+        type: string
+      - name: dateEnd
+        label: Date End
+        type: string
+      - name: location
+        label: Location
+        type: string
+      - name: ctas
+        label: CTAs
+        type: list
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: href
+            label: Href
+            type: string
+          - name: variant
+            label: Variant
+            type: string
+      - name: sidebarHelp
+        label: Sidebar Help
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: ctaLabel
+            label: CTA Label
+            type: string
+          - name: ctaHref
+            label: CTA Href
+            type: string
+      - name: sectionsOrder
+        label: Sections Order
+        type: list
+        field:
+          name: section
+          label: Section
+          type: string
+
+  - name: championship_en_pages
+    label: Championship (EN) Pages
+    type: collection
+    path: content/championship/en
+    exclude:
+      - index.md
+    fields:
+      - name: id
+        label: ID
+        type: string
+      - name: navLabel
+        label: Navigation Label
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: icon
+        label: Icon
+        type: string
+      - name: cards
+        label: Cards
+        type: list
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: href
+            label: Href
+            type: file
+          - name: meta
+            label: Meta
+            type: string
+          - name: icon
+            label: Icon
+            type: string
+      - name: body
+        label: Body
+        type: markdown
+
+  - name: teams
+    label: Teams
+    type: collection
+    path: content/teams
+    fields:
+      - name: name
+        label: Name
+        type: string
+      - name: coach
+        label: Coach
+        type: string
+      - name: icon
+        label: Icon
+        type: string
+      - name: order
+        label: Order
+        type: number
+
+  - name: sponsors
+    label: Sponsors
+    type: collection
+    path: content/sponsors
+    fields:
+      - name: name
+        label: Name
+        type: string
+      - name: icon
+        label: Icon
+        type: string
+      - name: accentColor
+        label: Accent Color
+        type: string
+      - name: order
+        label: Order
+        type: number
+
+  - name: funding_index
+    label: Funding Index
+    type: file
+    path: content/finansowanie/index.md
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: text
+
+  - name: funding_entries
+    label: Funding Entries
+    type: collection
+    path: content/finansowanie
+    exclude:
+      - index.md
+    fields:
+      - name: organization
+        label: Organization
+        type: string
+      - name: period
+        label: Period
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: summary
+        label: Summary
+        type: text
+      - name: reportUrl
+        label: Report File
+        type: file
+      - name: accentColor
+        label: Accent Color
+        type: string
+      - name: icon
+        label: Icon
+        type: string
+      - name: order
+        label: Order
+        type: number
+
+  - name: association_pages
+    label: Association Pages
+    type: collection
+    path: content/stowarzyszenie
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: navLabel
+        label: Navigation Label
+        type: string
+      - name: order
+        label: Order
+        type: number
+      - name: body
+        label: Body
+        type: markdown
+
+  - name: other_pages
+    label: Other Pages
+    type: collection
+    path: content/pozostale
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: navLabel
+        label: Navigation Label
+        type: string
+      - name: order
+        label: Order
+        type: number
+      - name: body
+        label: Body
+        type: markdown
+
+  - name: brand
+    label: Brand Assets
+    type: file
+    path: content/marka.md
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: palette
+        label: Palette
+        type: list
+        fields:
+          - name: name
+            label: Name
+            type: string
+          - name: hex
+            label: Hex
+            type: string
+          - name: rgb
+            label: RGB
+            type: string
+      - name: typography
+        label: Typography
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: headingFont
+            label: Heading Font
+            type: string
+          - name: bodyFont
+            label: Body Font
+            type: string
+      - name: logoVariants
+        label: Logo Variants
+        type: list
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: variant
+            label: Variant
+            type: string
+      - name: downloads
+        label: Downloads
+        type: list
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: detail
+            label: Detail
+            type: string
+          - name: format
+            label: Format
+            type: string
+          - name: file
+            label: File
+            type: file
+      - name: visualTiles
+        label: Visual Tiles
+        type: list
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: variant
+            label: Variant
+            type: string
+      - name: guidelines
+        label: Guidelines
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: ctaLabel
+            label: CTA Label
+            type: string
+
+  - name: videos_index
+    label: Videos Index
+    type: file
+    path: content/filmy/index.md
+    fields:
+      - name: eyebrow
+        label: Eyebrow
+        type: string
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: text
+
+  - name: videos
+    label: Videos
+    type: collection
+    path: content/filmy
+    exclude:
+      - index.md
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: date
+        label: Date
+        type: string
+      - name: category
+        label: Category
+        type: string
+      - name: thumbnail
+        label: Thumbnail
+        type: image
+      - name: youtubeId
+        label: YouTube ID
+        type: string
+      - name: order
+        label: Order
+        type: number
+      - name: body
+        label: Body
+        type: markdown
