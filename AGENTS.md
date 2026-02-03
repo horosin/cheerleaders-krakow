@@ -2,11 +2,15 @@
 
 ## Project description
 - Next.js static export app for a cheerleading team in Kraków, Poland.
-- Uses shadcn/ui component system.
 - Girly, feminine color scheme.
+
+## Technical guidelines
+- Uses shadcn/ui component system.
+- Uses TypeScript for type safety.
 - Uses PagesCMS for content management, so everything is stored in markdown files under `content/`. We use frontmatter for metadata.
 - Deployed on GitHub Pages with custom domain.
 - Uses GitHub Actions for CI/CD.
+- Ignore next/image warnings, because it's a static export.
 
 ## Main pages
 - Home page: `/`
