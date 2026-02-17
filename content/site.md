@@ -57,13 +57,13 @@ contact:
   email: kontakt@cheerkrakow.pl
 socials:
   - label: Facebook
-    href: "#"
+    href: https://www.facebook.com/cheerleaderskrakow1/
   - label: Instagram
-    href: "#"
+    href: https://www.instagram.com/cheerleaders_krakow/
   - label: TikTok
-    href: "#"
+    href: tiktok.com/@cheerleaders_krakow
   - label: YouTube
-    href: "#"
+    href: https://www.youtube.com/@cheerleaderskrakow711
 legal:
   copyright: © {{year}} Cheerleaders Krakow. Wszystkie prawa zastrzeżone.
 ---
