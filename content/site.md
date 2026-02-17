@@ -61,7 +61,7 @@ socials:
   - label: Instagram
     href: https://www.instagram.com/cheerleaders_krakow/
   - label: TikTok
-    href: tiktok.com/@cheerleaders_krakow
+    href: https://www.tiktok.com/@cheerleaders_krakow
   - label: YouTube
     href: https://www.youtube.com/@cheerleaderskrakow711
 legal:
