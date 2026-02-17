@@ -16,7 +16,6 @@ content:
         type: text
       - name: nav
         label: Nawigacja
-        description: "Pozycje menu górnego. Każdy wpis może mieć link bezpośredni albo listę podstron (dropdown)."
         type: object
         list:
           collapsible:
