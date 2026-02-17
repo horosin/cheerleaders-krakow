@@ -163,13 +163,13 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href={home.eventHighlight.primaryCta.href}
-              className="h-10 px-6 rounded-full bg-primary text-white text-sm font-bold hover:bg-primary-hover transition-colors shadow-lg shadow-pink-200"
+              className="inline-flex h-10 items-center justify-center px-6 rounded-full bg-primary text-white text-sm font-bold hover:bg-primary-hover transition-colors shadow-lg shadow-pink-200"
             >
               {home.eventHighlight.primaryCta.label}
             </Link>
             <Link
               href={home.eventHighlight.secondaryCta.href}
-              className="h-10 px-6 rounded-full bg-transparent border border-gray-200 text-gray-700 text-sm font-bold hover:bg-gray-50 transition-colors"
+              className="inline-flex h-10 items-center justify-center px-6 rounded-full bg-transparent border border-gray-200 text-gray-700 text-sm font-bold hover:bg-gray-50 transition-colors"
             >
               {home.eventHighlight.secondaryCta.label}
             </Link>
