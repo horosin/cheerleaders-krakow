@@ -1,6 +1,6 @@
 ---
 name: "V.I.P"
-coach: "Patrycja Wiśniewska"
+coach: "Dorota Krzysztofik"
 icon: "diamond"
 order: 5
 ---

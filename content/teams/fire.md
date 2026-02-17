@@ -1,6 +1,6 @@
 ---
 name: "Fire"
-coach: "Agnieszka Tarkowska"
+coach: "Janusz Wasowski"
 icon: "local_fire_department"
 order: 1
 ---

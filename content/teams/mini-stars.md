@@ -1,6 +1,6 @@
 ---
 name: "Mini Stars"
-coach: "Karolina Wójcik"
+coach: "Agnieszka Tarkowska"
 icon: "stars"
 order: 3
 ---

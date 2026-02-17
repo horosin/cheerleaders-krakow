@@ -1,6 +1,6 @@
 ---
 name: "Małe Gwiazdki"
-coach: "Julia Nowak"
+coach: "Agnieszka Tarkowska"
 icon: "star"
 order: 2
 ---

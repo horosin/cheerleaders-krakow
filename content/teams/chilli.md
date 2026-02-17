@@ -1,6 +1,6 @@
 ---
 name: "Chilli"
-coach: "Monika Kowalczyk"
+coach: "Agnieszka Tarkowska"
 icon: "spa"
 order: 4
 ---

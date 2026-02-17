@@ -1,6 +1,6 @@
 ---
-name: "Show Dance II"
-coach: "Natalia Zielińska"
+name: "Show dance II"
+coach: "Agnieszka Tarkowska"
 icon: "celebration"
 order: 7
 ---
