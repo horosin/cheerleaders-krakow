@@ -5,6 +5,16 @@ import { Icon } from "@/components/icon"
 import { CurrentYear } from "@/components/current-year"
 
 export function SiteFooter({ site }: { site: SiteConfig }) {
+  const footerColumns = site.footerColumns ?? []
+  const socials = site.socials ?? []
+
+  const email = site.contact?.email?.trim()
+  const phone = site.contact?.phone?.trim()
+  const addressLines = (site.contact?.addressLines ?? []).filter((line) =>
+    line.trim()
+  )
+  const hasContactInfo = Boolean(email || phone || addressLines.length)
+
   return (
     <footer className="bg-white border-t border-pink-100 pt-24 pb-12 mt-auto">
       <div className="max-w-[1280px] mx-auto px-4 lg:px-10">
@@ -19,7 +29,7 @@ export function SiteFooter({ site }: { site: SiteConfig }) {
               {site.tagline}
             </p>
           </div>
-          {site.footerColumns.map((column) => (
+          {footerColumns.map((column) => (
             <div key={column.title} className="flex flex-col gap-6">
               <h3 className="text-text-dark font-serif font-bold text-lg">
                 {column.title}
@@ -41,28 +51,43 @@ export function SiteFooter({ site }: { site: SiteConfig }) {
           <div className="flex flex-col gap-6">
             <h3 className="text-text-dark font-serif font-bold text-lg">Kontakt</h3>
             <div className="flex flex-col gap-4">
-              <div className="flex items-start gap-3 text-gray-500 text-sm">
-                <Icon name="mail" className="size-5 text-primary mt-0.5" />
-                <span className="hover:text-primary transition-colors">
-                  {site.contact.email}
-                </span>
-              </div>
-              <div className="flex items-start gap-3 text-gray-500 text-sm">
-                <Icon name="phone" className="size-5 text-primary mt-0.5" />
-                <span className="hover:text-primary transition-colors">
-                  {site.contact.phone}
-                </span>
-              </div>
-              <div className="flex items-start gap-3 text-gray-500 text-sm">
-                <Icon name="location_on" className="size-5 text-primary mt-0.5" />
-                <span>
-                  {site.contact.addressLines.map((line) => (
-                    <span key={line} className="block">
-                      {line}
-                    </span>
-                  ))}
-                </span>
-              </div>
+              {hasContactInfo ? (
+                <>
+                  {email ? (
+                    <div className="flex items-start gap-3 text-gray-500 text-sm">
+                      <Icon name="mail" className="size-5 text-primary mt-0.5" />
+                      <span className="hover:text-primary transition-colors">
+                        {email}
+                      </span>
+                    </div>
+                  ) : null}
+                  {phone ? (
+                    <div className="flex items-start gap-3 text-gray-500 text-sm">
+                      <Icon name="phone" className="size-5 text-primary mt-0.5" />
+                      <span className="hover:text-primary transition-colors">
+                        {phone}
+                      </span>
+                    </div>
+                  ) : null}
+                  {addressLines.length > 0 ? (
+                    <div className="flex items-start gap-3 text-gray-500 text-sm">
+                      <Icon
+                        name="location_on"
+                        className="size-5 text-primary mt-0.5"
+                      />
+                      <span>
+                        {addressLines.map((line) => (
+                          <span key={line} className="block">
+                            {line}
+                          </span>
+                        ))}
+                      </span>
+                    </div>
+                  ) : null}
+                </>
+              ) : (
+                <p className="text-gray-500 text-sm">Dane dostępne wkrótce</p>
+              )}
             </div>
           </div>
         </div>
@@ -71,7 +96,7 @@ export function SiteFooter({ site }: { site: SiteConfig }) {
             <CurrentYear template={site.legal.copyright} />
           </p>
           <div className="flex items-center gap-6">
-            {site.socials.map((social) => (
+            {socials.map((social) => (
               <Link
                 key={social.label}
                 href={social.href}
