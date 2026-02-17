@@ -16,7 +16,10 @@ content:
         type: text
       - name: nav
         label: Navigation
-        type: list
+        type: object
+        list:
+          collapsible:
+            summary: "{fields.label}"
         fields:
           - name: label
             label: Label
@@ -32,7 +35,10 @@ content:
             type: string
           - name: children
             label: Children
-            type: list
+            type: object
+            list:
+              collapsible:
+                summary: "{fields.label}"
             fields:
               - name: label
                 label: Label
@@ -52,14 +58,20 @@ content:
             type: string
       - name: footerColumns
         label: Footer Columns
-        type: list
+        type: object
+        list:
+          collapsible:
+            summary: "{fields.title}"
         fields:
           - name: title
             label: Title
             type: string
           - name: links
             label: Links
-            type: list
+            type: object
+            list:
+              collapsible:
+                summary: "{fields.label}"
             fields:
               - name: label
                 label: Label
@@ -79,14 +91,14 @@ content:
             type: string
           - name: addressLines
             label: Address Lines
-            type: list
-            field:
-              name: line
-              label: Line
-              type: string
+            type: string
+            list: true
       - name: socials
         label: Socials
-        type: list
+        type: object
+        list:
+          collapsible:
+            summary: "{fields.label}"
         fields:
           - name: label
             label: Label
@@ -332,7 +344,7 @@ content:
         type: image
       - name: body
         label: Body
-        type: markdown
+        type: rich-text
 
   - name: championship_pl_index
     label: Championship (PL) Index
@@ -359,7 +371,10 @@ content:
         type: string
       - name: ctas
         label: CTAs
-        type: list
+        type: object
+        list:
+          collapsible:
+            summary: "{fields.label}"
         fields:
           - name: label
             label: Label
@@ -388,11 +403,8 @@ content:
             type: string
       - name: sectionsOrder
         label: Sections Order
-        type: list
-        field:
-          name: section
-          label: Section
-          type: string
+        type: string
+        list: true
 
   - name: championship_pl_pages
     label: Championship (PL) Pages
@@ -415,7 +427,10 @@ content:
         type: string
       - name: cards
         label: Cards
-        type: list
+        type: object
+        list:
+          collapsible:
+            summary: "{fields.title}"
         fields:
           - name: title
             label: Title
@@ -434,7 +449,7 @@ content:
             type: string
       - name: body
         label: Body
-        type: markdown
+        type: rich-text
 
   - name: championship_en_index
     label: Championship (EN) Index
@@ -461,7 +476,10 @@ content:
         type: string
       - name: ctas
         label: CTAs
-        type: list
+        type: object
+        list:
+          collapsible:
+            summary: "{fields.label}"
         fields:
           - name: label
             label: Label
@@ -490,11 +508,8 @@ content:
             type: string
       - name: sectionsOrder
         label: Sections Order
-        type: list
-        field:
-          name: section
-          label: Section
-          type: string
+        type: string
+        list: true
 
   - name: championship_en_pages
     label: Championship (EN) Pages
@@ -517,7 +532,10 @@ content:
         type: string
       - name: cards
         label: Cards
-        type: list
+        type: object
+        list:
+          collapsible:
+            summary: "{fields.title}"
         fields:
           - name: title
             label: Title
@@ -536,7 +554,7 @@ content:
             type: string
       - name: body
         label: Body
-        type: markdown
+        type: rich-text
 
   - name: teams
     label: Teams
@@ -637,7 +655,7 @@ content:
         type: number
       - name: body
         label: Body
-        type: markdown
+        type: rich-text
 
   - name: other_pages
     label: Other Pages
@@ -655,7 +673,7 @@ content:
         type: number
       - name: body
         label: Body
-        type: markdown
+        type: rich-text
 
   - name: brand
     label: Brand Assets
@@ -673,7 +691,10 @@ content:
         type: text
       - name: palette
         label: Palette
-        type: list
+        type: object
+        list:
+          collapsible:
+            summary: "{fields.name}"
         fields:
           - name: name
             label: Name
@@ -702,7 +723,10 @@ content:
             type: string
       - name: logoVariants
         label: Logo Variants
-        type: list
+        type: object
+        list:
+          collapsible:
+            summary: "{fields.title}"
         fields:
           - name: title
             label: Title
@@ -712,7 +736,10 @@ content:
             type: string
       - name: downloads
         label: Downloads
-        type: list
+        type: object
+        list:
+          collapsible:
+            summary: "{fields.title}"
         fields:
           - name: title
             label: Title
@@ -728,7 +755,10 @@ content:
             type: file
       - name: visualTiles
         label: Visual Tiles
-        type: list
+        type: object
+        list:
+          collapsible:
+            summary: "{fields.title}"
         fields:
           - name: title
             label: Title
@@ -795,4 +825,4 @@ content:
         type: number
       - name: body
         label: Body
-        type: markdown
+        type: rich-text
