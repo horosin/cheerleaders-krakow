@@ -97,23 +97,15 @@ export function getHomePage(): HomePage {
 }
 
 export function getTeams(): Team[] {
-  const dirPath = path.join(contentRoot, "teams")
-  return getMarkdownFiles(dirPath)
-    .map((file) => {
-      const { data } = readMarkdownFile<Team>(path.join(dirPath, file))
-      return data
-    })
-    .sort((a, b) => a.order - b.order)
+  const filePath = path.join(contentRoot, "teams", "index.md")
+  const { data } = readMarkdownFile<{ teams?: Team[] }>(filePath)
+  return [...(data.teams ?? [])].sort((a, b) => a.order - b.order)
 }
 
 export function getSponsors(): Sponsor[] {
-  const dirPath = path.join(contentRoot, "sponsors")
-  return getMarkdownFiles(dirPath)
-    .map((file) => {
-      const { data } = readMarkdownFile<Sponsor>(path.join(dirPath, file))
-      return data
-    })
-    .sort((a, b) => a.order - b.order)
+  const filePath = path.join(contentRoot, "sponsors", "index.md")
+  const { data } = readMarkdownFile<{ sponsors?: Sponsor[] }>(filePath)
+  return [...(data.sponsors ?? [])].sort((a, b) => a.order - b.order)
 }
 
 export function getNewsIndex(): NewsIndex {
@@ -180,35 +172,35 @@ export function getChampionshipContent(lang: "pl" | "en") {
 export function getVideosIndex(): VideoIndex {
   const filePath = path.join(contentRoot, "filmy", "index.md")
   const { data } = readMarkdownFile<VideoIndex>(filePath)
-  return data
+  return {
+    eyebrow: data.eyebrow,
+    title: data.title,
+    description: data.description,
+    videos: data.videos ?? [],
+  }
 }
 
 export function getVideos(): VideoEntry[] {
-  const dirPath = path.join(contentRoot, "filmy")
-  return getMarkdownFiles(dirPath)
-    .filter((file) => file !== "index.md")
-    .map((file) => {
-      const { data } = readMarkdownFile<VideoEntry>(path.join(dirPath, file))
-      return data
-    })
-    .sort((a, b) => a.order - b.order)
+  const filePath = path.join(contentRoot, "filmy", "index.md")
+  const { data } = readMarkdownFile<VideoIndex>(filePath)
+  return [...(data.videos ?? [])].sort((a, b) => a.order - b.order)
 }
 
 export function getFundingIndex(): FundingIndex {
   const filePath = path.join(contentRoot, "finansowanie", "index.md")
   const { data } = readMarkdownFile<FundingIndex>(filePath)
-  return data
+  return {
+    eyebrow: data.eyebrow,
+    title: data.title,
+    description: data.description,
+    entries: data.entries ?? [],
+  }
 }
 
 export function getFunding(): FundingGrant[] {
-  const dirPath = path.join(contentRoot, "finansowanie")
-  return getMarkdownFiles(dirPath)
-    .filter((file) => file !== "index.md")
-    .map((file) => {
-      const { data } = readMarkdownFile<FundingGrant>(path.join(dirPath, file))
-      return data
-    })
-    .sort((a, b) => a.order - b.order)
+  const filePath = path.join(contentRoot, "finansowanie", "index.md")
+  const { data } = readMarkdownFile<FundingIndex>(filePath)
+  return [...(data.entries ?? [])].sort((a, b) => a.order - b.order)
 }
 
 export function getBrandPage(): BrandPage {

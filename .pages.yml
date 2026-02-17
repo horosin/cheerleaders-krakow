@@ -623,44 +623,62 @@ content:
 
   - name: teams
     label: Zespoły
-    type: collection
-    path: content/teams
+    type: file
+    path: content/teams/index.md
     fields:
-      - name: name
-        label: Nazwa
-        type: string
-      - name: coach
-        label: Trener
-        type: string
-      - name: icon
-        label: Ikona
-        description: "Nazwa ikony z mapy w 'components/icon.tsx'."
-        type: string
-      - name: order
-        label: Kolejność
-        description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
-        type: number
+      - name: teams
+        label: Lista zespołów
+        description: "Wszystkie zespoły edytujesz w jednym miejscu."
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.name}"
+        fields:
+          - name: name
+            label: Nazwa
+            type: string
+          - name: coach
+            label: Trener
+            type: string
+          - name: icon
+            label: Ikona
+            description: "Nazwa ikony z mapy w 'components/icon.tsx'."
+            type: string
+          - name: order
+            label: Kolejność
+            description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
+            type: number
 
   - name: sponsors
     label: Sponsorzy
-    type: collection
-    path: content/sponsors
+    type: file
+    path: content/sponsors/index.md
     fields:
-      - name: name
-        label: Nazwa
-        type: string
-      - name: icon
-        label: Ikona
-        description: "Nazwa ikony z mapy w 'components/icon.tsx'."
-        type: string
-      - name: accentColor
-        label: Kolor akcentu
-        description: "Kolor w HEX, np. '#EC4899'."
-        type: string
-      - name: order
-        label: Kolejność
-        description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
-        type: number
+      - name: sponsors
+        label: Lista sponsorów
+        description: "Wszystkich sponsorów edytujesz w jednym miejscu."
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.name}"
+        fields:
+          - name: name
+            label: Nazwa
+            type: string
+          - name: icon
+            label: Ikona
+            description: "Nazwa ikony z mapy w 'components/icon.tsx'."
+            type: string
+          - name: accentColor
+            label: Kolor akcentu
+            description: "Kolor w HEX, np. '#EC4899'."
+            type: string
+          - name: order
+            label: Kolejność
+            description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
+            type: number
 
   - name: funding_index
     label: Finansowanie - strona główna
@@ -676,42 +694,43 @@ content:
       - name: description
         label: Opis
         type: text
-
-  - name: funding_entries
-    label: Wpisy finansowania
-    type: collection
-    path: content/finansowanie
-    exclude:
-      - index.md
-    fields:
-      - name: organization
-        label: Organizacja
-        type: string
-      - name: period
-        label: Okres
-        type: string
-      - name: title
-        label: Tytuł
-        type: string
-      - name: summary
-        label: Podsumowanie
-        type: text
-      - name: reportUrl
-        label: Plik sprawozdania
-        description: "Opcjonalny plik do pobrania. Jeśli puste, przycisk pobierania nie będzie widoczny."
-        type: file
-      - name: accentColor
-        label: Kolor akcentu
-        description: "Kolor w HEX, np. '#EC4899'."
-        type: string
-      - name: icon
-        label: Ikona
-        description: "Nazwa ikony z mapy w 'components/icon.tsx'."
-        type: string
-      - name: order
-        label: Kolejność
-        description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
-        type: number
+      - name: entries
+        label: Wpisy finansowania
+        description: "Wszystkie wpisy finansowania edytujesz w jednym miejscu."
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.title}"
+        fields:
+          - name: organization
+            label: Organizacja
+            type: string
+          - name: period
+            label: Okres
+            type: string
+          - name: title
+            label: Tytuł
+            type: string
+          - name: summary
+            label: Podsumowanie
+            type: text
+          - name: reportUrl
+            label: Plik sprawozdania
+            description: "Opcjonalny plik do pobrania. Jeśli puste, przycisk pobierania nie będzie widoczny."
+            type: file
+          - name: accentColor
+            label: Kolor akcentu
+            description: "Kolor w HEX, np. '#EC4899'."
+            type: string
+          - name: icon
+            label: Ikona
+            description: "Nazwa ikony z mapy w 'components/icon.tsx'."
+            type: string
+          - name: order
+            label: Kolejność
+            description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
+            type: number
 
   - name: association_pages
     label: Strony stowarzyszenia
@@ -891,37 +910,35 @@ content:
       - name: description
         label: Opis
         type: text
-
-  - name: videos
-    label: Filmy
-    type: collection
-    path: content/filmy
-    exclude:
-      - index.md
-    fields:
-      - name: title
-        label: Tytuł
-        type: string
-      - name: date
-        label: Data
-        description: "Format: YYYY-MM-DD."
-        type: string
-      - name: category
-        label: Kategoria
-        description: "Krótka kategoria wyświetlana przy filmie."
-        type: string
-      - name: thumbnail
-        label: Miniatura
-        description: "Obraz miniatury filmu (zalecane proporcje 16:9)."
-        type: image
-      - name: youtubeId
-        label: ID YouTube
-        description: "Podaj tylko ID filmu (np. 'dQw4w9WgXcQ'), bez pełnego URL."
-        type: string
-      - name: order
-        label: Kolejność
-        description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
-        type: number
-      - name: body
-        label: Treść
-        type: rich-text
+      - name: videos
+        label: Lista filmów
+        description: "Wszystkie filmy edytujesz w jednym miejscu."
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{fields.title}"
+        fields:
+          - name: title
+            label: Tytuł
+            type: string
+          - name: date
+            label: Data
+            description: "Format: YYYY-MM-DD."
+            type: string
+          - name: category
+            label: Kategoria
+            description: "Krótka kategoria wyświetlana przy filmie."
+            type: string
+          - name: thumbnail
+            label: Miniatura
+            description: "Obraz miniatury filmu (zalecane proporcje 16:9)."
+            type: image
+          - name: youtubeId
+            label: ID YouTube
+            description: "Podaj tylko ID filmu (np. 'dQw4w9WgXcQ'), bez pełnego URL."
+            type: string
+          - name: order
+            label: Kolejność
+            description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
+            type: number

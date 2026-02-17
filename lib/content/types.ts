@@ -157,6 +157,7 @@ export type VideoIndex = {
   eyebrow: string
   title: string
   description: string
+  videos: VideoEntry[]
 }
 
 export type VideoEntry = {
@@ -172,6 +173,7 @@ export type FundingIndex = {
   eyebrow: string
   title: string
   description: string
+  entries: FundingGrant[]
 }
 
 export type FundingGrant = {
