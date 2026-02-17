@@ -146,26 +146,34 @@ export function getNewsPostBySlug(slug: string): NewsPost | null {
 }
 
 export function getChampionshipContent(lang: "pl" | "en") {
-  const basePath = path.join(contentRoot, "championship", lang)
-  const { data: page } = readMarkdownFile<ChampionshipPage>(
-    path.join(basePath, "index.md")
-  )
+  type ChampionshipLocalizedContent = ChampionshipPage & {
+    sections: ChampionshipSection[]
+  }
+  const filePath = path.join(contentRoot, "championship", "index.md")
+  const { data, content } = readMarkdownFile<
+    Record<"pl" | "en", ChampionshipLocalizedContent>
+  >(filePath)
+  const localized = data[lang]
+  const { sections, ...page } = localized
 
-  const sections: ChampionshipSection[] = getMarkdownFiles(basePath)
-    .filter((file) => file !== "index.md")
-    .map((file) => {
-      const { data, content } = readMarkdownFile<
-        Omit<ChampionshipSection, "body">
-      >(path.join(basePath, file))
-      return {
-        ...data,
-        body: content,
-      }
-    })
+  const localizedRichTextMatch = content.match(
+    new RegExp(
+      `<!--\\s*richText:${lang}\\s*-->([\\s\\S]*?)<!--\\s*\\/richText:${lang}\\s*-->`,
+      "i"
+    )
+  )
+  const richText = (
+    localizedRichTextMatch?.[1] ??
+    // Backward-compatible fallback for plain body without localized markers.
+    content
+  ).trim()
 
   return {
-    page,
-    sections,
+    page: {
+      ...page,
+      richText: richText || undefined,
+    },
+    sections: sections ?? [],
   }
 }
 

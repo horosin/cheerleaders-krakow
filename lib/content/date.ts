@@ -56,6 +56,15 @@ export function formatDateRange(
     return `${start} - ${end}`
   }
 
+  const sameDay =
+    startDate.getUTCFullYear() === endDate.getUTCFullYear() &&
+    startDate.getUTCMonth() === endDate.getUTCMonth() &&
+    startDate.getUTCDate() === endDate.getUTCDate()
+
+  if (sameDay) {
+    return formatDateLong(start, locale)
+  }
+
   const sameMonth =
     startDate.getUTCFullYear() === endDate.getUTCFullYear() &&
     startDate.getUTCMonth() === endDate.getUTCMonth()

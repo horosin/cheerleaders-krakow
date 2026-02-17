@@ -134,6 +134,7 @@ export type ChampionshipPage = {
     ctaHref: string
   }
   sectionsOrder: string[]
+  richText?: string
 }
 
 export type ChampionshipSection = {
@@ -150,6 +151,7 @@ export type ChampionshipSection = {
     icon?: string
   }>
   mapEmbed?: string
+  address?: string
   image?: string
 }
 
