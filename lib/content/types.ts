@@ -36,7 +36,6 @@ export type SiteConfig = {
 
 export type HomePage = {
   hero: {
-    season: string
     title: string
     subtitle: string
     primaryCta: { label: string; href: string }

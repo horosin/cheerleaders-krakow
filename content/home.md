@@ -1,6 +1,5 @@
 ---
 hero:
-  season: ""
   title: "Witaj w Rodzinie"
   subtitle: "Elegancja, pasja i przyjaźń. Dołącz do najlepszej akademii cheerleadingu w Krakowie i odkryj swój potencjał."
   primaryCta:

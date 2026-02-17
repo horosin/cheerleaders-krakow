@@ -31,11 +31,6 @@ export default function HomePage() {
         <div className="absolute inset-0 grain-overlay pointer-events-none z-10" />
         <div className="relative z-20 flex flex-col gap-8 max-w-5xl px-4 text-center">
           <div className="flex flex-col items-center">
-            {home.hero.season ? (
-              <span className="inline-block py-1 px-3 rounded-full bg-white/60 border border-pink-200 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-sm shadow-sm">
-                {home.hero.season}
-              </span>
-            ) : null}
             <h1 className="text-text-dark text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] font-serif font-bold leading-[0.95] tracking-tight mb-6 drop-shadow-sm">
               {prefix} <br />
               <span className="italic text-primary-hover relative inline-block">

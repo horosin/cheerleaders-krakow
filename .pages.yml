@@ -4,410 +4,454 @@ media:
 
 content:
   - name: site_settings
-    label: Site Settings
+    label: Ustawienia strony
     type: file
     path: content/site.md
     fields:
       - name: title
-        label: Title
+        label: Tytuł
         type: string
       - name: tagline
-        label: Tagline
+        label: Hasło
         type: text
       - name: nav
-        label: Navigation
+        label: Nawigacja
+        description: "Pozycje menu górnego. Każdy wpis może mieć link bezpośredni albo listę podstron (dropdown)."
         type: object
         list:
           collapsible:
+            collapsed: true
             summary: "{fields.label}"
         fields:
           - name: label
-            label: Label
+            label: Etykieta
             type: string
           - name: href
-            label: Href
+            label: Link
+            description: "Link wewnętrzny zaczynaj od '/' (np. '/news/'). Link zewnętrzny podaj z 'https://'."
             type: string
           - name: badge
-            label: Badge
+            label: Odznaka
+            description: "Krótki tekst (np. 'Intl'). Puste pole ukryje odznakę."
             type: string
           - name: autoChildren
-            label: Auto Children
+            label: Automatyczne podstrony
+            description: "Obecnie obsługiwana wartość: 'pozostale'. Inna wartość nie doda linków automatycznie."
             type: string
           - name: children
-            label: Children
+            label: Podstrony
+            description: "Podmenu rozwijane. Uzupełniaj, gdy element menu ma działać jako dropdown."
             type: object
             list:
               collapsible:
+                collapsed: true
                 summary: "{fields.label}"
             fields:
               - name: label
-                label: Label
+                label: Etykieta
                 type: string
               - name: href
-                label: Href
+                label: Link
+                description: "Link wewnętrzny zaczynaj od '/' (np. '/stowarzyszenie/o-nas/')."
                 type: string
       - name: cta
         label: CTA
+        description: "Przycisk w prawym górnym rogu nagłówka."
         type: object
         fields:
           - name: label
-            label: Label
+            label: Etykieta
             type: string
           - name: href
-            label: Href
+            label: Link
+            description: "Link wewnętrzny: '/#sekcja' lub '/podstrona/'. Link zewnętrzny: 'https://...'."
             type: string
       - name: footerColumns
-        label: Footer Columns
+        label: Kolumny stopki
         type: object
         list:
           collapsible:
+            collapsed: true
             summary: "{fields.title}"
         fields:
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: links
-            label: Links
+            label: Linki
+            description: "Lista linków widocznych w danej kolumnie stopki."
             type: object
             list:
               collapsible:
+                collapsed: true
                 summary: "{fields.label}"
             fields:
               - name: label
-                label: Label
+                label: Etykieta
                 type: string
               - name: href
-                label: Href
+                label: Link
+                description: "Link wewnętrzny zaczynaj od '/' lub '#'."
                 type: string
       - name: contact
-        label: Contact
+        label: Kontakt
         type: object
         fields:
           - name: email
-            label: Email
+            label: E-mail
+            description: "Adres kontaktowy wyświetlany na stronie."
             type: string
           - name: phone
-            label: Phone
+            label: Telefon
+            description: "Numer telefonu w formacie międzynarodowym, np. '+48 123 456 789'."
             type: string
           - name: addressLines
-            label: Address Lines
+            label: Linie adresu
+            description: "Każdy wpis to osobna linia adresu."
             type: string
-            list: true
+            list:
+              collapsible:
+                collapsed: true
       - name: socials
-        label: Socials
+        label: Media społecznościowe
         type: object
         list:
           collapsible:
+            collapsed: true
             summary: "{fields.label}"
         fields:
           - name: label
-            label: Label
+            label: Etykieta
             type: string
           - name: href
-            label: Href
+            label: Link
+            description: "Adres profilu, np. 'https://instagram.com/...'."
             type: string
       - name: legal
-        label: Legal
+        label: Informacje prawne
         type: object
         fields:
           - name: copyright
-            label: Copyright
+            label: Prawa autorskie
             type: string
 
   - name: home
-    label: Home Page
+    label: Strona główna
     type: file
     path: content/home.md
     fields:
       - name: hero
-        label: Hero
+        label: Sekcja hero
+        description: "Główna sekcja otwierająca stronę główną."
         type: object
         fields:
-          - name: season
-            label: Season
-            type: string
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: subtitle
-            label: Subtitle
+            label: Podtytuł
             type: text
           - name: primaryCta
-            label: Primary CTA
+            label: Główny przycisk CTA
             type: object
             fields:
               - name: label
-                label: Label
+                label: Etykieta
                 type: string
               - name: href
-                label: Href
+                label: Link
+                description: "Link wewnętrzny: '/#sekcja' lub '/podstrona/'."
                 type: string
           - name: secondaryCta
-            label: Secondary CTA
+            label: Dodatkowy przycisk CTA
             type: object
             fields:
               - name: label
-                label: Label
+                label: Etykieta
                 type: string
               - name: href
-                label: Href
+                label: Link
+                description: "Link wewnętrzny: '/#sekcja' lub '/podstrona/'."
                 type: string
       - name: teamsSection
-        label: Teams Section
+        label: Sekcja zespołów
         type: object
         fields:
           - name: eyebrow
-            label: Eyebrow
+            label: Nadtytuł
             type: string
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: subtitle
-            label: Subtitle
+            label: Podtytuł
             type: text
       - name: newsSection
-        label: News Section
+        label: Sekcja aktualności
         type: object
         fields:
           - name: eyebrow
-            label: Eyebrow
+            label: Nadtytuł
             type: string
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: ctaLabel
-            label: CTA Label
+            label: Tekst CTA
             type: string
           - name: ctaHref
-            label: CTA Href
+            label: Link CTA
+            description: "Link do archiwum aktualności, np. '/news/'."
             type: string
       - name: eventHighlight
-        label: Event Highlight
+        label: Wyróżnione wydarzenie
         type: object
         fields:
           - name: eyebrow
-            label: Eyebrow
+            label: Nadtytuł
             type: string
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: date
-            label: Date
+            label: Data
+            description: "Format: YYYY-MM-DD (np. 2026-03-07)."
             type: string
           - name: time
-            label: Time
+            label: Godzina
+            description: "Krótki opis godziny, np. 'Start zawodów: 10:00'."
             type: string
           - name: location
-            label: Location
+            label: Lokalizacja
             type: string
           - name: venue
-            label: Venue
+            label: Miejsce
             type: string
           - name: primaryCta
-            label: Primary CTA
+            label: Główny przycisk CTA
             type: object
             fields:
               - name: label
-                label: Label
+                label: Etykieta
                 type: string
               - name: href
-                label: Href
+                label: Link
+                description: "Najczęściej '/championship/' lub sekcja typu '#regulations'."
                 type: string
           - name: secondaryCta
-            label: Secondary CTA
+            label: Dodatkowy przycisk CTA
             type: object
             fields:
               - name: label
-                label: Label
+                label: Etykieta
                 type: string
               - name: href
-                label: Href
+                label: Link
+                description: "Najczęściej '/championship/' lub sekcja typu '#regulations'."
                 type: string
       - name: videoHighlight
-        label: Video Highlight
+        label: Wyróżnione wideo
         type: object
         fields:
           - name: eyebrow
-            label: Eyebrow
+            label: Nadtytuł
             type: string
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: description
-            label: Description
+            label: Opis
             type: text
           - name: ctaLabel
-            label: CTA Label
+            label: Tekst CTA
             type: string
           - name: ctaHref
-            label: CTA Href
+            label: Link CTA
+            description: "Link do podstrony z filmami, np. '/filmy/'."
             type: string
           - name: youtubeId
-            label: YouTube ID
+            label: ID YouTube
+            description: "Podaj tylko ID filmu (np. 'dQw4w9WgXcQ'), bez pełnego URL."
             type: string
       - name: ctaBand
-        label: CTA Band
+        label: Sekcja CTA
         type: object
         fields:
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: description
-            label: Description
+            label: Opis
             type: text
           - name: primaryCta
-            label: Primary CTA
+            label: Główny przycisk CTA
             type: object
             fields:
               - name: label
-                label: Label
+                label: Etykieta
                 type: string
               - name: href
-                label: Href
+                label: Link
+                description: "Link wewnętrzny: '/#kontakt' lub '/podstrona/'."
                 type: string
           - name: secondaryCta
-            label: Secondary CTA
+            label: Dodatkowy przycisk CTA
             type: object
             fields:
               - name: label
-                label: Label
+                label: Etykieta
                 type: string
               - name: href
-                label: Href
+                label: Link
+                description: "Link wewnętrzny: '/#kontakt' lub '/podstrona/'."
                 type: string
       - name: sponsorsSection
-        label: Sponsors Section
+        label: Sekcja sponsorów
         type: object
         fields:
           - name: eyebrow
-            label: Eyebrow
+            label: Nadtytuł
             type: string
           - name: title
-            label: Title
+            label: Tytuł
             type: string
       - name: fundingSummarySection
-        label: Funding Summary Section
+        label: Sekcja podsumowania finansowania
         type: object
         fields:
           - name: eyebrow
-            label: Eyebrow
+            label: Nadtytuł
             type: string
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: description
-            label: Description
+            label: Opis
             type: text
           - name: ctaLabel
-            label: CTA Label
+            label: Tekst CTA
             type: string
           - name: ctaHref
-            label: CTA Href
+            label: Link CTA
+            description: "Link do strony finansowania, np. '/finansowanie/'."
             type: string
 
   - name: news_index
-    label: News Index
+    label: Aktualności - strona główna
     type: file
     path: content/news/index.md
     fields:
       - name: eyebrow
-        label: Eyebrow
+        label: Nadtytuł
         type: string
       - name: title
-        label: Title
+        label: Tytuł
         type: string
       - name: description
-        label: Description
+        label: Opis
         type: text
 
   - name: news_posts
-    label: News Posts
+    label: Wpisy aktualności
     type: collection
     path: content/news
     exclude:
       - index.md
     fields:
       - name: title
-        label: Title
+        label: Tytuł
         type: string
       - name: date
-        label: Date
+        label: Data
+        description: "Format: YYYY-MM-DD (np. 2026-02-17)."
         type: string
       - name: category
-        label: Category
+        label: Kategoria
+        description: "Krótka kategoria widoczna na kartach aktualności."
         type: string
       - name: excerpt
-        label: Excerpt
+        label: Zajawka
         type: text
       - name: heroImage
-        label: Hero Image
+        label: Obraz główny
+        description: "Zdjęcie nagłówkowe wpisu. Zalecane proporcje poziome (min. 1200 px szerokości)."
         type: image
       - name: body
-        label: Body
+        label: Treść
         type: rich-text
 
   - name: championship_pl_index
-    label: Championship (PL) Index
+    label: Mistrzostwa (PL) - strona główna
     type: file
     path: content/championship/pl/index.md
     fields:
       - name: eyebrow
-        label: Eyebrow
+        label: Nadtytuł
         type: string
       - name: title
-        label: Title
+        label: Tytuł
         type: string
       - name: subtitle
-        label: Subtitle
+        label: Podtytuł
         type: string
       - name: dateStart
-        label: Date Start
+        label: Data rozpoczęcia
+        description: "Format: YYYY-MM-DD."
         type: string
       - name: dateEnd
-        label: Date End
+        label: Data zakończenia
+        description: "Format: YYYY-MM-DD."
         type: string
       - name: location
-        label: Location
+        label: Lokalizacja
         type: string
       - name: ctas
-        label: CTAs
+        label: Przyciski CTA
+        description: "Przyciski w sekcji głównej mistrzostw."
         type: object
         list:
           collapsible:
+            collapsed: true
             summary: "{fields.label}"
         fields:
           - name: label
-            label: Label
+            label: Etykieta
             type: string
           - name: href
-            label: Href
+            label: Link
+            description: "Dozwolone: link sekcji (np. '#regulations'), wewnętrzny ('/.../') lub zewnętrzny ('https://...')."
             type: string
           - name: variant
-            label: Variant
-            type: string
+            label: Wariant
+            type: select
+            options:
+              values: [ primary, secondary ]
       - name: sidebarHelp
-        label: Sidebar Help
+        label: Pomoc boczna
         type: object
         fields:
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: description
-            label: Description
+            label: Opis
             type: text
           - name: ctaLabel
-            label: CTA Label
+            label: Tekst CTA
             type: string
           - name: ctaHref
-            label: CTA Href
+            label: Link CTA
             type: string
       - name: sectionsOrder
-        label: Sections Order
+        label: Kolejność sekcji
+        description: "Wpisz listę identyfikatorów sekcji (pole 'id' w podstronach), np. 'welcome', 'regulations'."
         type: string
-        list: true
+        list:
+          collapsible:
+            collapsed: true
 
   - name: championship_pl_pages
-    label: Championship (PL) Pages
+    label: Mistrzostwa (PL) - podstrony
     type: collection
     path: content/championship/pl
     exclude:
@@ -415,104 +459,120 @@ content:
     fields:
       - name: id
         label: ID
+        description: "Unikalny identyfikator sekcji używany w linkach i w 'Kolejność sekcji' (np. 'regulations')."
         type: string
       - name: navLabel
-        label: Navigation Label
+        label: Etykieta nawigacji
+        description: "Krótki tekst używany w menu sekcji po lewej stronie."
         type: string
       - name: title
-        label: Title
+        label: Tytuł
         type: string
       - name: icon
-        label: Icon
+        label: Ikona
+        description: "Nazwa ikony z mapy w 'components/icon.tsx' (np. 'folder_open', 'schedule')."
         type: string
       - name: cards
-        label: Cards
+        label: Karty
         type: object
         list:
           collapsible:
+            collapsed: true
             summary: "{fields.title}"
         fields:
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: description
-            label: Description
+            label: Opis
             type: text
           - name: href
-            label: Href
-            type: file
+            label: Link
+            description: "Link do zasobu lub sekcji: '#', '/plik/', 'https://...'."
+            type: string
           - name: meta
             label: Meta
             type: string
           - name: icon
-            label: Icon
+            label: Ikona
+            description: "Nazwa ikony z mapy w 'components/icon.tsx'."
             type: string
       - name: body
-        label: Body
+        label: Treść
         type: rich-text
 
   - name: championship_en_index
-    label: Championship (EN) Index
+    label: Mistrzostwa (EN) - strona główna
     type: file
     path: content/championship/en/index.md
     fields:
       - name: eyebrow
-        label: Eyebrow
+        label: Nadtytuł
         type: string
       - name: title
-        label: Title
+        label: Tytuł
         type: string
       - name: subtitle
-        label: Subtitle
+        label: Podtytuł
         type: string
       - name: dateStart
-        label: Date Start
+        label: Data rozpoczęcia
+        description: "Format: YYYY-MM-DD."
         type: string
       - name: dateEnd
-        label: Date End
+        label: Data zakończenia
+        description: "Format: YYYY-MM-DD."
         type: string
       - name: location
-        label: Location
+        label: Lokalizacja
         type: string
       - name: ctas
-        label: CTAs
+        label: Przyciski CTA
+        description: "Przyciski w sekcji głównej mistrzostw (wersja EN)."
         type: object
         list:
           collapsible:
+            collapsed: true
             summary: "{fields.label}"
         fields:
           - name: label
-            label: Label
+            label: Etykieta
             type: string
           - name: href
-            label: Href
+            label: Link
+            description: "Dozwolone: link sekcji (np. '#regulations'), wewnętrzny ('/.../') lub zewnętrzny ('https://...')."
             type: string
           - name: variant
-            label: Variant
-            type: string
+            label: Wariant
+            type: select
+            options:
+              values: [ primary, secondary ]
       - name: sidebarHelp
-        label: Sidebar Help
+        label: Pomoc boczna
         type: object
         fields:
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: description
-            label: Description
+            label: Opis
             type: text
           - name: ctaLabel
-            label: CTA Label
+            label: Tekst CTA
             type: string
           - name: ctaHref
-            label: CTA Href
+            label: Link CTA
             type: string
       - name: sectionsOrder
-        label: Sections Order
+        label: Kolejność sekcji
+        description: "Wpisz listę identyfikatorów sekcji (pole 'id' w podstronach EN), np. 'welcome', 'regulations'."
         type: string
-        list: true
+        list:
+          collapsible:
+            collapsed: true
 
   - name: championship_en_pages
-    label: Championship (EN) Pages
+    label: Mistrzostwa (EN) - podstrony
     type: collection
     path: content/championship/en
     exclude:
@@ -520,309 +580,349 @@ content:
     fields:
       - name: id
         label: ID
+        description: "Unikalny identyfikator sekcji używany w linkach i w 'Kolejność sekcji'."
         type: string
       - name: navLabel
-        label: Navigation Label
+        label: Etykieta nawigacji
+        description: "Krótki tekst używany w menu sekcji po lewej stronie."
         type: string
       - name: title
-        label: Title
+        label: Tytuł
         type: string
       - name: icon
-        label: Icon
+        label: Ikona
+        description: "Nazwa ikony z mapy w 'components/icon.tsx' (np. 'folder_open', 'schedule')."
         type: string
       - name: cards
-        label: Cards
+        label: Karty
         type: object
         list:
           collapsible:
+            collapsed: true
             summary: "{fields.title}"
         fields:
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: description
-            label: Description
+            label: Opis
             type: text
           - name: href
-            label: Href
-            type: file
+            label: Link
+            description: "Link do zasobu lub sekcji: '#', '/file/', 'https://...'."
+            type: string
           - name: meta
             label: Meta
             type: string
           - name: icon
-            label: Icon
+            label: Ikona
+            description: "Nazwa ikony z mapy w 'components/icon.tsx'."
             type: string
       - name: body
-        label: Body
+        label: Treść
         type: rich-text
 
   - name: teams
-    label: Teams
+    label: Zespoły
     type: collection
     path: content/teams
     fields:
       - name: name
-        label: Name
+        label: Nazwa
         type: string
       - name: coach
-        label: Coach
+        label: Trener
         type: string
       - name: icon
-        label: Icon
+        label: Ikona
+        description: "Nazwa ikony z mapy w 'components/icon.tsx'."
         type: string
       - name: order
-        label: Order
+        label: Kolejność
+        description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
         type: number
 
   - name: sponsors
-    label: Sponsors
+    label: Sponsorzy
     type: collection
     path: content/sponsors
     fields:
       - name: name
-        label: Name
+        label: Nazwa
         type: string
       - name: icon
-        label: Icon
+        label: Ikona
+        description: "Nazwa ikony z mapy w 'components/icon.tsx'."
         type: string
       - name: accentColor
-        label: Accent Color
+        label: Kolor akcentu
+        description: "Kolor w HEX, np. '#EC4899'."
         type: string
       - name: order
-        label: Order
+        label: Kolejność
+        description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
         type: number
 
   - name: funding_index
-    label: Funding Index
+    label: Finansowanie - strona główna
     type: file
     path: content/finansowanie/index.md
     fields:
       - name: eyebrow
-        label: Eyebrow
+        label: Nadtytuł
         type: string
       - name: title
-        label: Title
+        label: Tytuł
         type: string
       - name: description
-        label: Description
+        label: Opis
         type: text
 
   - name: funding_entries
-    label: Funding Entries
+    label: Wpisy finansowania
     type: collection
     path: content/finansowanie
     exclude:
       - index.md
     fields:
       - name: organization
-        label: Organization
+        label: Organizacja
         type: string
       - name: period
-        label: Period
+        label: Okres
         type: string
       - name: title
-        label: Title
+        label: Tytuł
         type: string
       - name: summary
-        label: Summary
+        label: Podsumowanie
         type: text
       - name: reportUrl
-        label: Report File
+        label: Plik sprawozdania
+        description: "Opcjonalny plik do pobrania. Jeśli puste, przycisk pobierania nie będzie widoczny."
         type: file
       - name: accentColor
-        label: Accent Color
+        label: Kolor akcentu
+        description: "Kolor w HEX, np. '#EC4899'."
         type: string
       - name: icon
-        label: Icon
+        label: Ikona
+        description: "Nazwa ikony z mapy w 'components/icon.tsx'."
         type: string
       - name: order
-        label: Order
+        label: Kolejność
+        description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
         type: number
 
   - name: association_pages
-    label: Association Pages
+    label: Strony stowarzyszenia
     type: collection
     path: content/stowarzyszenie
     fields:
       - name: title
-        label: Title
+        label: Tytuł
         type: string
       - name: navLabel
-        label: Navigation Label
+        label: Etykieta nawigacji
+        description: "Krótka nazwa używana w menu nawigacji."
         type: string
       - name: order
-        label: Order
+        label: Kolejność
+        description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
         type: number
       - name: body
-        label: Body
+        label: Treść
         type: rich-text
 
   - name: other_pages
-    label: Other Pages
+    label: Pozostałe strony
     type: collection
     path: content/pozostale
     fields:
       - name: title
-        label: Title
+        label: Tytuł
         type: string
       - name: navLabel
-        label: Navigation Label
+        label: Etykieta nawigacji
+        description: "Krótka nazwa używana w menu nawigacji."
         type: string
       - name: order
-        label: Order
+        label: Kolejność
+        description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
         type: number
       - name: body
-        label: Body
+        label: Treść
         type: rich-text
 
   - name: brand
-    label: Brand Assets
+    label: Materiały marki
     type: file
     path: content/marka.md
     fields:
       - name: eyebrow
-        label: Eyebrow
+        label: Nadtytuł
         type: string
       - name: title
-        label: Title
+        label: Tytuł
         type: string
       - name: description
-        label: Description
+        label: Opis
         type: text
       - name: palette
-        label: Palette
+        label: Paleta
         type: object
         list:
           collapsible:
+            collapsed: true
             summary: "{fields.name}"
         fields:
           - name: name
-            label: Name
+            label: Nazwa
             type: string
           - name: hex
-            label: Hex
+            label: HEX
+            description: "Kod koloru w formacie HEX, np. '#EC4899'."
             type: string
           - name: rgb
             label: RGB
+            description: "Wartość RGB bez prefiksu, np. '236, 72, 153'."
             type: string
       - name: typography
-        label: Typography
+        label: Typografia
         type: object
         fields:
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: description
-            label: Description
+            label: Opis
             type: text
           - name: headingFont
-            label: Heading Font
+            label: Font nagłówków
+            description: "Nazwa fontu używana w nagłówkach."
             type: string
           - name: bodyFont
-            label: Body Font
+            label: Font tekstu
+            description: "Nazwa fontu używana w treści."
             type: string
       - name: logoVariants
-        label: Logo Variants
+        label: Warianty logo
         type: object
         list:
           collapsible:
+            collapsed: true
             summary: "{fields.title}"
         fields:
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: variant
-            label: Variant
-            type: string
+            label: Wariant
+            description: "Wybierz wariant renderowania logo."
+            type: select
+            options:
+              values: [ light, dark ]
       - name: downloads
-        label: Downloads
+        label: Pliki do pobrania
         type: object
         list:
           collapsible:
+            collapsed: true
             summary: "{fields.title}"
         fields:
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: detail
-            label: Detail
+            label: Szczegóły
             type: string
           - name: format
             label: Format
+            description: "Np. SVG, PNG, JPG, PDF."
             type: string
           - name: file
-            label: File
+            label: Plik
+            description: "Plik do pobrania powiązany z danym wpisem."
             type: file
       - name: visualTiles
-        label: Visual Tiles
+        label: Kafelki wizualne
         type: object
         list:
           collapsible:
+            collapsed: true
             summary: "{fields.title}"
         fields:
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: description
-            label: Description
+            label: Opis
             type: text
           - name: variant
-            label: Variant
-            type: string
+            label: Wariant
+            description: "Zalecane wartości: minimal, bold, editorial, soft."
+            type: select
+            options:
+              values: [ minimal, bold, editorial, soft ]
       - name: guidelines
-        label: Guidelines
+        label: Wytyczne
         type: object
         fields:
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: description
-            label: Description
+            label: Opis
             type: text
           - name: ctaLabel
-            label: CTA Label
+            label: Tekst CTA
             type: string
 
   - name: videos_index
-    label: Videos Index
+    label: Filmy - strona główna
     type: file
     path: content/filmy/index.md
     fields:
       - name: eyebrow
-        label: Eyebrow
+        label: Nadtytuł
         type: string
       - name: title
-        label: Title
+        label: Tytuł
         type: string
       - name: description
-        label: Description
+        label: Opis
         type: text
 
   - name: videos
-    label: Videos
+    label: Filmy
     type: collection
     path: content/filmy
     exclude:
       - index.md
     fields:
       - name: title
-        label: Title
+        label: Tytuł
         type: string
       - name: date
-        label: Date
+        label: Data
+        description: "Format: YYYY-MM-DD."
         type: string
       - name: category
-        label: Category
+        label: Kategoria
+        description: "Krótka kategoria wyświetlana przy filmie."
         type: string
       - name: thumbnail
-        label: Thumbnail
+        label: Miniatura
+        description: "Obraz miniatury filmu (zalecane proporcje 16:9)."
         type: image
       - name: youtubeId
-        label: YouTube ID
+        label: ID YouTube
+        description: "Podaj tylko ID filmu (np. 'dQw4w9WgXcQ'), bez pełnego URL."
         type: string
       - name: order
-        label: Order
+        label: Kolejność
+        description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
         type: number
       - name: body
-        label: Body
+        label: Treść
         type: rich-text
