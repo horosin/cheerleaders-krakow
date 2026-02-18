@@ -24,6 +24,34 @@ type ChampionshipViewProps = {
   en: ChampionshipContent
 }
 
+function getYouTubeEmbedUrl(videoUrl?: string) {
+  if (!videoUrl?.trim()) return null
+
+  try {
+    const parsed = new URL(videoUrl.trim())
+    const hostname = parsed.hostname.replace(/^www\./, "")
+    let videoId = ""
+
+    if (hostname === "youtu.be") {
+      videoId = parsed.pathname.split("/").filter(Boolean)[0] ?? ""
+    } else if (hostname === "youtube.com" || hostname === "m.youtube.com") {
+      if (parsed.pathname === "/watch") {
+        videoId = parsed.searchParams.get("v") ?? ""
+      } else if (
+        parsed.pathname.startsWith("/embed/") ||
+        parsed.pathname.startsWith("/shorts/")
+      ) {
+        videoId = parsed.pathname.split("/")[2] ?? ""
+      }
+    }
+
+    if (!videoId) return null
+    return `https://www.youtube.com/embed/${videoId}`
+  } catch {
+    return null
+  }
+}
+
 export function ChampionshipView({ pl, en }: ChampionshipViewProps) {
   const [lang, setLang] = React.useState<"pl" | "en">("pl")
   const [copiedAddressSection, setCopiedAddressSection] = React.useState<
@@ -32,9 +60,21 @@ export function ChampionshipView({ pl, en }: ChampionshipViewProps) {
   const active = lang === "pl" ? pl : en
   const locale = lang === "pl" ? "pl-PL" : "en-US"
   const moreLabel = lang === "pl" ? "Więcej" : "More"
+  const videoLabel = lang === "pl" ? "Wideorelacja" : "Video report"
+  const videoComingSoonLabel =
+    lang === "pl"
+      ? "Wideorelacja będzie dostępna wkrótce."
+      : "Video coverage will be available soon."
+  const openOnYoutubeLabel =
+    lang === "pl" ? "Otwórz na YouTube" : "Open on YouTube"
   const addressLabel = lang === "pl" ? "Adres" : "Address"
   const copyAddressLabel = lang === "pl" ? "Kopiuj adres" : "Copy address"
   const copiedLabel = lang === "pl" ? "Skopiowano" : "Copied"
+  const videoSectionId = "video-report"
+  const configuredVideoUrl = (
+    active.page.videoUrl ?? (lang === "pl" ? en.page.videoUrl : pl.page.videoUrl)
+  )?.trim()
+  const videoEmbedUrl = getYouTubeEmbedUrl(configuredVideoUrl)
   const sections = active.sections
 
   const navigationSections = [
@@ -43,6 +83,7 @@ export function ChampionshipView({ pl, en }: ChampionshipViewProps) {
       navLabel: section.navLabel ?? section.title,
       icon: section.icon,
     })),
+    { id: videoSectionId, navLabel: videoLabel, icon: "play_circle" },
     ...(active.page.richTextHtml
       ? [{ id: "more", navLabel: moreLabel, icon: "notes" }]
       : []),
@@ -335,6 +376,39 @@ export function ChampionshipView({ pl, en }: ChampionshipViewProps) {
                 )}
               </section>
             ))}
+
+            <section id={videoSectionId} className="scroll-mt-32">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-text-dark mb-8">
+                {videoLabel}
+              </h2>
+              {videoEmbedUrl ? (
+                <div className="flex flex-col gap-4">
+                  <div className="aspect-[16/9] w-full rounded-3xl overflow-hidden border border-pink-100 shadow-sm">
+                    <iframe
+                      src={videoEmbedUrl}
+                      className="w-full h-full"
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      title={videoLabel}
+                    />
+                  </div>
+                  <a
+                    href={configuredVideoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex w-fit items-center gap-2 rounded-full border border-pink-200 bg-pink-50 px-5 py-2.5 text-sm font-bold text-primary hover:bg-pink-100 transition-colors"
+                  >
+                    {openOnYoutubeLabel}
+                    <Icon name="arrow_outward" className="size-4" />
+                  </a>
+                </div>
+              ) : (
+                <div className="rounded-3xl border border-pink-100 bg-white p-6 shadow-sm">
+                  <p className="text-base text-text-dark">{videoComingSoonLabel}</p>
+                </div>
+              )}
+            </section>
 
             {active.page.richTextHtml && (
               <section id="more" className="scroll-mt-32">

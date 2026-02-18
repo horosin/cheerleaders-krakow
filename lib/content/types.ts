@@ -126,6 +126,7 @@ export type ChampionshipPage = {
   dateStart: string
   dateEnd: string
   location: string
+  videoUrl?: string
   ctas: Array<{ label: string; href: string; variant: "primary" | "secondary" }>
   sidebarHelp: {
     title: string

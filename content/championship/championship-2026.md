@@ -17,14 +17,14 @@ pl:
     ctaLabel: "Przejdź do plików"
     ctaHref: "#files"
   sections:
-    - id: "description"
+    description:
       title: "Opis wydarzenia"
       icon: "celebration"
       body: |
         Międzynarodowe Mistrzostwa Cheerleadingu – Kraków, 7 marca 2026.
 
         Najlepsze drużyny, niesamowite akrobacje i energia, która porwie całe miasto.
-    - id: "files"
+    files:
       title: "Pliki i dokumenty"
       icon: "folder_open"
       body: ""
@@ -39,7 +39,7 @@ pl:
           href: "https://drive.google.com/uc?id=11PGV1b5afqqrWQ8can3SeRJnt54QA4iX&export=download"
           meta: "PDF"
           icon: "travel_explore"
-    - id: "venue"
+    venue:
       title: "Miejsce"
       icon: "location_on"
       body: |
@@ -93,14 +93,14 @@ en:
     ctaLabel: "Go to files"
     ctaHref: "#files"
   sections:
-    - id: "description"
+    description:
       title: "Event description"
       icon: "celebration"
       body: |
         International Cheerleading Championships – Kraków, March 7, 2026.
 
         The best teams, breathtaking stunts, and energy that will electrify the whole city.
-    - id: "files"
+    files:
       title: "Files and documents"
       icon: "folder_open"
       body: ""
@@ -115,7 +115,7 @@ en:
           href: "https://drive.google.com/uc?id=11PGV1b5afqqrWQ8can3SeRJnt54QA4iX&export=download"
           meta: "PDF"
           icon: "travel_explore"
-    - id: "venue"
+    venue:
       title: "Venue"
       icon: "location_on"
       body: |

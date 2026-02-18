@@ -44,8 +44,14 @@ type SimplePageFrontmatter = {
   order?: number
 }
 
+type FixedChampionshipSections = {
+  description?: Omit<ChampionshipSection, "id">
+  files?: Omit<ChampionshipSection, "id">
+  venue?: Omit<ChampionshipSection, "id">
+}
+
 type ChampionshipLocalizedContent = ChampionshipPage & {
-  sections: ChampionshipSection[]
+  sections?: ChampionshipSection[] | FixedChampionshipSections
 }
 
 type ChampionshipRecord = Record<"pl" | "en", ChampionshipLocalizedContent>
@@ -103,12 +109,24 @@ function getYearFromSlug(slug: string): number | null {
 
 function normalizeChampionshipContent(localized: ChampionshipLocalizedContent) {
   const { sections, ...page } = localized
+  const fixedOrder = ["description", "files", "venue"] as const
+  const normalizedSections = Array.isArray(sections)
+    ? (fixedOrder
+        .map((id) => sections.find((section) => section.id === id) ?? null)
+        .filter(Boolean) as ChampionshipSection[])
+    : (fixedOrder
+        .map((id) => {
+          const section = sections?.[id]
+          return section ? { id, ...section } : null
+        })
+        .filter(Boolean) as ChampionshipSection[])
+
   return {
     page: {
       ...page,
       richText: page.richText?.trim() || undefined,
     },
-    sections: sections ?? [],
+    sections: normalizedSections,
   }
 }
 

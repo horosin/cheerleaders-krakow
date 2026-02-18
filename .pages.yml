@@ -421,6 +421,10 @@ content:
           - name: location
             label: Lokalizacja
             type: string
+          - name: videoUrl
+            label: Wideorelacja (YouTube)
+            description: "Wklej link YouTube (np. https://www.youtube.com/watch?v=... lub https://youtu.be/...). Gdy pole jest puste, na stronie pokaże się 'wkrótce'."
+            type: string
           - name: ctas
             label: Przyciski CTA
             type: object
@@ -458,71 +462,95 @@ content:
                 label: Link CTA
                 type: string
           - name: sections
-            label: Sekcje
-            description: "Kolejność sekcji na stronie wynika bezpośrednio z kolejności wpisów na liście."
+            label: Sekcje (stały układ)
+            description: "Sekcje są stałe (jak w edycji 2026): opis, pliki, miejsce. Nie można zmieniać ich kolejności."
             type: object
-            list:
-              collapsible:
-                collapsed: true
-                summary: "{fields.title}"
             fields:
-              - name: id
-                label: ID sekcji
-                description: "Używane do linków typu '#files'. Krótkie, bez spacji."
-                type: string
-              - name: title
-                label: Tytuł
-                type: string
-              - name: icon
-                label: Ikona
-                description: "Nazwa ikony z mapy w 'components/icon.tsx'."
-                type: string
-              - name: body
-                label: Treść sekcji
-                type: rich-text
-              - name: cards
-                label: Karty
+              - name: description
+                label: Sekcja: Opis wydarzenia
                 type: object
-                list:
-                  collapsible:
-                    collapsed: true
-                    summary: "{fields.title}"
                 fields:
                   - name: title
                     label: Tytuł
                     type: string
-                  - name: description
-                    label: Opis
-                    type: text
-                  - name: file
-                    label: Plik
-                    description: "Wgraj regulamin lub inny dokument przez media PagesCMS. Pliki trafią do 'public/uploads/championship'."
-                    type: file
-                    options:
-                      path: championship
-                      categories: [ document, compressed ]
-                  - name: href
-                    label: Link (opcjonalny)
-                    description: "Opcjonalny fallback dla zewnętrznego URL. Jeśli podasz plik i link, użyty będzie plik."
+                  - name: icon
+                    label: Ikona
+                    description: "Nazwa ikony z mapy w 'components/icon.tsx'."
                     type: string
-                  - name: meta
-                    label: Meta
+                  - name: body
+                    label: Treść sekcji
+                    type: rich-text
+              - name: files
+                label: Sekcja: Pliki i dokumenty
+                type: object
+                fields:
+                  - name: title
+                    label: Tytuł
                     type: string
                   - name: icon
                     label: Ikona
+                    description: "Nazwa ikony z mapy w 'components/icon.tsx'."
                     type: string
-              - name: mapEmbed
-                label: Osadzenie mapy
-                description: "Adres URL do osadzonej mapy (iframe src)."
-                type: string
-              - name: address
-                label: Adres
-                description: "Pełny adres pokazywany nad mapą (z przyciskiem kopiowania)."
-                type: string
-              - name: image
-                label: Obraz
-                description: "Opcjonalny obraz sekcji."
-                type: image
+                  - name: body
+                    label: Treść sekcji
+                    type: rich-text
+                  - name: cards
+                    label: Karty
+                    type: object
+                    list:
+                      collapsible:
+                        collapsed: true
+                        summary: "{fields.title}"
+                    fields:
+                      - name: title
+                        label: Tytuł
+                        type: string
+                      - name: description
+                        label: Opis
+                        type: text
+                      - name: file
+                        label: Plik
+                        description: "Wgraj regulamin lub inny dokument przez media PagesCMS. Pliki trafią do 'public/uploads/championship'."
+                        type: file
+                        options:
+                          path: championship
+                          categories: [ document, compressed ]
+                      - name: href
+                        label: Link (opcjonalny)
+                        description: "Opcjonalny fallback dla zewnętrznego URL. Jeśli podasz plik i link, użyty będzie plik."
+                        type: string
+                      - name: meta
+                        label: Meta
+                        type: string
+                      - name: icon
+                        label: Ikona
+                        type: string
+              - name: venue
+                label: Sekcja: Miejsce
+                type: object
+                fields:
+                  - name: title
+                    label: Tytuł
+                    type: string
+                  - name: icon
+                    label: Ikona
+                    description: "Nazwa ikony z mapy w 'components/icon.tsx'."
+                    type: string
+                  - name: body
+                    label: Treść sekcji
+                    type: rich-text
+                  - name: mapEmbed
+                    label: Osadzenie mapy
+                    description: "Adres URL do osadzonej mapy (iframe src)."
+                    type: string
+                  - name: address
+                    label: Adres
+                    description: "Pełny adres pokazywany nad mapą (z przyciskiem kopiowania)."
+                    type: string
+                  - name: image
+                    label: Obraz
+                    description: "Opcjonalny obraz sekcji."
+                    type: image
           - name: richText
             label: Dodatkowa treść
             type: rich-text
@@ -550,6 +578,10 @@ content:
             type: string
           - name: location
             label: Location
+            type: string
+          - name: videoUrl
+            label: Video report (YouTube)
+            description: "Paste a YouTube URL (e.g. https://www.youtube.com/watch?v=... or https://youtu.be/...). If empty, the page will show 'coming soon'."
             type: string
           - name: ctas
             label: CTA buttons
@@ -588,71 +620,95 @@ content:
                 label: CTA link
                 type: string
           - name: sections
-            label: Sections
-            description: "The rendered order follows the order of entries in this list."
+            label: Sections (fixed layout)
+            description: "Sections are fixed (same as 2026): description, files, venue. Reordering is disabled."
             type: object
-            list:
-              collapsible:
-                collapsed: true
-                summary: "{fields.title}"
             fields:
-              - name: id
-                label: Section ID
-                description: "Used for links like '#files'. Keep it short and without spaces."
-                type: string
-              - name: title
-                label: Title
-                type: string
-              - name: icon
-                label: Icon
-                description: "Icon name from 'components/icon.tsx'."
-                type: string
-              - name: body
-                label: Section content
-                type: rich-text
-              - name: cards
-                label: Cards
+              - name: description
+                label: Section: Event description
                 type: object
-                list:
-                  collapsible:
-                    collapsed: true
-                    summary: "{fields.title}"
                 fields:
                   - name: title
                     label: Title
                     type: string
-                  - name: description
-                    label: Description
-                    type: text
-                  - name: file
-                    label: File
-                    description: "Upload regulations and other documents via PagesCMS media. Files are stored under 'public/uploads/championship'."
-                    type: file
-                    options:
-                      path: championship
-                      categories: [ document, compressed ]
-                  - name: href
-                    label: Link (optional)
-                    description: "Optional fallback for an external URL. If both file and link are set, file is used."
+                  - name: icon
+                    label: Icon
+                    description: "Icon name from 'components/icon.tsx'."
                     type: string
-                  - name: meta
-                    label: Meta
+                  - name: body
+                    label: Section content
+                    type: rich-text
+              - name: files
+                label: Section: Files and documents
+                type: object
+                fields:
+                  - name: title
+                    label: Title
                     type: string
                   - name: icon
                     label: Icon
+                    description: "Icon name from 'components/icon.tsx'."
                     type: string
-              - name: mapEmbed
-                label: Map embed
-                description: "Embed URL for map (iframe src)."
-                type: string
-              - name: address
-                label: Address
-                description: "Full address shown above map (with copy button)."
-                type: string
-              - name: image
-                label: Image
-                description: "Optional section image."
-                type: image
+                  - name: body
+                    label: Section content
+                    type: rich-text
+                  - name: cards
+                    label: Cards
+                    type: object
+                    list:
+                      collapsible:
+                        collapsed: true
+                        summary: "{fields.title}"
+                    fields:
+                      - name: title
+                        label: Title
+                        type: string
+                      - name: description
+                        label: Description
+                        type: text
+                      - name: file
+                        label: File
+                        description: "Upload regulations and other documents via PagesCMS media. Files are stored under 'public/uploads/championship'."
+                        type: file
+                        options:
+                          path: championship
+                          categories: [ document, compressed ]
+                      - name: href
+                        label: Link (optional)
+                        description: "Optional fallback for an external URL. If both file and link are set, file is used."
+                        type: string
+                      - name: meta
+                        label: Meta
+                        type: string
+                      - name: icon
+                        label: Icon
+                        type: string
+              - name: venue
+                label: Section: Venue
+                type: object
+                fields:
+                  - name: title
+                    label: Title
+                    type: string
+                  - name: icon
+                    label: Icon
+                    description: "Icon name from 'components/icon.tsx'."
+                    type: string
+                  - name: body
+                    label: Section content
+                    type: rich-text
+                  - name: mapEmbed
+                    label: Map embed
+                    description: "Embed URL for map (iframe src)."
+                    type: string
+                  - name: address
+                    label: Address
+                    description: "Full address shown above map (with copy button)."
+                    type: string
+                  - name: image
+                    label: Image
+                    description: "Optional section image."
+                    type: image
           - name: richText
             label: Additional content
             type: rich-text
