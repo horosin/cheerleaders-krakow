@@ -467,7 +467,7 @@ content:
             type: object
             fields:
               - name: description
-                label: Sekcja: Opis wydarzenia
+                label: "Sekcja: Opis wydarzenia"
                 type: object
                 fields:
                   - name: title
@@ -481,7 +481,7 @@ content:
                     label: Treść sekcji
                     type: rich-text
               - name: files
-                label: Sekcja: Pliki i dokumenty
+                label: "Sekcja: Pliki i dokumenty"
                 type: object
                 fields:
                   - name: title
@@ -526,7 +526,7 @@ content:
                         label: Ikona
                         type: string
               - name: venue
-                label: Sekcja: Miejsce
+                label: "Sekcja: Miejsce"
                 type: object
                 fields:
                   - name: title
@@ -625,7 +625,7 @@ content:
             type: object
             fields:
               - name: description
-                label: Section: Event description
+                label: "Section: Event description"
                 type: object
                 fields:
                   - name: title
@@ -639,7 +639,7 @@ content:
                     label: Section content
                     type: rich-text
               - name: files
-                label: Section: Files and documents
+                label: "Section: Files and documents"
                 type: object
                 fields:
                   - name: title
@@ -684,7 +684,7 @@ content:
                         label: Icon
                         type: string
               - name: venue
-                label: Section: Venue
+                label: "Section: Venue"
                 type: object
                 fields:
                   - name: title
