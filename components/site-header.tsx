@@ -33,6 +33,11 @@ export function SiteHeader({ site }: SiteHeaderProps) {
     return normalizedPathname.startsWith(normalizedHref)
   }
 
+  const isItemActive = (item: SiteConfig["nav"][number]) => {
+    if (isActive(item.href)) return true
+    return item.children?.some((child) => isActive(child.href)) ?? false
+  }
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-pink-100 bg-white/90 backdrop-blur-md px-4 lg:px-10 py-4 transition-all duration-300">
       <div className="max-w-[1280px] mx-auto flex items-center justify-between">
@@ -45,14 +50,50 @@ export function SiteHeader({ site }: SiteHeaderProps) {
           <nav className="flex items-center gap-8">
             {site.nav.map((item) => {
               if (item.children?.length) {
+                const itemActive = isItemActive(item)
                 return (
                   <div
                     key={item.label}
                     className="group relative flex items-center gap-1 cursor-pointer py-2"
                   >
-                    <span className="text-gray-600 text-[15px] font-medium group-hover:text-primary transition-colors font-serif italic">
-                      {item.label}
-                    </span>
+                    {item.href ? (
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          "text-[15px] transition-colors font-serif italic",
+                          itemActive
+                            ? "text-primary font-bold"
+                            : "text-gray-600 font-medium group-hover:text-primary"
+                        )}
+                      >
+                        <span className="flex items-center gap-2">
+                          {item.label}
+                          {item.badge && (
+                            <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-primary text-white text-[9px] font-bold uppercase tracking-wider shadow-md shining-badge">
+                              {item.badge}
+                            </span>
+                          )}
+                        </span>
+                      </Link>
+                    ) : (
+                      <span
+                        className={cn(
+                          "text-[15px] transition-colors font-serif italic",
+                          itemActive
+                            ? "text-primary font-bold"
+                            : "text-gray-600 font-medium group-hover:text-primary"
+                        )}
+                      >
+                        <span className="flex items-center gap-2">
+                          {item.label}
+                          {item.badge && (
+                            <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-primary text-white text-[9px] font-bold uppercase tracking-wider shadow-md shining-badge">
+                              {item.badge}
+                            </span>
+                          )}
+                        </span>
+                      </span>
+                    )}
                     <Icon
                       name="expand_more"
                       className="size-4 text-gray-400 group-hover:text-primary transition-colors"
@@ -62,7 +103,12 @@ export function SiteHeader({ site }: SiteHeaderProps) {
                         <Link
                           key={child.label}
                           href={child.href}
-                          className="block px-4 py-2.5 text-sm text-gray-600 hover:bg-pink-50 hover:text-primary rounded-lg transition-colors"
+                          className={cn(
+                            "block px-4 py-2.5 text-sm rounded-lg transition-colors",
+                            isActive(child.href)
+                              ? "bg-pink-50 text-primary font-semibold"
+                              : "text-gray-600 hover:bg-pink-50 hover:text-primary"
+                          )}
                         >
                           {child.label}
                         </Link>
@@ -83,14 +129,14 @@ export function SiteHeader({ site }: SiteHeaderProps) {
                       : "text-gray-600 font-medium hover:text-primary"
                   )}
                 >
-              <span className="flex items-center gap-2">
-                {item.label}
-                {item.badge && (
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-primary text-white text-[9px] font-bold uppercase tracking-wider shadow-md shining-badge">
-                    {item.badge}
+                  <span className="flex items-center gap-2">
+                    {item.label}
+                    {item.badge && (
+                      <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-primary text-white text-[9px] font-bold uppercase tracking-wider shadow-md shining-badge">
+                        {item.badge}
+                      </span>
+                    )}
                   </span>
-                )}
-              </span>
                 </Link>
               )
             })}
@@ -119,15 +165,40 @@ export function SiteHeader({ site }: SiteHeaderProps) {
               <div key={item.label} className="flex flex-col gap-2">
                 {item.children?.length ? (
                   <div>
-                    <p className="text-sm font-bold text-gray-700">
-                      {item.label}
-                    </p>
+                    {item.href ? (
+                      <Link
+                        href={item.href}
+                        className={cn(
+                          "text-sm font-semibold",
+                          isItemActive(item)
+                            ? "text-primary"
+                            : "text-gray-700 hover:text-primary"
+                        )}
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        {item.label}
+                        {item.badge && (
+                          <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-primary text-white text-[9px] font-bold uppercase tracking-wider">
+                            {item.badge}
+                          </span>
+                        )}
+                      </Link>
+                    ) : (
+                      <p className="text-sm font-bold text-gray-700">
+                        {item.label}
+                      </p>
+                    )}
                     <div className="mt-2 flex flex-col gap-2 pl-2">
                       {item.children.map((child) => (
                         <Link
                           key={child.label}
                           href={child.href}
-                          className="text-sm text-gray-600 hover:text-primary"
+                          className={cn(
+                            "text-sm hover:text-primary",
+                            isActive(child.href)
+                              ? "text-primary font-semibold"
+                              : "text-gray-600"
+                          )}
                           onClick={() => setMenuOpen(false)}
                         >
                           {child.label}

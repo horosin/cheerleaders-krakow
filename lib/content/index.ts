@@ -44,6 +44,19 @@ type SimplePageFrontmatter = {
   order?: number
 }
 
+type ChampionshipLocalizedContent = ChampionshipPage & {
+  sections: ChampionshipSection[]
+}
+
+type ChampionshipRecord = Record<"pl" | "en", ChampionshipLocalizedContent>
+
+type ChampionshipFileEntry = {
+  slug: string
+  year: number | null
+  dateStart: string
+  data: ChampionshipRecord
+}
+
 function getSimplePages(dirName: string): SimplePage[] {
   const dirPath = path.join(contentRoot, dirName)
   if (!fs.existsSync(dirPath)) return []
@@ -80,6 +93,56 @@ function getSimplePageBySlug(dirName: string, slug: string): SimplePage | null {
     order: data.order,
     body: content,
   }
+}
+
+function getYearFromSlug(slug: string): number | null {
+  const match = slug.match(/(\d{4})(?!.*\d)/)
+  if (!match?.[1]) return null
+  return Number(match[1])
+}
+
+function normalizeChampionshipContent(localized: ChampionshipLocalizedContent) {
+  const { sections, ...page } = localized
+  return {
+    page: {
+      ...page,
+      richText: page.richText?.trim() || undefined,
+    },
+    sections: sections ?? [],
+  }
+}
+
+function getChampionshipEntries(): ChampionshipFileEntry[] {
+  const dirPath = path.join(contentRoot, "championship")
+  if (!fs.existsSync(dirPath)) return []
+
+  return getMarkdownFiles(dirPath)
+    .map((file) => {
+      const slug = file.replace(/\.md$/, "")
+      const { data } = readMarkdownFile<ChampionshipRecord>(
+        path.join(dirPath, file)
+      )
+      const parsedYearFromDate = data.pl?.dateStart
+        ? Number(data.pl.dateStart.slice(0, 4))
+        : null
+      const yearFromDate =
+        parsedYearFromDate !== null && Number.isFinite(parsedYearFromDate)
+          ? parsedYearFromDate
+          : null
+      return {
+        slug,
+        year: getYearFromSlug(slug) ?? yearFromDate,
+        dateStart: data.pl?.dateStart ?? data.en?.dateStart ?? "",
+        data,
+      }
+    })
+    .sort((a, b) => {
+      const yearA = a.year ?? 0
+      const yearB = b.year ?? 0
+      if (yearA !== yearB) return yearB - yearA
+      if (a.dateStart !== b.dateStart) return a.dateStart < b.dateStart ? 1 : -1
+      return a.slug < b.slug ? 1 : -1
+    })
 }
 
 export { formatDateLong, formatDateRange, formatDateShort }
@@ -145,24 +208,42 @@ export function getNewsPostBySlug(slug: string): NewsPost | null {
   }
 }
 
-export function getChampionshipContent(lang: "pl" | "en") {
-  type ChampionshipLocalizedContent = ChampionshipPage & {
-    sections: ChampionshipSection[]
-  }
-  const filePath = path.join(contentRoot, "championship", "index.md")
-  const { data } = readMarkdownFile<Record<"pl" | "en", ChampionshipLocalizedContent>>(
-    filePath
-  )
-  const localized = data[lang]
-  const { sections, ...page } = localized
+export function getChampionshipSlugs() {
+  return getChampionshipEntries().map((entry) => entry.slug)
+}
 
-  return {
-    page: {
-      ...page,
-      richText: page.richText?.trim() || undefined,
-    },
-    sections: sections ?? [],
+export function getLatestChampionshipSlug(): string | null {
+  return getChampionshipEntries()[0]?.slug ?? null
+}
+
+export function getChampionshipNavItems() {
+  return getChampionshipEntries().map((entry) => ({
+    slug: entry.slug,
+    href: `/${entry.slug}/`,
+    year: entry.year,
+    label: entry.year ? `Championship ${entry.year}` : entry.slug,
+  }))
+}
+
+export function getChampionshipContentBySlug(
+  slug: string,
+  lang: "pl" | "en"
+) {
+  const entry = getChampionshipEntries().find((item) => item.slug === slug)
+  if (!entry) return null
+  return normalizeChampionshipContent(entry.data[lang])
+}
+
+export function getChampionshipContent(lang: "pl" | "en") {
+  const latestSlug = getLatestChampionshipSlug()
+  if (!latestSlug) {
+    throw new Error("Missing championship content files.")
   }
+  const content = getChampionshipContentBySlug(latestSlug, lang)
+  if (!content) {
+    throw new Error(`Championship content not found for slug: ${latestSlug}`)
+  }
+  return content
 }
 
 export function getVideosIndex(): VideoIndex {

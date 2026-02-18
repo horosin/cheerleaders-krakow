@@ -8,6 +8,7 @@ nav:
   - label: Championship
     href: /championship/
     badge: Intl
+    autoChildren: championship
   - label: Aktualności
     href: /news/
   - label: Stowarzyszenie

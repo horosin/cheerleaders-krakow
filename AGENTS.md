@@ -8,6 +8,7 @@
 - Uses shadcn/ui component system.
 - Uses TypeScript for type safety.
 - Uses PagesCMS for content management, so everything is stored in markdown files under `content/`. We use frontmatter for metadata.
+- Whenever you are changing markdown format or structure, update `.pages.yml` accordingly.
 - Deployed on GitHub Pages with custom domain.
 - Uses GitHub Actions for CI/CD.
 - Ignore next/image warnings, because it's a static export.

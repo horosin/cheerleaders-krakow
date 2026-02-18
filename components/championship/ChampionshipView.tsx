@@ -256,30 +256,33 @@ export function ChampionshipView({ pl, en }: ChampionshipViewProps) {
 
                 {section.cards && section.cards.length > 0 && (
                   <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {section.cards.map((card) => (
-                      <a
-                        key={card.title}
-                        href={card.href ?? "#"}
-                        className="group bg-white border border-pink-100 rounded-3xl p-6 flex flex-col gap-3 shadow-[0_10px_30px_-15px_rgba(219,39,119,0.15)] hover:shadow-[0_20px_40px_-15px_rgba(219,39,119,0.25)] transition-all"
-                      >
-                        <div className="flex items-center gap-3 text-primary">
-                          {card.icon && (
-                            <Icon name={card.icon} className="size-8 text-primary" />
+                    {section.cards.map((card) => {
+                      const cardHref = card.file ?? card.href ?? "#"
+                      return (
+                        <a
+                          key={card.title}
+                          href={cardHref}
+                          className="group bg-white border border-pink-100 rounded-3xl p-6 flex flex-col gap-3 shadow-[0_10px_30px_-15px_rgba(219,39,119,0.15)] hover:shadow-[0_20px_40px_-15px_rgba(219,39,119,0.25)] transition-all"
+                        >
+                          <div className="flex items-center gap-3 text-primary">
+                            {card.icon && (
+                              <Icon name={card.icon} className="size-8 text-primary" />
+                            )}
+                            <h3 className="text-xl font-serif font-bold text-text-dark">
+                              {card.title}
+                            </h3>
+                          </div>
+                          <p className="text-gray-600 text-sm leading-relaxed">
+                            {card.description}
+                          </p>
+                          {card.meta && (
+                            <span className="text-xs uppercase tracking-widest text-gray-400 font-bold">
+                              {card.meta}
+                            </span>
                           )}
-                          <h3 className="text-xl font-serif font-bold text-text-dark">
-                            {card.title}
-                          </h3>
-                        </div>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          {card.description}
-                        </p>
-                        {card.meta && (
-                          <span className="text-xs uppercase tracking-widest text-gray-400 font-bold">
-                            {card.meta}
-                          </span>
-                        )}
-                      </a>
-                    ))}
+                        </a>
+                      )
+                    })}
                   </div>
                 )}
 

@@ -1,4 +1,5 @@
 ---
+slug: championship-2026
 pl:
   eyebrow: "International Cheerleading Championship"
   title: "Międzynarodowe Mistrzostwa Cheerleadingu"

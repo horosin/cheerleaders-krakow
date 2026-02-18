@@ -145,6 +145,7 @@ export type ChampionshipSection = {
   cards?: Array<{
     title: string
     description: string
+    file?: string
     href?: string
     meta?: string
     icon?: string

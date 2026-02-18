@@ -2,7 +2,11 @@ import type { Metadata } from "next"
 import "./globals.css"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import { getPozostalePages, getSiteConfig } from "@/lib/content"
+import {
+  getChampionshipNavItems,
+  getPozostalePages,
+  getSiteConfig,
+} from "@/lib/content"
 
 export const metadata: Metadata = {
   title: "Cheerleaders Krakow",
@@ -17,6 +21,7 @@ export default function RootLayout({
 }>) {
   const site = getSiteConfig()
   const pozostalePages = getPozostalePages()
+  const championshipNavItems = getChampionshipNavItems()
   const resolvedNav = site.nav.map((item) => {
     if (item.autoChildren === "pozostale") {
       const dynamicChildren = pozostalePages.map((page) => ({
@@ -26,6 +31,21 @@ export default function RootLayout({
       return {
         ...item,
         children: [...(item.children ?? []), ...dynamicChildren],
+      }
+    }
+    if (item.autoChildren === "championship") {
+      const [latest, ...older] = championshipNavItems
+      return {
+        ...item,
+        label: latest?.label ?? item.label,
+        href: latest?.href ?? item.href,
+        children: [
+          ...(item.children ?? []),
+          ...older.map((entry) => ({
+            label: entry.label,
+            href: entry.href,
+          })),
+        ],
       }
     }
     return item

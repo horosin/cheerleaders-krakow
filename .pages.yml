@@ -35,7 +35,7 @@ content:
             type: string
           - name: autoChildren
             label: Automatyczne podstrony
-            description: "Obecnie obsługiwana wartość: 'pozostale'. Inna wartość nie doda linków automatycznie."
+            description: "Obsługiwane wartości: 'pozostale' oraz 'championship'. Inna wartość nie doda linków automatycznie."
             type: string
           - name: children
             label: Podstrony
@@ -381,9 +381,22 @@ content:
 
   - name: championship
     label: Mistrzostwa (PL + EN)
-    type: file
-    path: content/championship/index.md
+    type: collection
+    path: content/championship
+    filename: "{slug}.md"
+    view:
+      fields: [ slug, pl.subtitle, pl.dateStart ]
+      primary: slug
+      sort: [ pl.dateStart, slug ]
+      default:
+        sort: pl.dateStart
+        order: desc
     fields:
+      - name: slug
+        label: Slug (nazwa URL)
+        description: "Generuje nazwę pliku i adres strony, np. 'championship-2026'. Używaj małych liter, cyfr i myślników."
+        type: string
+        pattern: "^[a-z0-9-]+$"
       - name: pl
         label: Wersja PL
         type: object
@@ -481,8 +494,16 @@ content:
                   - name: description
                     label: Opis
                     type: text
+                  - name: file
+                    label: Plik
+                    description: "Wgraj regulamin lub inny dokument przez media PagesCMS. Pliki trafią do 'public/uploads/championship'."
+                    type: file
+                    options:
+                      path: championship
+                      categories: [ document, compressed ]
                   - name: href
-                    label: Link
+                    label: Link (opcjonalny)
+                    description: "Opcjonalny fallback dla zewnętrznego URL. Jeśli podasz plik i link, użyty będzie plik."
                     type: string
                   - name: meta
                     label: Meta
@@ -603,8 +624,16 @@ content:
                   - name: description
                     label: Description
                     type: text
+                  - name: file
+                    label: File
+                    description: "Upload regulations and other documents via PagesCMS media. Files are stored under 'public/uploads/championship'."
+                    type: file
+                    options:
+                      path: championship
+                      categories: [ document, compressed ]
                   - name: href
-                    label: Link
+                    label: Link (optional)
+                    description: "Optional fallback for an external URL. If both file and link are set, file is used."
                     type: string
                   - name: meta
                     label: Meta
