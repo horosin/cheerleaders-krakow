@@ -35,21 +35,12 @@ export function ChampionshipView({ pl, en }: ChampionshipViewProps) {
   const addressLabel = lang === "pl" ? "Adres" : "Address"
   const copyAddressLabel = lang === "pl" ? "Kopiuj adres" : "Copy address"
   const copiedLabel = lang === "pl" ? "Skopiowano" : "Copied"
-
-  const sectionsById = React.useMemo(() => {
-    const map = new Map<string, SectionView>()
-    active.sections.forEach((section) => map.set(section.id, section))
-    return map
-  }, [active.sections])
-
-  const orderedSections = active.page.sectionsOrder
-    .map((id) => sectionsById.get(id))
-    .filter((section): section is SectionView => Boolean(section))
+  const sections = active.sections
 
   const navigationSections = [
-    ...orderedSections.map((section) => ({
+    ...sections.map((section) => ({
       id: section.id,
-      navLabel: section.navLabel,
+      navLabel: section.navLabel ?? section.title,
       icon: section.icon,
     })),
     ...(active.page.richTextHtml
@@ -247,7 +238,7 @@ export function ChampionshipView({ pl, en }: ChampionshipViewProps) {
               </span>
             </div>
 
-            {orderedSections.map((section) => (
+            {sections.map((section) => (
               <section
                 key={section.id}
                 id={section.id}

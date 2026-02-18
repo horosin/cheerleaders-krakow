@@ -150,28 +150,16 @@ export function getChampionshipContent(lang: "pl" | "en") {
     sections: ChampionshipSection[]
   }
   const filePath = path.join(contentRoot, "championship", "index.md")
-  const { data, content } = readMarkdownFile<
-    Record<"pl" | "en", ChampionshipLocalizedContent>
-  >(filePath)
+  const { data } = readMarkdownFile<Record<"pl" | "en", ChampionshipLocalizedContent>>(
+    filePath
+  )
   const localized = data[lang]
   const { sections, ...page } = localized
-
-  const localizedRichTextMatch = content.match(
-    new RegExp(
-      `<!--\\s*richText:${lang}\\s*-->([\\s\\S]*?)<!--\\s*\\/richText:${lang}\\s*-->`,
-      "i"
-    )
-  )
-  const richText = (
-    localizedRichTextMatch?.[1] ??
-    // Backward-compatible fallback for plain body without localized markers.
-    content
-  ).trim()
 
   return {
     page: {
       ...page,
-      richText: richText || undefined,
+      richText: page.richText?.trim() || undefined,
     },
     sections: sections ?? [],
   }

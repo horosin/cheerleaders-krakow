@@ -444,25 +444,18 @@ content:
               - name: ctaHref
                 label: Link CTA
                 type: string
-          - name: sectionsOrder
-            label: Kolejność sekcji
-            type: string
-            list:
-              collapsible:
-                collapsed: true
           - name: sections
             label: Sekcje
+            description: "Kolejność sekcji na stronie wynika bezpośrednio z kolejności wpisów na liście."
             type: object
             list:
               collapsible:
                 collapsed: true
-                summary: "{fields.id}"
+                summary: "{fields.title}"
             fields:
               - name: id
-                label: ID
-                type: string
-              - name: navLabel
-                label: Etykieta nawigacji
+                label: ID sekcji
+                description: "Używane do linków typu '#files'. Krótkie, bez spacji."
                 type: string
               - name: title
                 label: Tytuł
@@ -505,6 +498,13 @@ content:
                 label: Adres
                 description: "Pełny adres pokazywany nad mapą (z przyciskiem kopiowania)."
                 type: string
+              - name: image
+                label: Obraz
+                description: "Opcjonalny obraz sekcji."
+                type: image
+          - name: richText
+            label: Dodatkowa treść
+            type: rich-text
 
       - name: en
         label: Wersja EN
@@ -566,25 +566,18 @@ content:
               - name: ctaHref
                 label: CTA link
                 type: string
-          - name: sectionsOrder
-            label: Section order
-            type: string
-            list:
-              collapsible:
-                collapsed: true
           - name: sections
             label: Sections
+            description: "The rendered order follows the order of entries in this list."
             type: object
             list:
               collapsible:
                 collapsed: true
-                summary: "{fields.id}"
+                summary: "{fields.title}"
             fields:
               - name: id
-                label: ID
-                type: string
-              - name: navLabel
-                label: Navigation label
+                label: Section ID
+                description: "Used for links like '#files'. Keep it short and without spaces."
                 type: string
               - name: title
                 label: Title
@@ -627,11 +620,13 @@ content:
                 label: Address
                 description: "Full address shown above map (with copy button)."
                 type: string
-
-      - name: body
-        label: Treść dodatkowa (PL/EN)
-        type: text
-        description: "Zachowaj markery: <!-- richText:pl --> ... <!-- /richText:pl --> oraz <!-- richText:en --> ... <!-- /richText:en -->."
+              - name: image
+                label: Image
+                description: "Optional section image."
+                type: image
+          - name: richText
+            label: Additional content
+            type: rich-text
 
   - name: teams
     label: Zespoły

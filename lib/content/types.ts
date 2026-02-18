@@ -133,13 +133,12 @@ export type ChampionshipPage = {
     ctaLabel: string
     ctaHref: string
   }
-  sectionsOrder: string[]
   richText?: string
 }
 
 export type ChampionshipSection = {
   id: string
-  navLabel: string
+  navLabel?: string
   title: string
   icon?: string
   body: string
