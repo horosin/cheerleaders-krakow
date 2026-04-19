@@ -84,6 +84,10 @@ sponsorsSection:
       logo: /uploads/zarzad.png
     - name: Polska
       logo: /uploads/polska.png
+    - name: Ministerstwo
+      logo: /uploads/unnamed-1.png
+    - name: Mikro Granty
+      logo: /uploads/unnamed-1.jpg
 fundingSummarySection:
   eyebrow: Oficjalne wsparcie
   title: Finansowanie Publiczne
