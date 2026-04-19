@@ -15,6 +15,24 @@ type SiteHeaderProps = {
 export function SiteHeader({ site }: SiteHeaderProps) {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = React.useState(false)
+  const socials = site.socials ?? []
+
+  const getSocialIconName = (label: string) => {
+    const normalizedLabel = label.trim().toLowerCase()
+
+    switch (normalizedLabel) {
+      case "facebook":
+        return "facebook"
+      case "instagram":
+        return "instagram"
+      case "youtube":
+        return "youtube"
+      case "tiktok":
+        return "music_note"
+      default:
+        return "arrow_outward"
+    }
+  }
 
   const normalizePath = (value?: string) => {
     if (!value) return ""
@@ -46,8 +64,8 @@ export function SiteHeader({ site }: SiteHeaderProps) {
             {site.title}
           </h2>
         </Link>
-        <div className="hidden lg:flex flex-1 justify-end gap-10 items-center">
-          <nav className="flex items-center gap-8">
+        <div className="hidden lg:flex flex-1 justify-end gap-6 items-center">
+          <nav className="ml-6 flex items-center gap-8">
             {site.nav.map((item) => {
               if (item.children?.length) {
                 const itemActive = isItemActive(item)
@@ -141,6 +159,25 @@ export function SiteHeader({ site }: SiteHeaderProps) {
               )
             })}
           </nav>
+          {socials.length > 0 && (
+            <div className="flex items-center gap-1.5 border-l border-pink-100 pl-3">
+              {socials.map((social) => (
+                <Link
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={social.label}
+                  className="flex size-8 items-center justify-center rounded-full text-gray-400 transition-colors hover:bg-pink-50 hover:text-primary"
+                >
+                  <Icon
+                    name={getSocialIconName(social.label)}
+                    className="size-4"
+                  />
+                </Link>
+              ))}
+            </div>
+          )}
           {site.cta && (
             <Link
               href={site.cta.href}
@@ -228,6 +265,26 @@ export function SiteHeader({ site }: SiteHeaderProps) {
               </div>
             ))}
           </nav>
+          {socials.length > 0 && (
+            <div className="mt-5 flex items-center gap-2 border-t border-pink-100 pt-4">
+              {socials.map((social) => (
+                <Link
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={social.label}
+                  className="flex size-8 items-center justify-center rounded-full border border-pink-100/70 text-gray-500 transition-colors hover:border-pink-200 hover:text-primary"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <Icon
+                    name={getSocialIconName(social.label)}
+                    className="size-4"
+                  />
+                </Link>
+              ))}
+            </div>
+          )}
           {site.cta && (
             <Link
               href={site.cta.href}
