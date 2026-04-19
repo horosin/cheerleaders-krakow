@@ -21,13 +21,13 @@ nav:
         href: /stowarzyszenie/deklaracje/
       - label: Walne zgromadzenie
         href: /stowarzyszenie/walne-zgromadzenie/
+      - label: Standardy Ochrony Małoletnich
+        href: /stowarzyszenie/standardy-ochrony-maloletnich
   - label: Pozostałe
     autoChildren: pozostale
     children:
       - label: Filmy
         href: /filmy/
-      - label: Marka
-        href: /marka/
       - label: Finansowanie
         href: /finansowanie/
 cta:
