@@ -185,6 +185,25 @@ content:
           - name: subtitle
             label: Podtytuł
             type: text
+          - name: teams
+            label: Lista zespołów
+            description: "Kolejność na liście jest zachowana na stronie."
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{fields.name}"
+            fields:
+              - name: name
+                label: Nazwa
+                type: string
+              - name: coach
+                label: Trener
+                type: string
+              - name: icon
+                label: Ikona
+                description: "Nazwa ikony z mapy w 'components/icon.tsx'."
+                type: string
       - name: newsSection
         label: Sekcja aktualności
         type: object
@@ -712,35 +731,6 @@ content:
           - name: richText
             label: Additional content
             type: rich-text
-
-  - name: teams
-    label: Zespoły
-    type: file
-    path: content/teams/index.md
-    fields:
-      - name: teams
-        label: Lista zespołów
-        description: "Wszystkie zespoły edytujesz w jednym miejscu."
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{fields.name}"
-        fields:
-          - name: name
-            label: Nazwa
-            type: string
-          - name: coach
-            label: Trener
-            type: string
-          - name: icon
-            label: Ikona
-            description: "Nazwa ikony z mapy w 'components/icon.tsx'."
-            type: string
-          - name: order
-            label: Kolejność
-            description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
-            type: number
 
   - name: sponsors
     label: Sponsorzy

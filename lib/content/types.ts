@@ -45,6 +45,7 @@ export type HomePage = {
     eyebrow: string
     title: string
     subtitle?: string
+    teams: Team[]
   }
   newsSection: {
     eyebrow: string
@@ -93,7 +94,6 @@ export type Team = {
   name: string
   coach: string
   icon: string
-  order: number
 }
 
 export type Sponsor = {

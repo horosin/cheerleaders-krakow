@@ -12,6 +12,25 @@ teamsSection:
   eyebrow: Trenuj z nami
   title: Nasze Zespoły
   subtitle: Dopasowane do wieku, poziomu i ambicji.
+  teams:
+    - name: Chilli
+      coach: Agnieszka Tarkowska
+      icon: spa
+    - name: Teen Dancers
+      coach: Agnieszka Tarkowska
+      icon: star
+    - name: Show Dance
+      coach: Agnieszka Tarkowska
+      icon: theater_comedy
+    - name: Mini Stars
+      coach: "Agnieszka Tarkowska "
+      icon: stars
+    - name: Show Dance II
+      coach: Dorota Krzysztofik
+      icon: celebration
+    - name: Fire
+      coach: Janusz Wasowski
+      icon: local_fire_department
 newsSection:
   eyebrow: Bądź na bieżąco
   title: Aktualności

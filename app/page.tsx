@@ -11,12 +11,10 @@ import {
   getFunding,
   getHomePage,
   getSponsors,
-  getTeams,
 } from "@/lib/content"
 
 export default function HomePage() {
   const home = getHomePage()
-  const teams = getTeams()
   const newsPosts = getAllNewsPosts().slice(0, 3)
   const sponsors = getSponsors()
   const funding = getFunding().slice(0, 3)
@@ -73,7 +71,7 @@ export default function HomePage() {
       <TeamsCarousel
         eyebrow={home.teamsSection.eyebrow}
         title={home.teamsSection.title}
-        teams={teams}
+        teams={home.teamsSection.teams}
       />
 
       <section className="py-32 bg-background-soft">
