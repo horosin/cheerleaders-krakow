@@ -1,4 +1,5 @@
 ---
+slug: standardy-ochrony-maloletnich
 title: Standardy Ochrony Małoletnich
 navLabel: Standardy Ochrony Małoletnich
 order: 1000
@@ -413,4 +414,3 @@ Kraków, dnia	.podpis pracownika
 ![](https://lh3.googleusercontent.com/sitesv/AA5AbUB0a1Y5fhjPT3F7uWhv9lVavGXCOdg2VvDNzO7x4s51iHZ_6HT97NB8gb2QpIZUeFPvUy8HFu_UekQuQQN32BbI4aOnNT9oOQSsBTYLwX39H361dROfgaRAljve6NAfyoMg9U0DM5Gwb25Y6rF8J3JBaIJ7_c9ZULW3kIYFGYdshbXkHnRIve2xqVPeP5bsBBHxPgskkbT8QUC5AJ0a0lmOi3_TqRYAbWw2=w1280)
 
 ![image.png](/uploads/image.png)
-
