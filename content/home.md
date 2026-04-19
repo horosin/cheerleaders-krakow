@@ -1,8 +1,7 @@
 ---
 hero:
-  title: Witaj w Rodzinie
-  subtitle: Elegancja, pasja i przyjaźń. Dołącz do najlepszej akademii
-    cheerleadingu w Krakowie i odkryj swój potencjał.
+  title: Cheerleaders Kraków
+  subtitle: Kształtujemy scenę polskiego cheerleadingu już od 25 lat
   primaryCta:
     label: Dołącz do nas
     href: /#kontakt
