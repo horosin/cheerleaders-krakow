@@ -55,7 +55,6 @@ contact:
   phone: +48 602 617 200
   addressLines:
     - "Treningi: os. Kalinowe 18, 31-814 Kraków"
-    - "Stowarzyszenie: ul. Reduta 48/7, 31-421 Kraków"
 socials:
   - label: Facebook
     href: https://www.facebook.com/cheerleaderskrakow1/
@@ -82,9 +81,9 @@ fundingIndex:
     - organization: Gmina Miejska Kraków
       period: "2025"
       title: Sportowy Sukces Cheerleaders Kraków
-      summary: Jesteśmy beneficjentem programu Sportowy Sukces Cheerleaders
-        Kraków. Projekt jest współfinansowany ze środków otrzymanych od Gminy
-        Miejskiej Kraków.
+      summary: Jesteśmy beneficjentem programu Sportowy Sukces Cheerleaders Kraków.
+        Projekt jest współfinansowany ze środków otrzymanych od Gminy Miejskiej
+        Kraków.
       accentColor: "#1e3a8a"
       icon: location_city
       order: 1
@@ -98,17 +97,18 @@ fundingIndex:
       icon: policy
       order: 2
     - organization: Ministerstwo Sportu i Turystyki
-      period: "2023-2024"
+      period: 2023-2024
       title: Program "KLUB" - 2023/2024
-      summary: Byliśmy wspierani przez Ministerstwo Sportu i Turystyki również w latach 2023-2024.
+      summary: Byliśmy wspierani przez Ministerstwo Sportu i Turystyki również w
+        latach 2023-2024.
       accentColor: "#7c3aed"
       icon: badge
       order: 3
 videosIndex:
   eyebrow: Wideo
   title: Zobacz nasze mistrzostwa
-  description: Na starej stronie publikowaliśmy transmisje i materiały z
-    wybranych edycji International Cheerleading Championship in Kraków.
+  description: Na starej stronie publikowaliśmy transmisje i materiały z wybranych
+    edycji International Cheerleading Championship in Kraków.
   videos:
     - title: International Cheerleading Championship in Kraków 2026 - sobota
       date: 2026-03-07
