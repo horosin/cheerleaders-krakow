@@ -1,7 +1,7 @@
 ---
-title: Cheerleaders Krakow
-tagline: Profesjonalna grupa promująca taniec i cheerleading w Polsce.
-  Elegancja, dyscyplina i siła charakteru.
+title: Cheerleaders Kraków
+tagline: Zespół cheerleaders z Krakowa rozwijający dyscyplinę od 25 lat oraz
+  organizujący międzynarodowe mistrzostwa cheerleadingu.
 nav:
   - label: Strona Główna
     href: /
@@ -38,14 +38,24 @@ footerColumns:
     links:
       - label: Strona Główna
         href: /
-      - label: Filmy
-        href: /filmy/
+      - label: Championship
+        href: /championship/
       - label: Aktualności
         href: /news/
-  - title: Współpraca
+      - label: Filmy
+        href: /filmy/
+  - title: Informacje
+    links:
+      - label: 1,5% podatku
+        href: /pozostale/1-5-podatku/
+      - label: Finansowanie
+        href: /finansowanie/
 contact:
-  email: cheerleaders.krakow@gmail.com
-  phone: +48 690 278 117
+  email: tarkowska1@o2.pl
+  phone: +48 602 617 200
+  addressLines:
+    - "Treningi: os. Kalinowe 18, 31-814 Kraków"
+    - "Stowarzyszenie: ul. Reduta 48/7, 31-421 Kraków"
 socials:
   - label: Facebook
     href: https://www.facebook.com/cheerleaderskrakow1/
@@ -56,52 +66,66 @@ socials:
   - label: YouTube
     href: https://www.youtube.com/@cheerleaderskrakow711
 legal:
-  copyright: © {{year}} Cheerleaders Krakow. Wszystkie prawa zastrzeżone.
+  copyright: © {{year}} Cheerleaders Kraków. Wszystkie prawa zastrzeżone.
 newsIndex:
-  eyebrow: Newsroom
+  eyebrow: Aktualności
   title: Aktualności
-  description: Relacje z zawodów, sukcesy naszych zespołów i najważniejsze
-    wydarzenia z życia stowarzyszenia.
+  description: Sukcesy naszych zespołów, wyniki turniejów i najważniejsze
+    wydarzenia Cheerleaders Kraków.
 fundingIndex:
-  eyebrow: Współpraca i Granty
-  title: Finansowanie Publiczne
-  description: Jawność i transparentność to fundamenty naszego działania. Poniżej
-    prezentujemy listę projektów realizowanych przy wsparciu ze środków
-    publicznych.
+  eyebrow: Finansowanie publiczne
+  title: Programy i wsparcie
+  description: Jawność i transparentność to fundamenty naszego działania.
+    Zebraliśmy tu informacje o wsparciu pokazanym na dotychczasowej stronie
+    Cheerleaders Kraków.
   entries:
-    - organization: Urząd Miasta Krakowa
-      period: 2023/2024
-      title: Rozwój sportowy dzieci i młodzieży w Gminie Miejskiej Kraków
-      summary: Zadanie publiczne polegające na organizacji całorocznego szkolenia
-        sportowego w zakresie cheerleadingu sportowego. Środki z dotacji zostały
-        przeznaczone na wynajem hal treningowych, zakup specjalistycznego
-        sprzętu gimnastycznego oraz dofinansowanie udziału w Mistrzostwach
-        Polski.
+    - organization: Gmina Miejska Kraków
+      period: "2025"
+      title: Sportowy Sukces Cheerleaders Kraków
+      summary: Jesteśmy beneficjentem programu Sportowy Sukces Cheerleaders
+        Kraków. Projekt jest współfinansowany ze środków otrzymanych od Gminy
+        Miejskiej Kraków.
       accentColor: "#1e3a8a"
       icon: location_city
       order: 1
     - organization: Ministerstwo Sportu i Turystyki
-      period: "2023"
-      title: Program "Klub" – Edycja 2023
-      summary: Rządowy Program "Klub" to narzędzie wsparcia małych i średnich klubów
-        sportowych. Otrzymane dofinansowanie pozwoliło na podniesienie
-        kwalifikacji kadry trenerskiej oraz organizację obozów kondycyjnych dla
-        najbardziej uzdolnionej młodzieży.
+      period: "2025"
+      title: Rządowy Program "KLUB" - edycja 2025
+      summary: Działalność stowarzyszenia jest dofinansowana dzięki Rządowemu
+        Programowi "KLUB" - edycja 2025. Wartość wsparcia to 12 000 zł, a
+        całkowita kwota projektu wynosi 12 635 zł.
       accentColor: "#b91c1c"
       icon: policy
       order: 2
-    - organization: Województwo Małopolskie
-      period: 2022/2023
-      title: Małopolski Klub – Wsparcie szkolenia sportowego
-      summary: Projekt "Małopolska na Sportowo" w ramach konkursu ofert Województwa
-        Małopolskiego w dziedzinie kultury fizycznej. Dzięki wsparciu
-        zorganizowaliśmy serię otwartych warsztatów dla mieszkańców regionu.
-      accentColor: "#16a34a"
-      icon: terrain
+    - organization: Ministerstwo Sportu i Turystyki
+      period: "2023-2024"
+      title: Program "KLUB" - 2023/2024
+      summary: Byliśmy wspierani przez Ministerstwo Sportu i Turystyki również w latach 2023-2024.
+      accentColor: "#7c3aed"
+      icon: badge
       order: 3
 videosIndex:
-  eyebrow: Video Archive
-  title: Nasze Filmy
-  description: Zobacz nasze najnowsze choreografie, relacje z turniejów i występy
-    na żywo. Zbiór emocji, energii i pasji w ruchu.
+  eyebrow: Wideo
+  title: Zobacz nasze mistrzostwa
+  description: Na starej stronie publikowaliśmy transmisje i materiały z
+    wybranych edycji International Cheerleading Championship in Kraków.
+  videos:
+    - title: International Cheerleading Championship in Kraków 2026 - sobota
+      date: 2026-03-07
+      category: Live stream
+      thumbnail: https://img.youtube.com/vi/5Ox6GDNPIRU/hqdefault.jpg
+      youtubeId: 5Ox6GDNPIRU
+      order: 1
+    - title: International Cheerleading Championship in Kraków 2026 - niedziela
+      date: 2026-03-08
+      category: Live stream
+      thumbnail: https://img.youtube.com/vi/j59hg-FI-iI/hqdefault.jpg
+      youtubeId: j59hg-FI-iI
+      order: 2
+    - title: International Cheerleading Championship in Kraków 2024 - transmisja
+      date: 2024-03-09
+      category: Championship
+      thumbnail: https://img.youtube.com/vi/uq6gknXVMpo/hqdefault.jpg
+      youtubeId: uq6gknXVMpo
+      order: 3
 ---
