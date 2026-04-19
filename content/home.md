@@ -75,20 +75,15 @@ sponsorsSection:
   title: Nasi Przyjaciele i Sponsorzy
   sponsors:
     - name: FITNESS
-      icon: fitness_center
-      accentColor: "#ec4899"
+      href: https://example.com
     - name: AQUA
-      icon: water_drop
-      accentColor: "#3b82f6"
+      href: https://example.com
     - name: SHOP
-      icon: local_mall
-      accentColor: "#f97316"
+      href: https://example.com
     - name: NATURA
-      icon: spa
-      accentColor: "#22c55e"
+      href: https://example.com
     - name: STYLE
-      icon: checkroom
-      accentColor: "#a855f7"
+      href: https://example.com
 fundingSummarySection:
   eyebrow: Oficjalne wsparcie
   title: Finansowanie Publiczne

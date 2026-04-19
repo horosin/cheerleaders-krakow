@@ -34,30 +34,45 @@ export function TeamCard({
 
 export function SponsorCard({
   name,
-  icon,
-  accentColor,
+  logo,
+  href,
 }: {
   name: string
-  icon: string
-  accentColor: string
+  logo?: string
+  href?: string
 }) {
-  return (
-    <div className="snap-start shrink-0 group cursor-pointer transition-all duration-300">
-      <div className="h-28 w-64 bg-gray-50 border border-gray-100 rounded-xl flex items-center justify-center grayscale group-hover:grayscale-0 group-hover:bg-white group-hover:shadow-xl transition-all duration-300">
-        <Icon
-          name={icon}
-          className="size-12 text-gray-400 transition-colors"
-          style={{ color: accentColor }}
-          strokeWidth={1.5}
+  const content = (
+    <div className="h-24 w-56 flex items-center justify-center">
+      {logo ? (
+        <img
+          src={logo}
+          alt={`${name} logo`}
+          className="max-h-full w-full object-contain"
         />
-        <span
-          className="ml-3 font-bold text-gray-400 group-hover:text-primary text-2xl tracking-tighter transition-colors duration-300"
-          style={{ color: accentColor }}
-        >
-          {name}
-        </span>
-      </div>
+      ) : (
+        <Icon
+          name="photo_library"
+          className="size-10 text-gray-300"
+          strokeWidth={1.75}
+        />
+      )}
     </div>
+  )
+
+  if (!href) {
+    return <div className="snap-start shrink-0">{content}</div>
+  }
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`Otwórz stronę sponsora ${name} w nowej karcie`}
+      className="snap-start shrink-0 block"
+    >
+      {content}
+    </a>
   )
 }
 

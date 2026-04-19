@@ -107,8 +107,8 @@ export function SponsorsCarousel({
             <SponsorCard
               key={sponsor.name}
               name={sponsor.name}
-              icon={sponsor.icon}
-              accentColor={sponsor.accentColor}
+              logo={sponsor.logo}
+              href={sponsor.href}
             />
           ))}
         </div>

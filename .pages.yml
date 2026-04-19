@@ -453,13 +453,13 @@ content:
               - name: name
                 label: Nazwa
                 type: string
-              - name: icon
-                label: Ikona
-                description: "Nazwa ikony z mapy w 'components/icon.tsx'."
-                type: string
-              - name: accentColor
-                label: Kolor akcentu
-                description: "Kolor w HEX, np. '#EC4899'."
+              - name: logo
+                label: Logo
+                description: "Opcjonalne logo sponsora. Jeśli pole zostanie puste, pokaże się placeholder z nazwą."
+                type: image
+              - name: href
+                label: Link do strony
+                description: "Opcjonalny pełny adres strony sponsora, np. 'https://example.com'. Link otworzy się w nowej karcie."
                 type: string
       - name: fundingSummarySection
         label: Sekcja podsumowania finansowania

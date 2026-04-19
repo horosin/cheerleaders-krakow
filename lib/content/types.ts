@@ -102,8 +102,8 @@ export type Team = {
 
 export type Sponsor = {
   name: string
-  icon: string
-  accentColor: string
+  logo?: string
+  href?: string
 }
 
 export type NewsIndex = {
