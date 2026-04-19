@@ -76,6 +76,14 @@ sponsorsSection:
   sponsors:
     - name: Małopolska
       logo: /uploads/malopolska-bw.png
+    - name: Kraków
+      logo: /uploads/krakow.jpg
+    - name: MDK
+      logo: /uploads/mdk.png
+    - name: Zarząd Infrastruktury
+      logo: /uploads/zarzad.png
+    - name: Polska
+      logo: /uploads/polska.png
 fundingSummarySection:
   eyebrow: Oficjalne wsparcie
   title: Finansowanie Publiczne
