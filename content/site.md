@@ -38,22 +38,11 @@ footerColumns:
     links:
       - label: Strona Główna
         href: /
-      - label: O nas
-        href: /stowarzyszenie/o-nas/
       - label: Filmy
         href: /filmy/
       - label: Aktualności
         href: /news/
   - title: Współpraca
-    links:
-      - label: Sponsorzy
-        href: /#sponsors
-      - label: Media
-        href: "#"
-      - label: Pokazy
-        href: "#"
-      - label: Kontakt
-        href: /#kontakt
 contact:
   email: cheerleaders.krakow@gmail.com
   phone: +48 690 278 117
@@ -69,40 +58,50 @@ socials:
 legal:
   copyright: © {{year}} Cheerleaders Krakow. Wszystkie prawa zastrzeżone.
 newsIndex:
-  eyebrow: "Newsroom"
-  title: "Aktualności"
-  description: "Relacje z zawodów, sukcesy naszych zespołów i najważniejsze wydarzenia z życia stowarzyszenia."
+  eyebrow: Newsroom
+  title: Aktualności
+  description: Relacje z zawodów, sukcesy naszych zespołów i najważniejsze
+    wydarzenia z życia stowarzyszenia.
 fundingIndex:
-  eyebrow: "Współpraca i Granty"
-  title: "Finansowanie Publiczne"
-  description: "Jawność i transparentność to fundamenty naszego działania. Poniżej prezentujemy listę projektów realizowanych przy wsparciu ze środków publicznych."
+  eyebrow: Współpraca i Granty
+  title: Finansowanie Publiczne
+  description: Jawność i transparentność to fundamenty naszego działania. Poniżej
+    prezentujemy listę projektów realizowanych przy wsparciu ze środków
+    publicznych.
   entries:
-    - organization: "Urząd Miasta Krakowa"
-      period: "2023/2024"
-      title: "Rozwój sportowy dzieci i młodzieży w Gminie Miejskiej Kraków"
-      summary: "Zadanie publiczne polegające na organizacji całorocznego szkolenia sportowego w zakresie cheerleadingu sportowego. Środki z dotacji zostały przeznaczone na wynajem hal treningowych, zakup specjalistycznego sprzętu gimnastycznego oraz dofinansowanie udziału w Mistrzostwach Polski."
-      reportUrl: "#"
+    - organization: Urząd Miasta Krakowa
+      period: 2023/2024
+      title: Rozwój sportowy dzieci i młodzieży w Gminie Miejskiej Kraków
+      summary: Zadanie publiczne polegające na organizacji całorocznego szkolenia
+        sportowego w zakresie cheerleadingu sportowego. Środki z dotacji zostały
+        przeznaczone na wynajem hal treningowych, zakup specjalistycznego
+        sprzętu gimnastycznego oraz dofinansowanie udziału w Mistrzostwach
+        Polski.
       accentColor: "#1e3a8a"
-      icon: "location_city"
+      icon: location_city
       order: 1
-    - organization: "Ministerstwo Sportu i Turystyki"
+    - organization: Ministerstwo Sportu i Turystyki
       period: "2023"
-      title: "Program \"Klub\" – Edycja 2023"
-      summary: "Rządowy Program \"Klub\" to narzędzie wsparcia małych i średnich klubów sportowych. Otrzymane dofinansowanie pozwoliło na podniesienie kwalifikacji kadry trenerskiej oraz organizację obozów kondycyjnych dla najbardziej uzdolnionej młodzieży."
-      reportUrl: "#"
+      title: Program "Klub" – Edycja 2023
+      summary: Rządowy Program "Klub" to narzędzie wsparcia małych i średnich klubów
+        sportowych. Otrzymane dofinansowanie pozwoliło na podniesienie
+        kwalifikacji kadry trenerskiej oraz organizację obozów kondycyjnych dla
+        najbardziej uzdolnionej młodzieży.
       accentColor: "#b91c1c"
-      icon: "policy"
+      icon: policy
       order: 2
-    - organization: "Województwo Małopolskie"
-      period: "2022/2023"
-      title: "Małopolski Klub – Wsparcie szkolenia sportowego"
-      summary: "Projekt \"Małopolska na Sportowo\" w ramach konkursu ofert Województwa Małopolskiego w dziedzinie kultury fizycznej. Dzięki wsparciu zorganizowaliśmy serię otwartych warsztatów dla mieszkańców regionu."
-      reportUrl: "#"
+    - organization: Województwo Małopolskie
+      period: 2022/2023
+      title: Małopolski Klub – Wsparcie szkolenia sportowego
+      summary: Projekt "Małopolska na Sportowo" w ramach konkursu ofert Województwa
+        Małopolskiego w dziedzinie kultury fizycznej. Dzięki wsparciu
+        zorganizowaliśmy serię otwartych warsztatów dla mieszkańców regionu.
       accentColor: "#16a34a"
-      icon: "terrain"
+      icon: terrain
       order: 3
 videosIndex:
-  eyebrow: "Video Archive"
-  title: "Nasze Filmy"
-  description: "Zobacz nasze najnowsze choreografie, relacje z turniejów i występy na żywo. Zbiór emocji, energii i pasji w ruchu."
+  eyebrow: Video Archive
+  title: Nasze Filmy
+  description: Zobacz nasze najnowsze choreografie, relacje z turniejów i występy
+    na żywo. Zbiór emocji, energii i pasji w ruchu.
 ---
