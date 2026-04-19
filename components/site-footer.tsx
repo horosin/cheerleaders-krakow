@@ -5,7 +5,9 @@ import { Icon } from "@/components/icon"
 import { CurrentYear } from "@/components/current-year"
 
 export function SiteFooter({ site }: { site: SiteConfig }) {
-  const footerColumns = site.footerColumns ?? []
+  const footerColumns = (site.footerColumns ?? []).filter(
+    (column) => (column.links?.length ?? 0) > 0
+  )
   const socials = site.socials ?? []
 
   const email = site.contact?.email?.trim()
@@ -35,7 +37,7 @@ export function SiteFooter({ site }: { site: SiteConfig }) {
                 {column.title}
               </h3>
               <div className="flex flex-col gap-3">
-                {column.links.map((link) => (
+                {column.links?.map((link) => (
                   <Link
                     key={link.label}
                     href={link.href}

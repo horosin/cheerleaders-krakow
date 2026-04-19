@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import "./globals.css"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+import { GoogleAnalytics } from "@/components/google-analytics"
 import {
   getChampionshipNavItems,
   getPozostalePages,
@@ -54,6 +55,7 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body className="min-h-screen bg-background-soft text-text-dark font-sans antialiased selection:bg-primary selection:text-white">
+        <GoogleAnalytics />
         <SiteHeader site={resolvedSite} />
         {children}
         <SiteFooter site={resolvedSite} />

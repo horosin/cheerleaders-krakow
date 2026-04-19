@@ -21,7 +21,7 @@ export type SiteConfig = {
   }
   footerColumns: Array<{
     title: string
-    links: Array<{ label: string; href: string }>
+    links?: Array<{ label: string; href: string }>
   }>
   contact: {
     email: string
