@@ -74,16 +74,8 @@ sponsorsSection:
   eyebrow: Wspierają nas
   title: Nasi Przyjaciele i Sponsorzy
   sponsors:
-    - name: FITNESS
-      href: https://example.com
-    - name: AQUA
-      href: https://example.com
-    - name: SHOP
-      href: https://example.com
-    - name: NATURA
-      href: https://example.com
-    - name: STYLE
-      href: https://example.com
+    - name: Małopolska
+      logo: /uploads/malopolska-bw.png
 fundingSummarySection:
   eyebrow: Oficjalne wsparcie
   title: Finansowanie Publiczne
