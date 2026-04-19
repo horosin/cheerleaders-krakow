@@ -10,13 +10,11 @@ import {
   getAllNewsPosts,
   getFunding,
   getHomePage,
-  getSponsors,
 } from "@/lib/content"
 
 export default function HomePage() {
   const home = getHomePage()
   const newsPosts = getAllNewsPosts().slice(0, 3)
-  const sponsors = getSponsors()
   const funding = getFunding().slice(0, 3)
 
   const titleParts = home.hero.title.split(" ")
@@ -245,7 +243,7 @@ export default function HomePage() {
       <SponsorsCarousel
         eyebrow={home.sponsorsSection.eyebrow}
         title={home.sponsorsSection.title}
-        sponsors={sponsors}
+        sponsors={home.sponsorsSection.sponsors}
       />
 
       <section className="py-16 bg-background-soft border-t border-pink-100">

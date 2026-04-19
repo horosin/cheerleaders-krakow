@@ -73,6 +73,22 @@ ctaBand:
 sponsorsSection:
   eyebrow: Wspierają nas
   title: Nasi Przyjaciele i Sponsorzy
+  sponsors:
+    - name: "FITNESS"
+      icon: "fitness_center"
+      accentColor: "#ec4899"
+    - name: "AQUA"
+      icon: "water_drop"
+      accentColor: "#3b82f6"
+    - name: "SHOP"
+      icon: "local_mall"
+      accentColor: "#f97316"
+    - name: "NATURA"
+      icon: "spa"
+      accentColor: "#22c55e"
+    - name: "STYLE"
+      icon: "checkroom"
+      accentColor: "#a855f7"
 fundingSummarySection:
   eyebrow: Oficjalne wsparcie
   title: Finansowanie Publiczne

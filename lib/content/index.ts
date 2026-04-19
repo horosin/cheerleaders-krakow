@@ -14,7 +14,6 @@ import type {
   NewsPost,
   SimplePage,
   SiteConfig,
-  Sponsor,
   VideoEntry,
   VideoIndex,
 } from "@/lib/content/types"
@@ -174,12 +173,6 @@ export function getHomePage(): HomePage {
   const filePath = path.join(contentRoot, "home.md")
   const { data } = readMarkdownFile<HomePage>(filePath)
   return data
-}
-
-export function getSponsors(): Sponsor[] {
-  const filePath = path.join(contentRoot, "sponsors", "index.md")
-  const { data } = readMarkdownFile<{ sponsors?: Sponsor[] }>(filePath)
-  return [...(data.sponsors ?? [])].sort((a, b) => a.order - b.order)
 }
 
 export function getNewsIndex(): NewsIndex {

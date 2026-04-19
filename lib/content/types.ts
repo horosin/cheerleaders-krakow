@@ -80,6 +80,7 @@ export type HomePage = {
   sponsorsSection: {
     eyebrow: string
     title: string
+    sponsors: Sponsor[]
   }
   fundingSummarySection: {
     eyebrow: string
@@ -100,7 +101,6 @@ export type Sponsor = {
   name: string
   icon: string
   accentColor: string
-  order: number
 }
 
 export type NewsIndex = {
