@@ -185,9 +185,14 @@ export function getHomePage(): HomePage {
 }
 
 export function getNewsIndex(): NewsIndex {
-  const filePath = path.join(contentRoot, "news", "index.md")
-  const { data } = readMarkdownFile<NewsIndex>(filePath)
-  return data
+  const site = getSiteConfig()
+  return (
+    site.newsIndex ?? {
+      eyebrow: "",
+      title: "",
+      description: "",
+    }
+  )
 }
 
 export function getAllNewsPosts(): NewsPost[] {
@@ -260,37 +265,35 @@ export function getChampionshipContent(lang: "pl" | "en") {
 }
 
 export function getVideosIndex(): VideoIndex {
-  const filePath = path.join(contentRoot, "filmy", "index.md")
-  const { data } = readMarkdownFile<VideoIndex>(filePath)
+  const site = getSiteConfig()
+  const data = site.videosIndex
   return {
-    eyebrow: data.eyebrow,
-    title: data.title,
-    description: data.description,
-    videos: data.videos ?? [],
+    eyebrow: data?.eyebrow ?? "",
+    title: data?.title ?? "",
+    description: data?.description ?? "",
+    videos: data?.videos ?? [],
   }
 }
 
 export function getVideos(): VideoEntry[] {
-  const filePath = path.join(contentRoot, "filmy", "index.md")
-  const { data } = readMarkdownFile<VideoIndex>(filePath)
-  return [...(data.videos ?? [])].sort((a, b) => a.order - b.order)
+  const site = getSiteConfig()
+  return [...(site.videosIndex?.videos ?? [])].sort((a, b) => a.order - b.order)
 }
 
 export function getFundingIndex(): FundingIndex {
-  const filePath = path.join(contentRoot, "finansowanie", "index.md")
-  const { data } = readMarkdownFile<FundingIndex>(filePath)
+  const site = getSiteConfig()
+  const data = site.fundingIndex
   return {
-    eyebrow: data.eyebrow,
-    title: data.title,
-    description: data.description,
-    entries: data.entries ?? [],
+    eyebrow: data?.eyebrow ?? "",
+    title: data?.title ?? "",
+    description: data?.description ?? "",
+    entries: data?.entries ?? [],
   }
 }
 
 export function getFunding(): FundingGrant[] {
-  const filePath = path.join(contentRoot, "finansowanie", "index.md")
-  const { data } = readMarkdownFile<FundingIndex>(filePath)
-  return [...(data.entries ?? [])].sort((a, b) => a.order - b.order)
+  const site = getSiteConfig()
+  return [...(site.fundingIndex?.entries ?? [])].sort((a, b) => a.order - b.order)
 }
 
 export function getBrandPage(): BrandPage {

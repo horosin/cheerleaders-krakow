@@ -133,120 +133,114 @@ content:
           - name: copyright
             label: Prawa autorskie
             type: string
-
-  - name: news_index
-    label: Aktualności - strona główna
-    type: file
-    path: content/news/index.md
-    fields:
-      - name: eyebrow
-        label: Nadtytuł
-        type: string
-      - name: title
-        label: Tytuł
-        type: string
-      - name: description
-        label: Opis
-        type: text
-
-  - name: funding_index
-    label: Finansowanie - strona główna
-    type: file
-    path: content/finansowanie/index.md
-    fields:
-      - name: eyebrow
-        label: Nadtytuł
-        type: string
-      - name: title
-        label: Tytuł
-        type: string
-      - name: description
-        label: Opis
-        type: text
-      - name: entries
-        label: Wpisy finansowania
-        description: "Wszystkie wpisy finansowania edytujesz w jednym miejscu."
+      - name: newsIndex
+        label: Aktualności - strona główna
         type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{fields.title}"
         fields:
-          - name: organization
-            label: Organizacja
-            type: string
-          - name: period
-            label: Okres
+          - name: eyebrow
+            label: Nadtytuł
             type: string
           - name: title
             label: Tytuł
             type: string
-          - name: summary
-            label: Podsumowanie
+          - name: description
+            label: Opis
             type: text
-          - name: reportUrl
-            label: Plik sprawozdania
-            description: "Opcjonalny plik do pobrania. Jeśli puste, przycisk pobierania nie będzie widoczny."
-            type: file
-          - name: accentColor
-            label: Kolor akcentu
-            description: "Kolor w HEX, np. '#EC4899'."
-            type: string
-          - name: icon
-            label: Ikona
-            description: "Nazwa ikony z mapy w 'components/icon.tsx'."
-            type: string
-          - name: order
-            label: Kolejność
-            description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
-            type: number
-
-  - name: videos_index
-    label: Filmy - strona główna
-    type: file
-    path: content/filmy/index.md
-    fields:
-      - name: eyebrow
-        label: Nadtytuł
-        type: string
-      - name: title
-        label: Tytuł
-        type: string
-      - name: description
-        label: Opis
-        type: text
-      - name: videos
-        label: Lista filmów
-        description: "Wszystkie filmy edytujesz w jednym miejscu."
+      - name: fundingIndex
+        label: Finansowanie - strona główna
         type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{fields.title}"
         fields:
+          - name: eyebrow
+            label: Nadtytuł
+            type: string
           - name: title
             label: Tytuł
             type: string
-          - name: date
-            label: Data
-            description: "Format: YYYY-MM-DD."
+          - name: description
+            label: Opis
+            type: text
+          - name: entries
+            label: Wpisy finansowania
+            description: "Wszystkie wpisy finansowania edytujesz w jednym miejscu."
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{fields.title}"
+            fields:
+              - name: organization
+                label: Organizacja
+                type: string
+              - name: period
+                label: Okres
+                type: string
+              - name: title
+                label: Tytuł
+                type: string
+              - name: summary
+                label: Podsumowanie
+                type: text
+              - name: reportUrl
+                label: Plik sprawozdania
+                description: "Opcjonalny plik do pobrania. Jeśli puste, przycisk pobierania nie będzie widoczny."
+                type: file
+              - name: accentColor
+                label: Kolor akcentu
+                description: "Kolor w HEX, np. '#EC4899'."
+                type: string
+              - name: icon
+                label: Ikona
+                description: "Nazwa ikony z mapy w 'components/icon.tsx'."
+                type: string
+              - name: order
+                label: Kolejność
+                description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
+                type: number
+      - name: videosIndex
+        label: Filmy - strona główna
+        type: object
+        fields:
+          - name: eyebrow
+            label: Nadtytuł
             type: string
-          - name: category
-            label: Kategoria
-            description: "Krótka kategoria wyświetlana przy filmie."
+          - name: title
+            label: Tytuł
             type: string
-          - name: thumbnail
-            label: Miniatura
-            description: "Obraz miniatury filmu (zalecane proporcje 16:9)."
-            type: image
-          - name: youtubeId
-            label: ID YouTube
-            description: "Podaj tylko ID filmu, bez pełnego URL."
-            type: string
-          - name: order
-            label: Kolejność
-            description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
-            type: number
+          - name: description
+            label: Opis
+            type: text
+          - name: videos
+            label: Lista filmów
+            description: "Wszystkie filmy edytujesz w jednym miejscu."
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{fields.title}"
+            fields:
+              - name: title
+                label: Tytuł
+                type: string
+              - name: date
+                label: Data
+                description: "Format: YYYY-MM-DD."
+                type: string
+              - name: category
+                label: Kategoria
+                description: "Krótka kategoria wyświetlana przy filmie."
+                type: string
+              - name: thumbnail
+                label: Miniatura
+                description: "Obraz miniatury filmu (zalecane proporcje 16:9)."
+                type: image
+              - name: youtubeId
+                label: ID YouTube
+                description: "Podaj tylko ID filmu, bez pełnego URL."
+                type: string
+              - name: order
+                label: Kolejność
+                description: "Liczba porządkująca. Mniejsze wartości wyświetlą się wcześniej."
+                type: number
 
   - name: home
     label: Strona główna

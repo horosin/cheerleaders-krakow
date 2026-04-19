@@ -32,6 +32,9 @@ export type SiteConfig = {
   legal: {
     copyright: string
   }
+  newsIndex?: NewsIndex
+  fundingIndex?: FundingIndex
+  videosIndex?: VideoIndex
 }
 
 export type HomePage = {
