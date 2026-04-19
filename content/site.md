@@ -1,6 +1,6 @@
 ---
 title: Cheerleaders Krakow
-tagline: Profesjonalne stowarzyszenie promujące taniec i cheerleading w Polsce.
+tagline: Profesjonalna grupa promująca taniec i cheerleading w Polsce.
   Elegancja, dyscyplina i siła charakteru.
 nav:
   - label: Strona Główna
