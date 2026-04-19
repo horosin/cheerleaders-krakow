@@ -40,15 +40,21 @@ videoHighlight:
   ctaHref: /filmy/
   youtubeId: r92KW5TyMhA
 ctaBand:
-  title: Gotowa by błyszczeć?
-  description: Dołącz do elitarnej grupy, gdzie sport spotyka się z elegancją.
-    Zapisz się na zajęcia próbne i odkryj swoją pasję.
+  title: " NABÓR DO GRUP TURNIEJOWYCH"
+  description: "Poszukujemy nowych pełnych energii osób w wieku od 6 lat do 30+,
+    które chcą: rozwijać umiejętności taneczne, gimnastyczne i akrobatyczne,
+    występować na turniejach i pokazach sportowych, przeżywać niesamowite emocje
+    w zgranym zespole. Oferujemy:\vprofesjonalne treningi prowadzone
+    przez  wykwalifikowanych instruktorów, możliwość startów w zawodach
+    krajowych i zagranicznych, przyjazną, motywująca atmosferę i niezapomniane
+    wspomnienia, udział w obozach sportowych letnim i zimowy. Treningi odbywają
+    się na\vos. Kalinowe 18 - sala gimnastyczna.\n"
   primaryCta:
-    label: Zapisz się na trening
-    href: /#kontakt
+    label: Wypełnij formualrz
+    href: https://forms.gle/VwvemV7gYxaPT1ga7
   secondaryCta:
-    label: Skontaktuj się
-    href: /#kontakt
+    label: Więcej na Instagramie
+    href: https://www.instagram.com/cheerleaders_krakow/
 sponsorsSection:
   eyebrow: Wspierają nas
   title: Nasi Przyjaciele i Sponsorzy
