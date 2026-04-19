@@ -819,6 +819,11 @@ content:
     type: collection
     path: content/stowarzyszenie
     fields:
+      - name: slug
+        label: Slug (adres URL)
+        description: "Opcjonalny slug podstrony, używany w adresie URL i menu, np. 'standardy-ochrony-maloletnich'. Jeśli pole jest puste, strona użyje najpierw nazwy pliku, a dopiero gdyby jej brakowało, slug zostanie wygenerowany z tytułu. Używaj małych liter, cyfr i myślników."
+        type: string
+        pattern: "^[a-z0-9-]+$"
       - name: title
         label: Tytuł
         type: string
@@ -839,6 +844,11 @@ content:
     type: collection
     path: content/pozostale
     fields:
+      - name: slug
+        label: Slug (adres URL)
+        description: "Opcjonalny slug podstrony, używany w adresie URL i menu, np. '1-5-podatku'. Jeśli pole jest puste, strona użyje najpierw nazwy pliku, a dopiero gdyby jej brakowało, slug zostanie wygenerowany z tytułu. Używaj małych liter, cyfr i myślników."
+        type: string
+        pattern: "^[a-z0-9-]+$"
       - name: title
         label: Tytuł
         type: string

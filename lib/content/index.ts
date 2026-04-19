@@ -38,6 +38,7 @@ function getMarkdownFiles(dirPath: string) {
 }
 
 type SimplePageFrontmatter = {
+  slug?: string
   title: string
   navLabel?: string
   order?: number
@@ -62,23 +63,40 @@ type ChampionshipFileEntry = {
   data: ChampionshipRecord
 }
 
-function getSimplePages(dirName: string): SimplePage[] {
+function slugify(value: string) {
+  return value
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+}
+
+function getSimplePageSlug(file: string, data: SimplePageFrontmatter) {
+  return data.slug?.trim() || file.replace(/\.md$/, "") || slugify(data.title)
+}
+
+function getSimplePageEntries(dirName: string): SimplePage[] {
   const dirPath = path.join(contentRoot, dirName)
   if (!fs.existsSync(dirPath)) return []
-  return getMarkdownFiles(dirPath)
-    .map((file) => {
-      const slug = file.replace(/\.md$/, "")
-      const { data, content } = readMarkdownFile<SimplePageFrontmatter>(
-        path.join(dirPath, file)
-      )
-      return {
-        slug,
-        title: data.title,
-        navLabel: data.navLabel,
-        order: data.order,
-        body: content,
-      }
-    })
+
+  return getMarkdownFiles(dirPath).map((file) => {
+    const { data, content } = readMarkdownFile<SimplePageFrontmatter>(
+      path.join(dirPath, file)
+    )
+
+    return {
+      slug: getSimplePageSlug(file, data),
+      title: data.title,
+      navLabel: data.navLabel,
+      order: data.order,
+      body: content,
+    }
+  })
+}
+
+function getSimplePages(dirName: string): SimplePage[] {
+  return getSimplePageEntries(dirName)
     .sort((a, b) => {
       const orderA = a.order ?? 999
       const orderB = b.order ?? 999
@@ -88,16 +106,7 @@ function getSimplePages(dirName: string): SimplePage[] {
 }
 
 function getSimplePageBySlug(dirName: string, slug: string): SimplePage | null {
-  const filePath = path.join(contentRoot, dirName, `${slug}.md`)
-  if (!fs.existsSync(filePath)) return null
-  const { data, content } = readMarkdownFile<SimplePageFrontmatter>(filePath)
-  return {
-    slug,
-    title: data.title,
-    navLabel: data.navLabel,
-    order: data.order,
-    body: content,
-  }
+  return getSimplePageEntries(dirName).find((page) => page.slug === slug) ?? null
 }
 
 function getYearFromSlug(slug: string): number | null {

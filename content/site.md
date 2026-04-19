@@ -22,7 +22,7 @@ nav:
       - label: Walne zgromadzenie
         href: /stowarzyszenie/walne-zgromadzenie/
       - label: Standardy Ochrony Małoletnich
-        href: /stowarzyszenie/standardy-ochrony-maloletnich
+        href: /stowarzyszenie/standardy-ochrony-maloletnich/
   - label: Pozostałe
     autoChildren: pozostale
     children:
