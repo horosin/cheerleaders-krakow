@@ -55,7 +55,8 @@ footerColumns:
       - label: Kontakt
         href: /#kontakt
 contact:
-  email: kontakt@cheerkrakow.pl
+  email: cheerleaders.krakow@gmail.com
+  phone: +48 690 278 117
 socials:
   - label: Facebook
     href: https://www.facebook.com/cheerleaderskrakow1/
