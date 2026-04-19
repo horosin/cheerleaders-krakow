@@ -13,7 +13,7 @@ teams:
     icon: theater_comedy
     order: 6
   - name: Mini Stars
-    coach: Agnieszka Tarkowska
+    coach: "Agnieszka Tarkowska "
     icon: stars
     order: 3
   - name: Show Dance II
