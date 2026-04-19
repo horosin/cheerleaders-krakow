@@ -19,7 +19,7 @@ newsSection:
   ctaHref: /news/
 eventHighlight:
   eyebrow: Nadchodzące wydarzenie
-  title: Międzynarodowe Mistrzostwa Cheerleadingu
+  title: International Cheerleading Championship in Krakow
   date: 2026-03-07
   time: "Start zawodów: 10:00"
   location: Suche Stawy
