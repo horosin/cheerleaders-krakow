@@ -51,8 +51,8 @@ footerColumns:
       - label: Finansowanie
         href: /finansowanie/
 contact:
-  email: tarkowska1@o2.pl
-  phone: +48 602 617 200
+  email: cheerleaders.krakow@gmail.com
+  phone: +48 690 278 117
   addressLines:
     - "Treningi: os. Kalinowe 18, 31-814 Kraków"
 socials:
