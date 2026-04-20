@@ -109,23 +109,4 @@ videosIndex:
   title: Zobacz nasze mistrzostwa
   description: Na starej stronie publikowaliśmy transmisje i materiały z wybranych
     edycji International Cheerleading Championship in Kraków.
-  videos:
-    - title: International Cheerleading Championship in Kraków 2026 - sobota
-      date: 2026-03-07
-      category: Live stream
-      thumbnail: https://img.youtube.com/vi/5Ox6GDNPIRU/hqdefault.jpg
-      youtubeId: 5Ox6GDNPIRU
-      order: 1
-    - title: International Cheerleading Championship in Kraków 2026 - niedziela
-      date: 2026-03-08
-      category: Live stream
-      thumbnail: https://img.youtube.com/vi/j59hg-FI-iI/hqdefault.jpg
-      youtubeId: j59hg-FI-iI
-      order: 2
-    - title: International Cheerleading Championship in Kraków 2024 - transmisja
-      date: 2024-03-09
-      category: Championship
-      thumbnail: https://img.youtube.com/vi/uq6gknXVMpo/hqdefault.jpg
-      youtubeId: uq6gknXVMpo
-      order: 3
 ---
