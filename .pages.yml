@@ -1,3 +1,14 @@
+actions:
+  - name: publikuj-strone
+    label: Publikuj stronę
+    workflow: deploy.yml
+    ref: main
+    cancelable: false
+    confirm:
+      title: Opublikować stronę?
+      message: To opublikuje aktualną wersję strony widoczną dla odwiedzających.
+      button: Publikuj
+
 media:
   input: public/uploads
   output: /uploads

@@ -3,7 +3,16 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: ["main"]
+    paths-ignore:
+      - "content/**"
+      - "public/uploads/**"
+      - ".pages.yml"
   workflow_dispatch:
+    inputs:
+      payload:
+        description: Pages CMS payload as JSON
+        required: false
+        type: string
 
 permissions:
   contents: read
