@@ -20,8 +20,6 @@
 
 Championship content will be in both Polish and English. 
 
-Reference design for all things is in static-mocks/
-
 
 ## Required commands (run after every change)
 - `npm run lint`
@@ -40,3 +38,12 @@ npx shadcn-ui@latest add <component>
 
 This will generate component files in `src/components/ui` and update any required dependencies. Prefer importing these components via the `@/components/ui/*` path.
 
+
+## Agent knowledge
+
+Append info to this file if you spent a lot of time finding how something core to the project. Be critical, add only if strictly essential.
+
+
+## Misc observations
+
+- TBD

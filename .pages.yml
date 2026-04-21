@@ -54,7 +54,7 @@ content:
                 description: "Link wewnętrzny zaczynaj od '/' (np. '/stowarzyszenie/o-nas/')."
                 type: string
       - name: cta
-        label: CTA
+        label: Przycisk w nagłówku
         description: "Przycisk w prawym górnym rogu nagłówka."
         type: object
         fields:
@@ -148,6 +148,7 @@ content:
             type: text
       - name: fundingIndex
         label: Finansowanie - strona główna
+        description: "Treści i listę wpisów finansowania z sekcji na stronie głównej edytujesz tutaj."
         type: object
         fields:
           - name: eyebrow
@@ -161,7 +162,6 @@ content:
             type: text
           - name: entries
             label: Wpisy finansowania
-            description: "Wszystkie wpisy finansowania edytujesz w jednym miejscu."
             type: object
             list:
               collapsible:
@@ -184,6 +184,8 @@ content:
                 label: Plik sprawozdania
                 description: "Opcjonalny plik do pobrania. Jeśli puste, przycisk pobierania nie będzie widoczny."
                 type: file
+                options:
+                  rename: random
               - name: accentColor
                 label: Kolor akcentu
                 description: "Kolor w HEX, np. '#EC4899'."
@@ -198,6 +200,7 @@ content:
                 type: number
       - name: videosIndex
         label: Filmy - strona główna
+        description: "Treści i listę filmów z sekcji na stronie głównej edytujesz tutaj."
         type: object
         fields:
           - name: eyebrow
@@ -211,7 +214,6 @@ content:
             type: text
           - name: videos
             label: Lista filmów
-            description: "Wszystkie filmy edytujesz w jednym miejscu."
             type: object
             list:
               collapsible:
@@ -223,8 +225,11 @@ content:
                 type: string
               - name: date
                 label: Data
-                description: "Format: YYYY-MM-DD."
-                type: string
+                description: "Wybierz datę filmu z kalendarza."
+                type: date
+                default: ""
+                options:
+                  format: yyyy-MM-dd
               - name: category
                 label: Kategoria
                 description: "Krótka kategoria wyświetlana przy filmie."
@@ -233,6 +238,8 @@ content:
                 label: Miniatura
                 description: "Obraz miniatury filmu (zalecane proporcje 16:9)."
                 type: image
+                options:
+                  rename: random
               - name: youtubeId
                 label: ID YouTube
                 description: "Podaj tylko ID filmu, bez pełnego URL."
@@ -259,7 +266,7 @@ content:
             label: Podtytuł
             type: text
           - name: primaryCta
-            label: Główny przycisk CTA
+            label: Przycisk główny
             type: object
             fields:
               - name: label
@@ -270,7 +277,7 @@ content:
                 description: "Link wewnętrzny: '/#sekcja' lub '/podstrona/'."
                 type: string
           - name: secondaryCta
-            label: Dodatkowy przycisk CTA
+            label: Przycisk dodatkowy
             type: object
             fields:
               - name: label
@@ -282,6 +289,7 @@ content:
                 type: string
       - name: teamsSection
         label: Sekcja zespołów
+        description: "Treść sekcji oraz kolejność zespołów na stronie głównej."
         type: object
         fields:
           - name: eyebrow
@@ -295,7 +303,6 @@ content:
             type: text
           - name: teams
             label: Lista zespołów
-            description: "Kolejność na liście jest zachowana na stronie."
             type: object
             list:
               collapsible:
@@ -323,10 +330,10 @@ content:
             label: Tytuł
             type: string
           - name: ctaLabel
-            label: Tekst CTA
+            label: Etykieta przycisku
             type: string
           - name: ctaHref
-            label: Link CTA
+            label: Link przycisku
             description: "Link do archiwum aktualności, np. '/news/'."
             type: string
       - name: eventHighlight
@@ -341,8 +348,11 @@ content:
             type: string
           - name: date
             label: Data
-            description: "Format: YYYY-MM-DD (np. 2026-03-07)."
-            type: string
+            description: "Wybierz datę wydarzenia z kalendarza."
+            type: date
+            default: ""
+            options:
+              format: yyyy-MM-dd
           - name: time
             label: Godzina
             description: "Krótki opis godziny, np. 'Start zawodów: 10:00'."
@@ -354,7 +364,7 @@ content:
             label: Miejsce
             type: string
           - name: primaryCta
-            label: Główny przycisk CTA
+            label: Przycisk główny
             type: object
             fields:
               - name: label
@@ -365,7 +375,7 @@ content:
                 description: "Najczęściej '/championship/' lub sekcja typu '#regulations'."
                 type: string
           - name: secondaryCta
-            label: Dodatkowy przycisk CTA
+            label: Przycisk dodatkowy
             type: object
             fields:
               - name: label
@@ -389,10 +399,10 @@ content:
             label: Opis
             type: text
           - name: ctaLabel
-            label: Tekst CTA
+            label: Etykieta przycisku
             type: string
           - name: ctaHref
-            label: Link CTA
+            label: Link przycisku
             description: "Link do podstrony z filmami, np. '/filmy/'."
             type: string
           - name: youtubeId
@@ -410,7 +420,7 @@ content:
             label: Opis
             type: text
           - name: primaryCta
-            label: Główny przycisk CTA
+            label: Przycisk główny
             type: object
             fields:
               - name: label
@@ -421,7 +431,7 @@ content:
                 description: "Link wewnętrzny: '/#kontakt' lub '/podstrona/'."
                 type: string
           - name: secondaryCta
-            label: Dodatkowy przycisk CTA
+            label: Przycisk dodatkowy
             type: object
             fields:
               - name: label
@@ -433,6 +443,7 @@ content:
                 type: string
       - name: sponsorsSection
         label: Sekcja sponsorów
+        description: "Treść sekcji oraz kolejność sponsorów na stronie głównej."
         type: object
         fields:
           - name: eyebrow
@@ -443,7 +454,6 @@ content:
             type: string
           - name: sponsors
             label: Lista sponsorów
-            description: "Kolejność na liście jest zachowana na stronie."
             type: object
             list:
               collapsible:
@@ -457,6 +467,8 @@ content:
                 label: Logo
                 description: "Opcjonalne logo sponsora. Jeśli pole zostanie puste, pokaże się placeholder z nazwą."
                 type: image
+                options:
+                  rename: random
               - name: href
                 label: Link do strony
                 description: "Opcjonalny pełny adres strony sponsora, np. 'https://example.com'. Link otworzy się w nowej karcie."
@@ -475,10 +487,10 @@ content:
             label: Opis
             type: text
           - name: ctaLabel
-            label: Tekst CTA
+            label: Etykieta przycisku
             type: string
           - name: ctaHref
-            label: Link CTA
+            label: Link przycisku
             description: "Link do strony finansowania, np. '/finansowanie/'."
             type: string
   - name: news_posts
@@ -487,14 +499,18 @@ content:
     path: content/news
     exclude:
       - index.md
+    description: "Każdy wpis tworzy osobną aktualność na stronie i własny adres URL."
     fields:
       - name: title
         label: Tytuł
         type: string
       - name: date
         label: Data
-        description: "Format: YYYY-MM-DD (np. 2026-02-17)."
-        type: string
+        description: "Data publikacji wpisu. Wybierz ją z kalendarza."
+        type: date
+        default: ""
+        options:
+          format: yyyy-MM-dd
       - name: category
         label: Kategoria
         description: "Krótka kategoria widoczna na kartach aktualności."
@@ -506,6 +522,8 @@ content:
         label: Obraz główny
         description: "Zdjęcie nagłówkowe wpisu. Zalecane proporcje poziome (min. 1200 px szerokości)."
         type: image
+        options:
+          rename: random
       - name: body
         label: Treść
         type: rich-text
@@ -525,7 +543,7 @@ content:
     fields:
       - name: slug
         label: Slug (nazwa URL)
-        description: "Generuje nazwę pliku i adres strony, np. 'championship-2026'. Używaj małych liter, cyfr i myślników."
+        description: "Adres strony i nazwa pliku, np. 'championship-2026'. Używaj małych liter, cyfr i myślników."
         type: string
         pattern: "^[a-z0-9-]+$"
       - name: pl
@@ -543,12 +561,18 @@ content:
             type: string
           - name: dateStart
             label: Data rozpoczęcia
-            description: "Format: YYYY-MM-DD."
-            type: string
+            description: "Wybierz pierwszy dzień wydarzenia z kalendarza."
+            type: date
+            default: ""
+            options:
+              format: yyyy-MM-dd
           - name: dateEnd
             label: Data zakończenia
-            description: "Format: YYYY-MM-DD."
-            type: string
+            description: "Wybierz ostatni dzień wydarzenia z kalendarza."
+            type: date
+            default: ""
+            options:
+              format: yyyy-MM-dd
           - name: location
             label: Lokalizacja
             type: string
@@ -558,6 +582,7 @@ content:
             type: string
           - name: ctas
             label: Przyciski CTA
+            description: "Przyciski widoczne na górze strony wydarzenia."
             type: object
             list:
               collapsible:
@@ -587,10 +612,10 @@ content:
                 label: Opis
                 type: text
               - name: ctaLabel
-                label: Tekst CTA
+                label: Etykieta przycisku
                 type: string
               - name: ctaHref
-                label: Link CTA
+                label: Link przycisku
                 type: string
           - name: sections
             label: Sekcje (stały układ)
@@ -627,6 +652,7 @@ content:
                     type: rich-text
                   - name: cards
                     label: Karty
+                    description: "Każda karta może prowadzić do wgranego pliku albo zewnętrznego linku."
                     type: object
                     list:
                       collapsible:
@@ -646,12 +672,13 @@ content:
                         options:
                           path: championship
                           categories: [ document, compressed ]
+                          rename: random
                       - name: href
                         label: Link (opcjonalny)
                         description: "Opcjonalny fallback dla zewnętrznego URL. Jeśli podasz plik i link, użyty będzie plik."
                         type: string
                       - name: meta
-                        label: Meta
+                        label: Dodatkowa informacja
                         type: string
                       - name: icon
                         label: Ikona
@@ -682,6 +709,8 @@ content:
                     label: Obraz
                     description: "Opcjonalny obraz sekcji."
                     type: image
+                    options:
+                      rename: random
           - name: richText
             label: Dodatkowa treść
             type: rich-text
@@ -691,31 +720,38 @@ content:
         type: object
         fields:
           - name: eyebrow
-            label: Eyebrow
+            label: Nadtytuł
             type: string
           - name: title
-            label: Title
+            label: Tytuł
             type: string
           - name: subtitle
-            label: Subtitle
+            label: Podtytuł
             type: string
           - name: dateStart
-            label: Start date
-            description: "Format: YYYY-MM-DD."
-            type: string
+            label: Data rozpoczęcia
+            description: "Wybierz pierwszy dzień wydarzenia z kalendarza."
+            type: date
+            default: ""
+            options:
+              format: yyyy-MM-dd
           - name: dateEnd
-            label: End date
-            description: "Format: YYYY-MM-DD."
-            type: string
+            label: Data zakończenia
+            description: "Wybierz ostatni dzień wydarzenia z kalendarza."
+            type: date
+            default: ""
+            options:
+              format: yyyy-MM-dd
           - name: location
-            label: Location
+            label: Lokalizacja
             type: string
           - name: videoUrl
-            label: Video report (YouTube)
-            description: "Paste a YouTube URL (e.g. https://www.youtube.com/watch?v=... or https://youtu.be/...). If empty, the page will show 'coming soon'."
+            label: Wideorelacja (YouTube)
+            description: "Wklej link YouTube (np. https://www.youtube.com/watch?v=... lub https://youtu.be/...). Gdy pole jest puste, na stronie pokaże się 'coming soon'."
             type: string
           - name: ctas
-            label: CTA buttons
+            label: Przyciski CTA
+            description: "Przyciski widoczne na górze strony wydarzenia."
             type: object
             list:
               collapsible:
@@ -723,68 +759,69 @@ content:
                 summary: "{fields.label}"
             fields:
               - name: label
-                label: Label
+                label: Etykieta
                 type: string
               - name: href
                 label: Link
                 description: "Allowed: section link (e.g. '#files'), internal ('/.../') or external ('https://...')."
                 type: string
               - name: variant
-                label: Variant
+                label: Wariant
                 type: select
                 options:
                   values: [ primary, secondary ]
           - name: sidebarHelp
-            label: Sidebar help
+            label: Pomoc boczna
             type: object
             fields:
               - name: title
-                label: Title
+                label: Tytuł
                 type: string
               - name: description
-                label: Description
+                label: Opis
                 type: text
               - name: ctaLabel
-                label: CTA label
+                label: Etykieta przycisku
                 type: string
               - name: ctaHref
-                label: CTA link
+                label: Link przycisku
                 type: string
           - name: sections
-            label: Sections (fixed layout)
-            description: "Sections are fixed (same as 2026): description, files, venue. Reordering is disabled."
+            label: Sekcje (stały układ)
+            description: "Sekcje są stałe (jak w edycji 2026): opis, pliki, miejsce. Nie można zmieniać ich kolejności."
             type: object
             fields:
               - name: description
-                label: "Section: Event description"
+                label: "Sekcja: Opis wydarzenia"
                 type: object
                 fields:
                   - name: title
-                    label: Title
+                    label: Tytuł
                     type: string
                   - name: icon
-                    label: Icon
+                    label: Ikona
                     description: "Icon name from 'components/icon.tsx'."
                     type: string
                   - name: body
-                    label: Section content
+                    label: Treść sekcji
                     type: rich-text
               - name: files
-                label: "Section: Files and documents"
+                label: "Sekcja: Pliki i dokumenty"
                 type: object
                 fields:
                   - name: title
-                    label: Title
+                    label: Tytuł
                     type: string
                   - name: icon
-                    label: Icon
+                    label: Ikona
                     description: "Icon name from 'components/icon.tsx'."
                     type: string
                   - name: body
-                    label: Section content
+                    label: Treść sekcji
                     type: rich-text
                   - name: cards
-                    label: Cards
+                    label: Karty
+                    description: "Każda karta może prowadzić do wgranego pliku albo zewnętrznego linku."
                     type: object
                     list:
                       collapsible:
@@ -792,61 +829,65 @@ content:
                         summary: "{fields.title}"
                     fields:
                       - name: title
-                        label: Title
+                        label: Tytuł
                         type: string
                       - name: description
-                        label: Description
+                        label: Opis
                         type: text
                       - name: file
-                        label: File
+                        label: Plik
                         description: "Upload regulations and other documents via PagesCMS media. Files are stored under 'public/uploads/championship'."
                         type: file
                         options:
                           path: championship
                           categories: [ document, compressed ]
+                          rename: random
                       - name: href
-                        label: Link (optional)
+                        label: Link (opcjonalny)
                         description: "Optional fallback for an external URL. If both file and link are set, file is used."
                         type: string
                       - name: meta
-                        label: Meta
+                        label: Dodatkowa informacja
                         type: string
                       - name: icon
-                        label: Icon
+                        label: Ikona
                         type: string
               - name: venue
-                label: "Section: Venue"
+                label: "Sekcja: Miejsce"
                 type: object
                 fields:
                   - name: title
-                    label: Title
+                    label: Tytuł
                     type: string
                   - name: icon
-                    label: Icon
+                    label: Ikona
                     description: "Icon name from 'components/icon.tsx'."
                     type: string
                   - name: body
-                    label: Section content
+                    label: Treść sekcji
                     type: rich-text
                   - name: mapEmbed
-                    label: Map embed
+                    label: Osadzenie mapy
                     description: "Embed URL for map (iframe src)."
                     type: string
                   - name: address
-                    label: Address
+                    label: Adres
                     description: "Full address shown above map (with copy button)."
                     type: string
                   - name: image
-                    label: Image
+                    label: Obraz
                     description: "Optional section image."
                     type: image
+                    options:
+                      rename: random
           - name: richText
-            label: Additional content
+            label: Dodatkowa treść
             type: rich-text
   - name: association_pages
     label: Strony stowarzyszenia
     type: collection
     path: content/stowarzyszenie
+    description: "Stałe podstrony informacyjne widoczne w sekcji stowarzyszenia."
     fields:
       - name: title
         label: Tytuł
@@ -873,6 +914,7 @@ content:
     label: Pozostałe strony
     type: collection
     path: content/pozostale
+    description: "Dodatkowe podstrony informacyjne poza aktualnościami i mistrzostwami."
     fields:
       - name: title
         label: Tytuł
@@ -899,6 +941,7 @@ content:
     label: Materiały marki
     type: file
     path: content/marka.md
+    description: "Opis marki, pliki do pobrania i podstawowe wytyczne wizualne."
     fields:
       - name: eyebrow
         label: Nadtytuł
@@ -965,6 +1008,7 @@ content:
               values: [ light, dark ]
       - name: downloads
         label: Pliki do pobrania
+        description: "Lista materiałów marki dostępnych do pobrania."
         type: object
         list:
           collapsible:
@@ -985,6 +1029,8 @@ content:
             label: Plik
             description: "Plik do pobrania powiązany z danym wpisem."
             type: file
+            options:
+              rename: random
       - name: visualTiles
         label: Kafelki wizualne
         type: object
@@ -1016,5 +1062,5 @@ content:
             label: Opis
             type: text
           - name: ctaLabel
-            label: Tekst CTA
+            label: Etykieta przycisku
             type: string
