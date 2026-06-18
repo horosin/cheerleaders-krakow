@@ -78,15 +78,6 @@ fundingIndex:
     Zebraliśmy tu informacje o wsparciu pokazanym na dotychczasowej stronie
     Cheerleaders Kraków.
   entries:
-    - organization: Gmina Miejska Kraków
-      period: "2025"
-      title: Sportowy Sukces Cheerleaders Kraków
-      summary: Jesteśmy beneficjentem programu Sportowy Sukces Cheerleaders Kraków.
-        Projekt jest współfinansowany ze środków otrzymanych od Gminy Miejskiej
-        Kraków.
-      accentColor: "#1e3a8a"
-      icon: location_city
-      order: 1
     - organization: Ministerstwo Sportu i Turystyki
       period: "2025"
       title: Rządowy Program "KLUB" - edycja 2025
@@ -96,6 +87,15 @@ fundingIndex:
       accentColor: "#b91c1c"
       icon: policy
       order: 2
+    - organization: Gmina Miejska Kraków
+      period: "2025"
+      title: Sportowy Sukces Cheerleaders Kraków
+      summary: Jesteśmy beneficjentem programu Sportowy Sukces Cheerleaders Kraków.
+        Projekt jest współfinansowany ze środków otrzymanych od Gminy Miejskiej
+        Kraków.
+      accentColor: "#1e3a8a"
+      icon: location_city
+      order: 1
     - organization: Ministerstwo Sportu i Turystyki
       period: 2023-2024
       title: Program "KLUB" - 2023/2024
