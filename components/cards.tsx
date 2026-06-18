@@ -177,6 +177,7 @@ export function FundingCard({
   title,
   summary,
   reportUrl,
+  supportAmount,
   accentColor,
   icon,
 }: {
@@ -185,6 +186,7 @@ export function FundingCard({
   title: string
   summary: string
   reportUrl?: string
+  supportAmount?: string
   accentColor: string
   icon: string
 }) {
@@ -216,6 +218,16 @@ export function FundingCard({
           <h3 className="text-3xl font-serif font-bold text-gray-900 mb-4 leading-tight">
             {title}
           </h3>
+          {supportAmount && (
+            <div className="mb-5 inline-flex flex-col rounded-2xl border border-pink-100 bg-white px-4 py-3 shadow-sm">
+              <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400">
+                Kwota wsparcia
+              </span>
+              <span className="text-lg font-bold text-primary">
+                {supportAmount}
+              </span>
+            </div>
+          )}
           <p className="text-gray-600 leading-relaxed mb-8">{summary}</p>
           {reportUrl && (
             <div className="flex items-center">

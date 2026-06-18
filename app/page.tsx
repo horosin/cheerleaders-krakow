@@ -286,13 +286,23 @@ export default function HomePage() {
                     />
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-800 text-base leading-tight">
-                      {grant.organization}
+                    <h4 className="font-bold text-gray-900 text-base leading-tight">
+                      {grant.title}
                     </h4>
-                    <span className="text-xs text-primary font-medium uppercase tracking-wide">
-                      {grant.period}
+                    <span className="text-[11px] text-gray-500 font-medium uppercase tracking-wide">
+                      {grant.organization}
                     </span>
                   </div>
+                </div>
+                <div className="mb-3 flex flex-wrap items-center gap-2">
+                  <span className="inline-flex rounded-full bg-pink-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-primary">
+                    {grant.period}
+                  </span>
+                  {grant.supportAmount && (
+                    <span className="inline-flex rounded-full bg-gray-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-gray-600">
+                      Wsparcie: {grant.supportAmount}
+                    </span>
+                  )}
                 </div>
                 <p className="text-gray-500 text-xs leading-relaxed">
                   {grant.summary}
