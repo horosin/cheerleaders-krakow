@@ -293,7 +293,7 @@ export function getFundingIndex(): FundingIndex {
 
 export function getFunding(): FundingGrant[] {
   const site = getSiteConfig()
-  return [...(site.fundingIndex?.entries ?? [])].sort((a, b) => a.order - b.order)
+  return site.fundingIndex?.entries ?? []
 }
 
 export function getBrandPage(): BrandPage {

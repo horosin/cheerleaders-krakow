@@ -188,9 +188,9 @@ export type FundingGrant = {
   title: string
   summary: string
   reportUrl?: string
+  supportAmount?: string
   accentColor: string
   icon: string
-  order: number
 }
 
 export type BrandPage = {

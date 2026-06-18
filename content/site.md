@@ -84,9 +84,9 @@ fundingIndex:
       summary: Działalność stowarzyszenia jest dofinansowana dzięki Rządowemu
         Programowi "KLUB" - edycja 2025. Wartość wsparcia to 12 000 zł, a
         całkowita kwota projektu wynosi 12 635 zł.
+      supportAmount: 12 000 zł
       accentColor: "#b91c1c"
       icon: policy
-      order: 2
     - organization: Gmina Miejska Kraków
       period: "2025"
       title: Sportowy Sukces Cheerleaders Kraków
@@ -95,7 +95,6 @@ fundingIndex:
         Kraków.
       accentColor: "#1e3a8a"
       icon: location_city
-      order: 1
     - organization: Ministerstwo Sportu i Turystyki
       period: 2023-2024
       title: Program "KLUB" - 2023/2024
@@ -103,7 +102,6 @@ fundingIndex:
         latach 2023-2024.
       accentColor: "#7c3aed"
       icon: badge
-      order: 3
 videosIndex:
   eyebrow: Wideo
   title: Zobacz nasze mistrzostwa
