@@ -81,17 +81,17 @@ fundingIndex:
     - organization: Gmina Miejska Kraków
       period: "2026"
       title: Cheerleading sportem dla wszystkich 2026
-      summary: Konkurs projektów dla klubów sportowych na realizację zadania
-        własnego Gminy Miejskiej Kraków w zakresie sprzyjania rozwojowi sportu
-        w 2026 roku. Wartość projektu wynosi 138 300 zł.
+      summary: Konkurs projektów dla klubów sportowych na realizację zadania własnego
+        Gminy Miejskiej Kraków w zakresie sprzyjania rozwojowi sportu w 2026
+        roku. Wartość projektu wynosi 138 300 zł.
       supportAmount: 37 000 zł
       accentColor: "#1e3a8a"
       icon: location_city
     - organization: Województwo Małopolskie
       period: "2026"
       title: Cheerleading sportem dla wszystkich 2026
-      summary: Projekt realizowany przy wsparciu finansowym Województwa
-        Małopolskiego. Wartość projektu wynosi 19 500 zł.
+      summary: Projekt realizowany przy wsparciu finansowym Województwa Małopolskiego.
+        Wartość projektu wynosi 19 500 zł.
       supportAmount: 10 000 zł
       accentColor: "#ec4899"
       icon: badge
@@ -100,7 +100,7 @@ fundingIndex:
       title: Program "Klub" 2026
       summary: Projekt dofinasowany ze środków Budżetu Państwa. Wartość projektu
         wynosi 13 000 zł.
-      supportAmount: 10 000 zł
+      supportAmount: 12 000 zł
       accentColor: "#b91c1c"
       icon: policy
     - organization: Ministerstwo Sportu i Turystyki
