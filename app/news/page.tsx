@@ -70,7 +70,7 @@ export default function NewsPage() {
                     </span>
                     <div className="h-4 w-px bg-white/30 mx-3 md:hidden" />
                     <div className="hidden md:block h-px w-8 bg-white/30 my-4" />
-                    <span className="text-[10px] font-bold uppercase tracking-wider opacity-80 md:writing-mode-vertical-rl md:transform md:rotate-180">
+                    <span className="text-[10px] font-bold uppercase tracking-wider opacity-80 md:writing-mode-vertical-rl">
                       {post.category}
                     </span>
                   </div>
