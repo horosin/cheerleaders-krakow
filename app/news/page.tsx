@@ -21,11 +21,12 @@ const monthShort = [
 function getDateParts(dateString: string) {
   const date = new Date(dateString)
   if (Number.isNaN(date.getTime())) {
-    return { day: "--", month: "--" }
+    return { day: "--", month: "--", year: "----" }
   }
   return {
     day: date.getUTCDate().toString().padStart(2, "0"),
     month: monthShort[date.getUTCMonth()],
+    year: date.getUTCFullYear().toString(),
   }
 }
 
@@ -53,7 +54,7 @@ export default function NewsPage() {
       <section className="py-20 bg-white min-h-[800px]">
         <div className="max-w-4xl mx-auto px-4 lg:px-8 flex flex-col gap-12">
           {posts.map((post) => {
-            const { day, month } = getDateParts(post.date)
+            const { day, month, year } = getDateParts(post.date)
             return (
               <article
                 key={post.slug}
@@ -67,6 +68,9 @@ export default function NewsPage() {
                     </span>
                     <span className="text-xs font-bold uppercase tracking-widest opacity-90 md:mt-1">
                       {month}
+                    </span>
+                    <span className="text-xs font-bold uppercase tracking-widest opacity-90 md:mt-1">
+                      {year}
                     </span>
                     <div className="h-4 w-px bg-white/30 mx-3 md:hidden" />
                     <div className="hidden md:block h-px w-8 bg-white/30 my-4" />
