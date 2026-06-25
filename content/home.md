@@ -93,6 +93,6 @@ fundingSummarySection:
   title: Finansowanie Publiczne
   description: Dzięki zaufaniu instytucji publicznych możemy rozwijać talenty
     młodych sportowców.
-  ctaLabel: Sprawozdania
+  ctaLabel: Zobacz wszystkie
   ctaHref: /finansowanie/
 ---
