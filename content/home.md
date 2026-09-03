@@ -28,9 +28,6 @@ teamsSection:
     - name: Show Dance II
       coach: Dorota Krzysztofik
       icon: celebration
-    - name: Fire
-      coach: Janusz Wasowski
-      icon: local_fire_department
 newsSection:
   eyebrow: Bądź na bieżąco
   title: Aktualności
