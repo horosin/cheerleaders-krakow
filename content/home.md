@@ -35,9 +35,9 @@ newsSection:
   ctaHref: /news/
 eventHighlight:
   eyebrow: Nadchodzące wydarzenie
-  title: International Cheerleading Championship in Krakow
-  date: 2026-03-07
-  time: "Start zawodów: 10:00"
+  title: International Cheerleading Championship in Krakow 2027
+  date: 2027-03-06
+  time: "6–7 marca 2027"
   location: Suche Stawy
   venue: Hala Widowiskowo-Sportowa
   primaryCta:

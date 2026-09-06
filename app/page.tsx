@@ -56,12 +56,12 @@ export default function HomePage() {
             >
               {home.hero.primaryCta.label}
             </Link>
-            <Link
+            <a
               href={home.hero.secondaryCta.href}
               className="h-14 px-10 rounded-full bg-white text-text-dark border border-gray-200 text-lg font-bold hover:bg-gray-50 transition-all shadow-lg hover:-translate-y-1 flex items-center justify-center"
             >
               {home.hero.secondaryCta.label}
-            </Link>
+            </a>
           </div>
         </div>
       </section>

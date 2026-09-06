@@ -93,34 +93,37 @@ export function NewsCard({
 }) {
   const safeHref = href.endsWith("/") ? href : `${href}/`
   return (
-    <article className="group bg-white p-8 rounded-2xl border border-pink-50 hover:border-pink-200 transition-all duration-300 hover:shadow-xl hover:shadow-pink-100/50 flex flex-col h-full">
-      <div className="flex items-center gap-3 mb-4">
-        <span
-          className={cn(
-            "px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full border",
-            tagClassName ?? "bg-pink-50 text-primary border-pink-100"
-          )}
-        >
-          {category}
-        </span>
-        <span className="text-gray-400 text-[11px] font-medium">{date}</span>
-      </div>
-      <h3 className="text-xl font-serif font-bold text-gray-900 group-hover:text-primary transition-colors leading-tight mb-4">
-        {title}
-      </h3>
-      <p className="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-4 flex-grow">
-        {excerpt}
-      </p>
-      <div className="mt-auto">
-        <Link
-          href={safeHref}
-          className="text-sm font-bold text-primary flex items-center gap-1 group-hover:gap-2 transition-all"
-        >
-          Czytaj więcej
-          <Icon name="arrow_forward" className="size-4" />
-        </Link>
-      </div>
-    </article>
+    <Link
+      href={safeHref}
+      className="group block h-full rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+      aria-label={`Czytaj aktualność: ${title}`}
+    >
+      <article className="bg-white p-8 rounded-2xl border border-pink-50 group-hover:border-pink-200 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-pink-100/50 flex flex-col h-full">
+        <div className="flex items-center gap-3 mb-4">
+          <span
+            className={cn(
+              "px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full border",
+              tagClassName ?? "bg-pink-50 text-primary border-pink-100"
+            )}
+          >
+            {category}
+          </span>
+          <span className="text-gray-400 text-[11px] font-medium">{date}</span>
+        </div>
+        <h3 className="text-xl font-serif font-bold text-gray-900 group-hover:text-primary transition-colors leading-tight mb-4">
+          {title}
+        </h3>
+        <p className="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-4 flex-grow">
+          {excerpt}
+        </p>
+        <div className="mt-auto">
+          <span className="text-sm font-bold text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
+            Czytaj więcej
+            <Icon name="arrow_forward" className="size-4" />
+          </span>
+        </div>
+      </article>
+    </Link>
   )
 }
 

@@ -24,18 +24,32 @@ export default function VideosPage() {
 
       <section className="py-24 bg-white border-b border-pink-50 min-h-screen">
         <div className="max-w-[1280px] mx-auto px-4 lg:px-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
-            {videos.map((video) => (
-              <VideoCard
-                key={video.title}
-                title={video.title}
-                date={formatDateLong(video.date, "pl-PL")}
-                category={video.category}
-                thumbnail={video.thumbnail}
-                youtubeId={video.youtubeId}
-              />
-            ))}
-          </div>
+          {videos.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
+              {videos.map((video) => (
+                <VideoCard
+                  key={video.title}
+                  title={video.title}
+                  date={formatDateLong(video.date, "pl-PL")}
+                  category={video.category}
+                  thumbnail={video.thumbnail}
+                  youtubeId={video.youtubeId}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="mx-auto max-w-2xl rounded-3xl border border-pink-100 bg-background-soft px-6 py-16 text-center shadow-sm">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                Już wkrótce
+              </p>
+              <h2 className="mt-3 text-3xl font-serif font-bold text-text-dark">
+                Materiały wideo pojawią się niebawem
+              </h2>
+              <p className="mt-4 text-gray-600">
+                Przygotowujemy dla Was relacje z naszych występów i zawodów.
+              </p>
+            </div>
+          )}
         </div>
       </section>
     </main>
