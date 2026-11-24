@@ -3,11 +3,10 @@ title: Cheerleaders Kraków
 tagline: Zespół cheerleaders z Krakowa rozwijający dyscyplinę od 25 lat oraz
   organizujący międzynarodowe mistrzostwa cheerleadingu.
 nav:
-  - label: Strona Główna
+  - label: Strona główna
     href: /
-  - label: Championship
+  - label: Mistrzostwa
     href: /championship/
-    badge: Intl
     autoChildren: championship
   - label: Aktualności
     href: /news/
@@ -36,9 +35,9 @@ cta:
 footerColumns:
   - title: Na skróty
     links:
-      - label: Strona Główna
+      - label: Strona główna
         href: /
-      - label: Championship
+      - label: Mistrzostwa
         href: /championship/
       - label: Aktualności
         href: /news/
@@ -50,6 +49,8 @@ footerColumns:
         href: /pozostale/1-5-podatku/
       - label: Finansowanie
         href: /finansowanie/
+      - label: Identyfikacja wizualna
+        href: /marka/
 contact:
   email: cheerleaders.krakow@gmail.com
   phone: +48 690 278 117
@@ -74,9 +75,7 @@ newsIndex:
 fundingIndex:
   eyebrow: Finansowanie publiczne
   title: Programy i wsparcie
-  description: Jawność i transparentność to fundamenty naszego działania.
-    Zebraliśmy tu informacje o wsparciu pokazanym na dotychczasowej stronie
-    Cheerleaders Kraków.
+  description: Dotacje i programy wspierające działalność sportową Cheerleaders Kraków.
   entries:
     - organization: Gmina Miejska Kraków
       period: "2026"
@@ -85,24 +84,18 @@ fundingIndex:
         Gminy Miejskiej Kraków w zakresie sprzyjania rozwojowi sportu w 2026
         roku. Wartość projektu wynosi 138 300 zł.
       supportAmount: 37 000 zł
-      accentColor: "#1e3a8a"
-      icon: location_city
     - organization: Województwo Małopolskie
       period: "2026"
       title: Cheerleading sportem dla wszystkich 2026
       summary: Projekt realizowany przy wsparciu finansowym Województwa Małopolskiego.
         Wartość projektu wynosi 19 500 zł.
       supportAmount: 10 000 zł
-      accentColor: "#ec4899"
-      icon: badge
     - organization: Budżet Państwa
       period: "2026"
       title: Program "Klub" 2026
-      summary: Projekt dofinasowany ze środków Budżetu Państwa. Wartość projektu
+      summary: Projekt dofinansowany ze środków Budżetu Państwa. Wartość projektu
         wynosi 13 000 zł.
       supportAmount: 12 000 zł
-      accentColor: "#b91c1c"
-      icon: policy
     - organization: Ministerstwo Sportu i Turystyki
       period: "2025"
       title: Rządowy Program "KLUB" - edycja 2025
@@ -110,26 +103,19 @@ fundingIndex:
         Programowi "KLUB" - edycja 2025. Wartość wsparcia to 12 000 zł, a
         całkowita kwota projektu wynosi 12 635 zł.
       supportAmount: 12 000 zł
-      accentColor: "#b91c1c"
-      icon: policy
     - organization: Gmina Miejska Kraków
       period: "2025"
       title: Sportowy Sukces Cheerleaders Kraków
       summary: Jesteśmy beneficjentem programu Sportowy Sukces Cheerleaders Kraków.
         Projekt jest współfinansowany ze środków otrzymanych od Gminy Miejskiej
         Kraków.
-      accentColor: "#1e3a8a"
-      icon: location_city
     - organization: Ministerstwo Sportu i Turystyki
       period: 2023-2024
       title: Program "KLUB" - 2023/2024
       summary: Byliśmy wspierani przez Ministerstwo Sportu i Turystyki również w
         latach 2023-2024.
-      accentColor: "#7c3aed"
-      icon: badge
 videosIndex:
   eyebrow: Wideo
   title: Zobacz nasze mistrzostwa
-  description: Na starej stronie publikowaliśmy transmisje i materiały z wybranych
-    edycji International Cheerleading Championship in Kraków.
+  description: Transmisje i relacje z Międzynarodowych Mistrzostw Cheerleadingu w Krakowie.
 ---

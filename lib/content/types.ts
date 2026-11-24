@@ -1,7 +1,6 @@
 export type NavItem = {
   label: string
   href?: string
-  badge?: string
   children?: NavItemChild[]
   autoChildren?: string
 }
@@ -39,6 +38,10 @@ export type SiteConfig = {
 
 export type HomePage = {
   hero: {
+    eyebrow?: string
+    image?: string
+    imageAlt?: string
+    imageCaption?: string
     title: string
     subtitle: string
     primaryCta: { label: string; href: string }
@@ -51,20 +54,9 @@ export type HomePage = {
     teams: Team[]
   }
   newsSection: {
-    eyebrow: string
     title: string
     ctaLabel: string
     ctaHref: string
-  }
-  eventHighlight: {
-    eyebrow: string
-    title: string
-    date: string
-    time: string
-    location: string
-    venue: string
-    primaryCta: { label: string; href: string }
-    secondaryCta: { label: string; href: string }
   }
   videoHighlight: {
     eyebrow: string
@@ -81,15 +73,11 @@ export type HomePage = {
     secondaryCta: { label: string; href: string }
   }
   sponsorsSection: {
-    eyebrow: string
     title: string
     sponsors: Sponsor[]
   }
   fundingSummarySection: {
-    eyebrow: string
     title: string
-    description: string
-    ctaLabel: string
     ctaHref: string
   }
 }
@@ -97,7 +85,6 @@ export type HomePage = {
 export type Team = {
   name: string
   coach: string
-  icon: string
 }
 
 export type Sponsor = {
@@ -119,6 +106,7 @@ export type NewsPost = {
   category: string
   excerpt: string
   heroImage?: string
+  heroImageAlt?: string
   body: string
 }
 
@@ -131,7 +119,7 @@ export type ChampionshipPage = {
   location: string
   videoUrl?: string
   ctas: Array<{ label: string; href: string; variant: "primary" | "secondary" }>
-  sidebarHelp: {
+  sidebarHelp?: {
     title: string
     description: string
     ctaLabel: string
@@ -168,7 +156,7 @@ export type VideoIndex = {
 
 export type VideoEntry = {
   title: string
-  date: string
+  date?: string
   category: string
   thumbnail: string
   youtubeId: string
@@ -189,12 +177,9 @@ export type FundingGrant = {
   summary: string
   reportUrl?: string
   supportAmount?: string
-  accentColor: string
-  icon: string
 }
 
 export type BrandPage = {
-  eyebrow: string
   title: string
   description: string
   palette: Array<{ name: string; hex: string; rgb: string }>
@@ -205,12 +190,10 @@ export type BrandPage = {
     bodyFont: string
   }
   logoVariants: Array<{ title: string; variant: "light" | "dark" }>
-  downloads: Array<{ title: string; detail: string; format: string }>
-  visualTiles: Array<{ title: string; description: string; variant: string }>
+  downloads?: Array<{ title: string; detail: string; format: string; file?: string }>
   guidelines: {
     title: string
     description: string
-    ctaLabel: string
   }
 }
 

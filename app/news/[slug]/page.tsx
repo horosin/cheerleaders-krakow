@@ -1,9 +1,11 @@
+import Image from "next/image"
 import Link from "next/link"
+import { ArrowLeft } from "lucide-react"
 import { notFound } from "next/navigation"
 
-import { Icon } from "@/components/icon"
+import { PostMeta } from "@/components/cards"
+import { PageMasthead } from "@/components/page-masthead"
 import {
-  formatDateShort,
   getAllNewsPosts,
   getNewsPostBySlug,
 } from "@/lib/content"
@@ -24,7 +26,7 @@ export async function generateMetadata({ params }: PageProps) {
   const post = getNewsPostBySlug(slug)
   if (!post) return {}
   return {
-    title: `${post.title} | Cheerleaders Krakow`,
+    title: post.title,
     description: post.excerpt,
   }
 }
@@ -40,48 +42,25 @@ export default async function NewsDetailPage({ params }: PageProps) {
   const bodyHtml = await renderMarkdown(post.body)
 
   return (
-    <main>
-      <section className="relative w-full border-b border-pink-100 overflow-hidden py-20 bg-hero-gradient">
-        <div className="absolute inset-0 grain-overlay pointer-events-none z-10" />
-        {post.heroImage && (
-          <div className="absolute inset-0">
-            <img
-              src={post.heroImage}
-              alt={post.title}
-              className="w-full h-full object-cover opacity-25"
-            />
-          </div>
-        )}
-        <div className="relative z-20 max-w-4xl mx-auto px-4 text-center">
-          <span className="inline-block py-1 px-3 rounded-full bg-white/70 border border-pink-200 text-primary text-xs font-bold uppercase tracking-[0.2em] mb-6 backdrop-blur-sm shadow-sm">
-            {post.category}
-          </span>
-          <h1 className="text-text-dark text-4xl sm:text-5xl md:text-6xl font-serif font-bold leading-[1.1] tracking-tight mb-6 drop-shadow-sm">
-            {post.title}
-          </h1>
-          <p className="text-gray-600 text-sm uppercase tracking-[0.2em]">
-            {formatDateShort(post.date)}
-          </p>
-        </div>
-      </section>
-
-      <section className="py-20 bg-white">
-        <div className="max-w-3xl mx-auto px-4 lg:px-8">
-          <div
-            className="prose prose-lg max-w-none"
-            dangerouslySetInnerHTML={{ __html: bodyHtml }}
-          />
-          <div className="mt-12">
-            <Link
-              href="/news/"
-              className="inline-flex items-center gap-2 text-primary font-bold text-xs tracking-[0.15em] uppercase hover:gap-3 transition-all"
-            >
-              <Icon name="arrow_back" className="size-4" />
-              Wróć do aktualności
+    <main id="main-content" tabIndex={-1}>
+      <article>
+        <PageMasthead title={post.title}>
+          <PostMeta post={post} />
+        </PageMasthead>
+        <div className="site-shell home-section">
+          <div className="mx-auto max-w-3xl">
+            <Link href="/news/" className="text-link mb-5">
+              <ArrowLeft aria-hidden="true" /> Wszystkie aktualności
             </Link>
+            {post.heroImage && (
+              <div className="relative mb-8 aspect-[4/3] overflow-hidden bg-background-soft sm:aspect-[16/10]">
+                <Image src={post.heroImage} fill sizes="(max-width: 768px) 100vw, 768px" alt={post.heroImageAlt ?? ""} className="object-cover object-center" />
+              </div>
+            )}
+            <div className="prose" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
           </div>
         </div>
-      </section>
+      </article>
     </main>
   )
 }

@@ -10,9 +10,9 @@ import {
 } from "@/lib/content"
 
 export const metadata: Metadata = {
-  title: "Cheerleaders Krakow",
+  title: { default: "Cheerleaders Kraków", template: "%s | Cheerleaders Kraków" },
   description:
-    "Elegancja, pasja i przyjaźń. Cheerleaders Krakow — stowarzyszenie cheerleadingu w Krakowie.",
+    "Cheerleaders Kraków. Treningi cheerleadingu sportowego, wyniki naszych drużyn i Międzynarodowe Mistrzostwa Cheerleadingu w Krakowie.",
 }
 
 export default function RootLayout({
@@ -35,14 +35,13 @@ export default function RootLayout({
       }
     }
     if (item.autoChildren === "championship") {
-      const [latest, ...older] = championshipNavItems
+      const [latest] = championshipNavItems
       return {
         ...item,
-        label: latest?.label ?? item.label,
-        href: latest?.href ?? item.href,
+        href: item.href ?? latest?.href,
         children: [
           ...(item.children ?? []),
-          ...older.map((entry) => ({
+          ...championshipNavItems.map((entry) => ({
             label: entry.label,
             href: entry.href,
           })),
@@ -54,7 +53,8 @@ export default function RootLayout({
   const resolvedSite = { ...site, nav: resolvedNav }
   return (
     <html lang="pl">
-      <body className="min-h-screen bg-background-soft text-text-dark font-sans antialiased selection:bg-primary selection:text-white">
+      <body className="min-h-screen bg-background text-text-dark font-sans antialiased selection:bg-primary selection:text-white">
+        <a href="#main-content" className="skip-link">Przejdź do treści</a>
         <GoogleAnalytics />
         <SiteHeader site={resolvedSite} />
         {children}

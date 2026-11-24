@@ -1,26 +1,12 @@
-type SimplePageProps = {
-  title: string
-  bodyHtml: string
-}
+import { PageMasthead } from "@/components/page-masthead"
 
-export function SimplePage({ title, bodyHtml }: SimplePageProps) {
+export function SimplePage({ title, bodyHtml }: { title: string; bodyHtml: string }) {
   return (
-    <main>
-      <section className="py-20 bg-white border-b border-pink-100">
-        <div className="max-w-3xl mx-auto px-4 lg:px-8 text-center">
-          <h1 className="text-text-dark text-4xl sm:text-5xl md:text-6xl font-serif font-bold leading-tight">
-            {title}
-          </h1>
-        </div>
-      </section>
-      <section className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-4 lg:px-8">
-          <div
-            className="prose prose-lg max-w-none"
-            dangerouslySetInnerHTML={{ __html: bodyHtml }}
-          />
-        </div>
-      </section>
+    <main id="main-content" tabIndex={-1}>
+      <PageMasthead title={title} />
+      <div className="site-shell home-section">
+        <div className="prose max-w-3xl" dangerouslySetInnerHTML={{ __html: bodyHtml }} />
+      </div>
     </main>
   )
 }

@@ -1,7 +1,7 @@
 import "server-only"
 
 import { ChampionshipView } from "@/components/championship/ChampionshipView"
-import { getChampionshipContentBySlug } from "@/lib/content"
+import { getChampionshipContentBySlug, getChampionshipNavItems } from "@/lib/content"
 import { renderMarkdown } from "@/lib/markdown"
 
 export async function renderChampionshipPageBySlug(slug: string) {
@@ -33,24 +33,17 @@ export async function renderChampionshipPageBySlug(slug: string) {
     }))
   )
 
+  const editions = getChampionshipNavItems().map(({ href, year, slug }) => ({
+    href,
+    label: year?.toString() ?? slug,
+  }))
+
   return (
-    <main>
-      <ChampionshipView
-        pl={{
-          page: {
-            ...plContent.page,
-            richTextHtml: plRichTextHtml,
-          },
-          sections: plSections,
-        }}
-        en={{
-          page: {
-            ...enContent.page,
-            richTextHtml: enRichTextHtml,
-          },
-          sections: enSections,
-        }}
-      />
-    </main>
+    <ChampionshipView
+      pl={{ page: { ...plContent.page, richTextHtml: plRichTextHtml }, sections: plSections }}
+      en={{ page: { ...enContent.page, richTextHtml: enRichTextHtml }, sections: enSections }}
+      editions={editions}
+      currentEdition={`/${slug}/`}
+    />
   )
 }

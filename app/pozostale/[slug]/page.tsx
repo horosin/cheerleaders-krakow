@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: PageProps) {
   const page = getPozostalePageBySlug(slug)
   if (!page) return {}
   return {
-    title: `${page.title} | Cheerleaders Krakow`,
+    title: page.title,
   }
 }
 

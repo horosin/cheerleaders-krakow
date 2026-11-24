@@ -40,10 +40,6 @@ content:
             label: Link
             description: "Link wewnętrzny zaczynaj od '/' (np. '/news/'). Link zewnętrzny podaj z 'https://'."
             type: string
-          - name: badge
-            label: Odznaka
-            description: "Krótki tekst (np. 'Intl'). Puste pole ukryje odznakę."
-            type: string
           - name: autoChildren
             label: Automatyczne podstrony
             description: "Obsługiwane wartości: 'pozostale' oraz 'championship'. Inna wartość nie doda linków automatycznie."
@@ -201,17 +197,9 @@ content:
                 label: Kwota wsparcia
                 description: "Opcjonalna kwota wsparcia, np. '12 000 zł'. Jeśli puste, kwota nie będzie widoczna."
                 type: string
-              - name: accentColor
-                label: Kolor akcentu
-                description: "Kolor w HEX, np. '#EC4899'."
-                type: string
-              - name: icon
-                label: Ikona
-                description: "Nazwa ikony z mapy w 'components/icon.tsx'."
-                type: string
       - name: videosIndex
-        label: Filmy - strona główna
-        description: "Treści i listę filmów z sekcji na stronie głównej edytujesz tutaj."
+        label: Strona filmów
+        description: "Treści i listę filmów na stronie /filmy/ edytujesz tutaj."
         type: object
         fields:
           - name: eyebrow
@@ -276,6 +264,19 @@ content:
           - name: subtitle
             label: Podtytuł
             type: text
+          - name: eyebrow
+            label: Nadtytuł
+            type: string
+          - name: image
+            label: Zdjęcie główne
+            type: image
+          - name: imageAlt
+            label: Tekst alternatywny zdjęcia
+            type: string
+            description: "Opisz, co widać na zdjęciu."
+          - name: imageCaption
+            label: Podpis zdjęcia
+            type: string
           - name: primaryCta
             label: Przycisk główny
             type: object
@@ -326,17 +327,10 @@ content:
               - name: coach
                 label: Trener
                 type: string
-              - name: icon
-                label: Ikona
-                description: "Nazwa ikony z mapy w 'components/icon.tsx'."
-                type: string
       - name: newsSection
         label: Sekcja aktualności
         type: object
         fields:
-          - name: eyebrow
-            label: Nadtytuł
-            type: string
           - name: title
             label: Tytuł
             type: string
@@ -347,55 +341,6 @@ content:
             label: Link przycisku
             description: "Link do archiwum aktualności, np. '/news/'."
             type: string
-      - name: eventHighlight
-        label: Wyróżnione wydarzenie
-        type: object
-        fields:
-          - name: eyebrow
-            label: Nadtytuł
-            type: string
-          - name: title
-            label: Tytuł
-            type: string
-          - name: date
-            label: Data
-            description: "Wybierz datę wydarzenia z kalendarza."
-            type: date
-            default: ""
-            options:
-              format: yyyy-MM-dd
-          - name: time
-            label: Godzina
-            description: "Krótki opis godziny, np. 'Start zawodów: 10:00'."
-            type: string
-          - name: location
-            label: Lokalizacja
-            type: string
-          - name: venue
-            label: Miejsce
-            type: string
-          - name: primaryCta
-            label: Przycisk główny
-            type: object
-            fields:
-              - name: label
-                label: Etykieta
-                type: string
-              - name: href
-                label: Link
-                description: "Najczęściej '/championship/' lub sekcja typu '#regulations'."
-                type: string
-          - name: secondaryCta
-            label: Przycisk dodatkowy
-            type: object
-            fields:
-              - name: label
-                label: Etykieta
-                type: string
-              - name: href
-                label: Link
-                description: "Najczęściej '/championship/' lub sekcja typu '#regulations'."
-                type: string
       - name: videoHighlight
         label: Wyróżnione wideo
         type: object
@@ -457,9 +402,6 @@ content:
         description: "Treść sekcji oraz kolejność sponsorów na stronie głównej."
         type: object
         fields:
-          - name: eyebrow
-            label: Nadtytuł
-            type: string
           - name: title
             label: Tytuł
             type: string
@@ -488,17 +430,8 @@ content:
         label: Sekcja podsumowania finansowania
         type: object
         fields:
-          - name: eyebrow
-            label: Nadtytuł
-            type: string
           - name: title
             label: Tytuł
-            type: string
-          - name: description
-            label: Opis
-            type: text
-          - name: ctaLabel
-            label: Etykieta przycisku
             type: string
           - name: ctaHref
             label: Link przycisku
@@ -535,6 +468,9 @@ content:
         type: image
         options:
           rename: random
+      - name: heroImageAlt
+        label: Tekst alternatywny zdjęcia
+        type: string
       - name: body
         label: Treść
         type: rich-text
@@ -913,6 +849,7 @@ content:
         type: number
       - name: body
         label: Treść
+        description: "Zacznij nagłówki treści od poziomu 2. Tytuł strony jest nagłówkiem poziomu 1."
         type: rich-text
       - name: slug
         label: Slug (adres URL)
@@ -954,9 +891,6 @@ content:
     path: content/marka.md
     description: "Opis marki, pliki do pobrania i podstawowe wytyczne wizualne."
     fields:
-      - name: eyebrow
-        label: Nadtytuł
-        type: string
       - name: title
         label: Tytuł
         type: string
@@ -1042,26 +976,6 @@ content:
             type: file
             options:
               rename: random
-      - name: visualTiles
-        label: Kafelki wizualne
-        type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "{fields.title}"
-        fields:
-          - name: title
-            label: Tytuł
-            type: string
-          - name: description
-            label: Opis
-            type: text
-          - name: variant
-            label: Wariant
-            description: "Zalecane wartości: minimal, bold, editorial, soft."
-            type: select
-            options:
-              values: [ minimal, bold, editorial, soft ]
       - name: guidelines
         label: Wytyczne
         type: object
@@ -1072,6 +986,3 @@ content:
           - name: description
             label: Opis
             type: text
-          - name: ctaLabel
-            label: Etykieta przycisku
-            type: string

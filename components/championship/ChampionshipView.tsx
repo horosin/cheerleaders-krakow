@@ -1,27 +1,54 @@
 "use client"
 
-import * as React from "react"
+import { useState } from "react"
 import Link from "next/link"
+import { ArrowUpRight, CalendarDays, MapPin } from "lucide-react"
 
-import type { ChampionshipPage, ChampionshipSection } from "@/lib/content/types"
-import { formatDateRange } from "@/lib/content/date"
 import { Icon } from "@/components/icon"
+import { Button } from "@/components/ui/button"
+import type { ChampionshipPage, ChampionshipSection, NavItemChild } from "@/lib/content/types"
+import { formatDateRange } from "@/lib/content/date"
 import { cn } from "@/lib/utils"
 
 type SectionView = ChampionshipSection & { bodyHtml: string }
 
-type ChampionshipPageView = ChampionshipPage & {
-  richTextHtml?: string
-}
-
 type ChampionshipContent = {
-  page: ChampionshipPageView
+  page: ChampionshipPage & { richTextHtml?: string }
   sections: SectionView[]
 }
 
 type ChampionshipViewProps = {
   pl: ChampionshipContent
   en: ChampionshipContent
+  editions: NavItemChild[]
+  currentEdition: string
+}
+
+const labels = {
+  pl: {
+    language: "Język strony zawodów",
+    contents: "Na tej stronie",
+    archive: "Edycje mistrzostw",
+    video: "Wideorelacja",
+    more: "Informacje dodatkowe",
+    copy: "Kopiuj adres",
+    copied: "Skopiowano adres.",
+    copyFailed: "Skopiuj adres ręcznie.",
+    map: "Mapa dojazdu",
+    youtube: "Obejrzyj na YouTube",
+  },
+  en: {
+    language: "Event page language",
+    contents: "On this page",
+    archive: "Championship editions",
+    video: "Video report",
+    more: "Additional information",
+    copy: "Copy address",
+    copied: "Address copied.",
+    copyFailed: "Copy the address manually.",
+    map: "Venue map",
+    youtube: "Watch on YouTube",
+  },
 }
 
 function getYouTubeEmbedUrl(videoUrl?: string) {
@@ -37,395 +64,188 @@ function getYouTubeEmbedUrl(videoUrl?: string) {
     } else if (hostname === "youtube.com" || hostname === "m.youtube.com") {
       if (parsed.pathname === "/watch") {
         videoId = parsed.searchParams.get("v") ?? ""
-      } else if (
-        parsed.pathname.startsWith("/embed/") ||
-        parsed.pathname.startsWith("/shorts/")
-      ) {
+      } else if (parsed.pathname.startsWith("/embed/") || parsed.pathname.startsWith("/shorts/")) {
         videoId = parsed.pathname.split("/")[2] ?? ""
       }
     }
 
-    if (!videoId) return null
-    return `https://www.youtube.com/embed/${videoId}`
+    return /^[\w-]{11}$/.test(videoId) ? `https://www.youtube-nocookie.com/embed/${videoId}` : null
   } catch {
     return null
   }
 }
 
-export function ChampionshipView({ pl, en }: ChampionshipViewProps) {
-  const [lang, setLang] = React.useState<"pl" | "en">("pl")
-  const [copiedAddressSection, setCopiedAddressSection] = React.useState<
-    string | null
-  >(null)
-  const active = lang === "pl" ? pl : en
+export function ChampionshipView({ pl, en, editions, currentEdition }: ChampionshipViewProps) {
+  const [lang, setLang] = useState<"pl" | "en">("pl")
+  const [copyResult, setCopyResult] = useState<{ id: string; success: boolean } | null>(null)
+  const { page, sections } = lang === "pl" ? pl : en
+  const t = labels[lang]
   const locale = lang === "pl" ? "pl-PL" : "en-US"
-  const moreLabel = lang === "pl" ? "Więcej" : "More"
-  const videoLabel = lang === "pl" ? "Wideorelacja" : "Video report"
-  const videoComingSoonLabel =
-    lang === "pl"
-      ? "Wideorelacja będzie dostępna wkrótce."
-      : "Video coverage will be available soon."
-  const openOnYoutubeLabel =
-    lang === "pl" ? "Otwórz na YouTube" : "Open on YouTube"
-  const addressLabel = lang === "pl" ? "Adres" : "Address"
-  const copyAddressLabel = lang === "pl" ? "Kopiuj adres" : "Copy address"
-  const copiedLabel = lang === "pl" ? "Skopiowano" : "Copied"
-  const videoSectionId = "video-report"
-  const configuredVideoUrl = (
-    active.page.videoUrl ?? (lang === "pl" ? en.page.videoUrl : pl.page.videoUrl)
-  )?.trim()
-  const videoEmbedUrl = getYouTubeEmbedUrl(configuredVideoUrl)
-  const sections = active.sections
-
+  const videoUrl = page.videoUrl?.trim() || (lang === "pl" ? en.page.videoUrl : pl.page.videoUrl)?.trim()
+  const videoEmbedUrl = getYouTubeEmbedUrl(videoUrl)
   const navigationSections = [
-    ...sections.map((section) => ({
-      id: section.id,
-      navLabel: section.navLabel ?? section.title,
-      icon: section.icon,
-    })),
-    { id: videoSectionId, navLabel: videoLabel, icon: "play_circle" },
-    ...(active.page.richTextHtml
-      ? [{ id: "more", navLabel: moreLabel, icon: "notes" }]
-      : []),
+    ...sections.map((section) => ({ id: section.id, label: section.navLabel ?? section.title, icon: section.icon })),
+    ...(videoEmbedUrl ? [{ id: "video-report", label: t.video, icon: "play_circle" }] : []),
+    ...(page.richTextHtml ? [{ id: "more", label: t.more, icon: "notes" }] : []),
   ]
 
-  const proseClassName =
-    "prose prose-lg max-w-none font-normal leading-loose text-text-dark prose-headings:font-serif prose-headings:text-text-dark prose-h2:mt-10 prose-h2:text-3xl prose-h3:mt-8 prose-h3:text-2xl prose-p:text-text-dark prose-li:text-text-dark prose-strong:text-text-dark"
-
-  const copyAddress = React.useCallback(async (sectionId: string, text: string) => {
+  async function copyAddress(id: string, address: string) {
     try {
-      if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(text)
-      } else {
-        const input = document.createElement("textarea")
-        input.value = text
-        document.body.appendChild(input)
-        input.select()
-        document.execCommand("copy")
-        document.body.removeChild(input)
-      }
-      setCopiedAddressSection(sectionId)
-      window.setTimeout(() => {
-        setCopiedAddressSection((current) =>
-          current === sectionId ? null : current
-        )
-      }, 1800)
+      await navigator.clipboard.writeText(address)
+      setCopyResult({ id, success: true })
     } catch {
-      setCopiedAddressSection(null)
+      setCopyResult({ id, success: false })
     }
-  }, [])
+  }
 
   return (
-    <>
-      <div className="w-full relative min-h-[60vh] flex flex-col justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-white via-pink-50 to-pink-100" />
-        <div
-          className="absolute inset-0 z-0 opacity-[0.03]"
-          style={{
-            backgroundImage: "radial-gradient(#db2777 1px, transparent 1px)",
-            backgroundSize: "32px 32px",
-          }}
-        />
-        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-pink-200/30 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="relative z-20 max-w-7xl mx-auto px-6 py-20 w-full flex flex-col justify-center items-center text-center gap-8">
-          <div className="flex flex-col items-center gap-3">
-            <div className="inline-flex items-center gap-2 p-1.5 rounded-full bg-white border border-pink-100 shadow-sm">
-              <span className="text-[10px] font-bold text-text-dark uppercase tracking-widest px-2 opacity-60">
-                Lang
-              </span>
-              <div className="flex rounded-full bg-pink-50 p-1">
+    <main id="main-content" tabIndex={-1} lang={lang}>
+      <header className="championship-masthead">
+        <div className="site-shell">
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+            {page.eyebrow !== page.title && <p className="eyebrow">{page.eyebrow}</p>}
+            <div className="ml-auto inline-flex gap-1 rounded-md border border-white/30 p-1" role="group" aria-label={t.language}>
+              {(["pl", "en"] as const).map((language) => (
                 <button
-                  className={cn(
-                    "px-3 py-1 rounded-full text-[11px] font-bold transition-all",
-                    lang === "pl"
-                      ? "bg-white text-text-dark shadow-sm"
-                      : "text-gray-500 hover:text-text-dark"
-                  )}
-                  onClick={() => setLang("pl")}
+                  key={language}
+                  type="button"
+                  lang={language}
+                  aria-label={language === "pl" ? "Polski" : "English"}
+                  aria-pressed={lang === language}
+                  className="min-h-10 min-w-10 cursor-pointer rounded-sm px-3 text-sm font-bold uppercase aria-pressed:bg-white aria-pressed:text-text-dark"
+                  onClick={() => { setLang(language); setCopyResult(null) }}
                 >
-                  PL
+                  {language}
                 </button>
-                <button
-                  className={cn(
-                    "px-3 py-1 rounded-full text-[11px] font-bold transition-all",
-                    lang === "en"
-                      ? "bg-white text-text-dark shadow-sm"
-                      : "text-gray-500 hover:text-text-dark"
-                  )}
-                  onClick={() => setLang("en")}
-                >
-                  EN
-                </button>
-              </div>
-            </div>
-            <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white border border-pink-100 text-primary text-xs font-bold uppercase tracking-widest shadow-sm">
-              <span className="size-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_currentColor]" />
-              {active.page.eyebrow}
+              ))}
             </div>
           </div>
-          <h1 className="text-text-dark font-serif text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.1] tracking-tight max-w-5xl drop-shadow-sm">
-            {active.page.title}
-            <br />
-            <span className="text-primary font-bold">{active.page.subtitle}</span>
-          </h1>
-          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-text-dark/80 text-sm md:text-lg font-medium tracking-wide">
-            <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/50 shadow-sm">
-              <Icon
-                name="calendar_month"
-                className="size-5 text-primary"
-                strokeWidth={1.5}
-              />
-              {formatDateRange(
-                active.page.dateStart,
-                active.page.dateEnd,
-                locale
-              )}
+          <h1>{page.title}</h1>
+          {page.subtitle && <p className="championship-subtitle">{page.subtitle}</p>}
+          {!page.subtitle && <ul className="championship-facts">
+            <li><CalendarDays aria-hidden="true" />{formatDateRange(page.dateStart, page.dateEnd, locale)}</li>
+            <li><MapPin aria-hidden="true" />{page.location}</li>
+          </ul>}
+          {page.ctas.length > 0 && (
+            <div className="mt-5 flex flex-wrap gap-3">
+              {page.ctas.map((cta) => (
+                <Button asChild className={cn("action-button", cta.variant === "secondary" && "bg-white text-text-dark hover:bg-pink-100")} key={cta.label}>
+                  <a href={cta.href}>{cta.label}<ArrowUpRight aria-hidden="true" /></a>
+                </Button>
+              ))}
             </div>
-            <div className="hidden md:block w-px h-8 bg-text-dark/10" />
-            <div className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/60 backdrop-blur-md border border-white/50 shadow-sm">
-              <Icon
-                name="location_on"
-                className="size-5 text-primary"
-                strokeWidth={1.5}
-              />
-              {active.page.location}
-            </div>
-          </div>
-          <div className="mt-8 flex flex-col sm:flex-row gap-5 w-full justify-center">
-            {active.page.ctas.map((cta) => (
-              <a
-                key={cta.label}
-                href={cta.href}
-                className={cn(
-                  "h-14 px-10 rounded-full font-bold text-lg transition-all flex items-center justify-center gap-3",
-                  cta.variant === "primary"
-                    ? "bg-primary hover:bg-primary-hover text-white shadow-[0_0_20px_rgba(219,39,119,0.25)]"
-                    : "bg-white hover:bg-pink-50 text-text-dark shadow-lg border border-pink-100"
-                )}
-              >
-                <span>{cta.label}</span>
-                <Icon
-                  name={cta.variant === "primary" ? "arrow_forward" : "play_circle"}
-                  className="size-5"
-                  strokeWidth={1.5}
-                />
-              </a>
-            ))}
-          </div>
+          )}
         </div>
-      </div>
+      </header>
 
-      <main className="flex-grow w-full max-w-7xl mx-auto px-6 py-12 md:py-20">
-        <div className="flex flex-col lg:flex-row gap-16">
-          <aside className="hidden lg:block w-72 shrink-0">
-            <div className="sticky top-28 flex flex-col gap-8">
-              <nav className="flex flex-col gap-3">
-                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest px-4 mb-2 opacity-70">
-                  Navigation
-                </p>
-                {navigationSections.map((section, index) => (
-                  <a
-                    key={section.id}
-                    href={`#${section.id}`}
-                    className={cn(
-                      "group flex items-center gap-4 px-5 py-3.5 rounded-full transition-all border",
-                      index === 0
-                        ? "bg-white shadow-sm text-primary font-bold border-pink-100"
-                        : "hover:bg-pink-50 text-text-dark hover:text-primary border-transparent"
-                    )}
-                  >
-                    <Icon
-                      name={section.icon ?? "arrow_forward"}
-                      className={cn(
-                        "size-5",
-                        index === 0
-                          ? "text-primary"
-                          : "text-gray-400 group-hover:text-primary"
-                      )}
-                      strokeWidth={index === 0 ? 2 : 1.5}
-                    />
-                    {section.navLabel}
+      <div className="site-shell home-section championship-layout">
+        <aside>
+          <nav aria-label={t.contents} className="championship-nav">
+            <p className="eyebrow">{t.contents}</p>
+            <ul>
+              {navigationSections.map((section) => (
+                <li key={section.id}>
+                  <a href={`#${section.id}`} className="gap-2">
+                    {section.icon && <Icon name={section.icon} className="size-4 text-primary" />}
+                    {section.label}
                   </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          {editions.length > 1 && (
+            <nav aria-label={t.archive} className="championship-nav">
+              <p className="eyebrow">{t.archive}</p>
+              <ul className="edition-list">
+                {editions.map((edition) => (
+                  <li key={edition.href}>
+                    <Link href={edition.href} aria-current={edition.href === currentEdition ? "page" : undefined}>
+                      {edition.label}
+                    </Link>
+                  </li>
                 ))}
-              </nav>
-              <div className="p-8 bg-gradient-to-br from-primary to-pink-600 rounded-3xl text-white shadow-[0_0_20px_rgba(219,39,119,0.35)] mt-4 relative overflow-hidden group">
-                <div className="absolute -right-6 -top-6 size-32 bg-white/20 rounded-full blur-2xl group-hover:bg-white/30 transition-all" />
-                <p className="font-serif font-bold text-xl mb-2 relative z-10">
-                  {active.page.sidebarHelp.title}
-                </p>
-                <p className="text-sm text-white/90 mb-6 leading-relaxed relative z-10 font-normal">
-                  {active.page.sidebarHelp.description}
-                </p>
-                <a
-                  className="inline-flex items-center gap-2 text-sm font-bold bg-white text-primary hover:bg-pink-50 px-5 py-2.5 rounded-full transition-colors relative z-10 shadow-sm"
-                  href={active.page.sidebarHelp.ctaHref}
-                >
-                  {active.page.sidebarHelp.ctaLabel}
-                  <Icon name="arrow_outward" className="size-4" />
-                </a>
-              </div>
+              </ul>
+            </nav>
+          )}
+          {page.sidebarHelp && (
+            <div className="championship-nav">
+              <p className="font-bold">{page.sidebarHelp.title}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{page.sidebarHelp.description}</p>
+              <a href={page.sidebarHelp.ctaHref} className="text-link">{page.sidebarHelp.ctaLabel}<ArrowUpRight aria-hidden="true" /></a>
             </div>
-          </aside>
+          )}
+        </aside>
 
-          <div className="flex-1 flex flex-col gap-24 min-w-0">
-            <div className="flex items-center flex-wrap gap-3 text-xs uppercase tracking-widest text-gray-400">
-              <Link className="hover:text-primary transition-colors" href="/">
-                Home
-              </Link>
-              <Icon name="arrow_forward" className="size-3 text-gray-400" />
-              <span className="text-primary font-bold">
-                {active.page.title}
-              </span>
-            </div>
-
-            {sections.map((section) => (
-              <section
-                key={section.id}
-                id={section.id}
-                className="scroll-mt-32"
-              >
-                <h2 className="text-4xl md:text-5xl font-serif font-bold text-text-dark mb-8">
-                  {section.title}
-                </h2>
-                {section.bodyHtml && (
-                  <div
-                    className={proseClassName}
-                    dangerouslySetInnerHTML={{ __html: section.bodyHtml }}
-                  />
-                )}
-
-                {section.cards && section.cards.length > 0 && (
-                  <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="championship-sections">
+          {sections.map((section) => {
+            const address = section.address
+            return (
+              <section key={section.id} id={section.id}>
+                <h2 className="section-title">{section.title}</h2>
+                {section.bodyHtml && <div className="prose" dangerouslySetInnerHTML={{ __html: section.bodyHtml }} />}
+                {!!section.cards?.length && (
+                  <ul className="grid gap-3 sm:grid-cols-2">
                     {section.cards.map((card) => {
-                      const cardHref = card.file ?? card.href ?? "#"
+                      const href = card.file ?? card.href
                       return (
-                        <a
-                          key={card.title}
-                          href={cardHref}
-                          className="group bg-white border border-pink-100 rounded-3xl p-6 flex flex-col gap-3 shadow-[0_10px_30px_-15px_rgba(219,39,119,0.15)] hover:shadow-[0_20px_40px_-15px_rgba(219,39,119,0.25)] transition-all"
-                        >
-                          <div className="flex items-center gap-3 text-primary">
-                            {card.icon && (
-                              <Icon name={card.icon} className="size-8 text-primary" />
-                            )}
-                            <h3 className="text-xl font-serif font-bold text-text-dark">
-                              {card.title}
-                            </h3>
-                          </div>
-                          <p className="text-gray-600 text-sm leading-relaxed">
-                            {card.description}
-                          </p>
-                          {card.meta && (
-                            <span className="text-xs uppercase tracking-widest text-gray-400 font-bold">
-                              {card.meta}
-                            </span>
-                          )}
-                        </a>
+                        <li key={card.title} className="event-resource">
+                          <h3 className="flex items-baseline gap-2">
+                            {card.icon && <Icon name={card.icon} className="size-4 text-primary" />}
+                            {href ? <a href={href}>{card.title}<ArrowUpRight size={16} aria-hidden="true" /></a> : card.title}
+                          </h3>
+                          <p>{card.description}</p>
+                          {card.meta && <p className="mt-2 text-xs font-bold">{card.meta}</p>}
+                        </li>
                       )
                     })}
+                  </ul>
+                )}
+                {address && (
+                  <div className="event-address">
+                    <p><MapPin size={18} aria-hidden="true" />{address}</p>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      className="h-11 w-fit rounded-md"
+                      onClick={() => copyAddress(section.id, address)}
+                    >
+                      {t.copy}
+                    </Button>
+                    <p role="status" className="w-full text-sm text-muted-foreground empty:hidden">
+                      {copyResult?.id === section.id && (copyResult.success ? t.copied : t.copyFailed)}
+                    </p>
                   </div>
                 )}
-
                 {section.mapEmbed && (
-                  <div className="mt-10 flex flex-col gap-4">
-                    {section.address && (
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 rounded-2xl border border-pink-100 bg-white p-4 shadow-sm">
-                        <div>
-                          <p className="text-xs font-bold uppercase tracking-widest text-gray-400">
-                            {addressLabel}
-                          </p>
-                          <p className="text-sm md:text-base text-text-dark">
-                            {section.address}
-                          </p>
-                        </div>
-                        <button
-                          type="button"
-                          onClick={() =>
-                            section.address && copyAddress(section.id, section.address)
-                          }
-                          className="inline-flex items-center justify-center rounded-full border border-pink-200 bg-pink-50 px-4 py-2 text-sm font-bold text-primary hover:bg-pink-100 transition-colors"
-                        >
-                          {copiedAddressSection === section.id
-                            ? copiedLabel
-                            : copyAddressLabel}
-                        </button>
-                      </div>
-                    )}
-                    <div className="aspect-[16/9] w-full rounded-3xl overflow-hidden border border-pink-100 shadow-sm">
-                      <iframe
-                        src={section.mapEmbed}
-                        className="w-full h-full"
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title="Map"
-                      />
-                    </div>
-                  </div>
+                  <iframe src={section.mapEmbed} className="mt-3 aspect-video w-full border border-border" title={t.map} loading="lazy" allowFullScreen />
                 )}
-
-                {section.image && (
-                  <div className="mt-10 rounded-3xl overflow-hidden border border-pink-100 shadow-sm">
-                    <img
-                      src={section.image}
-                      alt={section.title}
-                      className="w-full object-cover"
-                    />
-                  </div>
-                )}
+                {section.image && <img src={section.image} alt="" loading="lazy" className="mt-4 w-full" />}
               </section>
-            ))}
+            )
+          })}
 
-            <section id={videoSectionId} className="scroll-mt-32">
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-text-dark mb-8">
-                {videoLabel}
-              </h2>
-              {videoEmbedUrl ? (
-                <div className="flex flex-col gap-4">
-                  <div className="aspect-[16/9] w-full rounded-3xl overflow-hidden border border-pink-100 shadow-sm">
-                    <iframe
-                      src={videoEmbedUrl}
-                      className="w-full h-full"
-                      loading="lazy"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                      title={videoLabel}
-                    />
-                  </div>
-                  <a
-                    href={configuredVideoUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex w-fit items-center gap-2 rounded-full border border-pink-200 bg-pink-50 px-5 py-2.5 text-sm font-bold text-primary hover:bg-pink-100 transition-colors"
-                  >
-                    {openOnYoutubeLabel}
-                    <Icon name="arrow_outward" className="size-4" />
-                  </a>
-                </div>
-              ) : (
-                <div className="rounded-3xl border border-pink-100 bg-white p-6 shadow-sm">
-                  <p className="text-base text-text-dark">{videoComingSoonLabel}</p>
-                </div>
-              )}
+          {videoEmbedUrl && (
+            <section id="video-report">
+              <h2 className="section-title">{t.video}</h2>
+              <iframe
+                src={videoEmbedUrl}
+                className="aspect-video w-full border border-border"
+                title={t.video}
+                loading="lazy"
+                allow="encrypted-media; picture-in-picture; web-share"
+                allowFullScreen
+              />
+              <a href={videoUrl} className="text-link mt-2">{t.youtube}<ArrowUpRight aria-hidden="true" /></a>
             </section>
-
-            {active.page.richTextHtml && (
-              <section id="more" className="scroll-mt-32">
-                <h2 className="text-4xl md:text-5xl font-serif font-bold text-text-dark mb-8">
-                  {moreLabel}
-                </h2>
-                <div
-                  className={proseClassName}
-                  dangerouslySetInnerHTML={{
-                    __html: active.page.richTextHtml,
-                  }}
-                />
-              </section>
-            )}
-          </div>
+          )}
+          {page.richTextHtml && (
+            <section id="more">
+              <h2 className="section-title">{t.more}</h2>
+              <div className="prose" dangerouslySetInnerHTML={{ __html: page.richTextHtml }} />
+            </section>
+          )}
         </div>
-      </main>
-    </>
+      </div>
+    </main>
   )
 }

@@ -7,10 +7,7 @@ pl:
   dateStart: "2026-03-07"
   dateEnd: "2026-03-07"
   location: "Kraków"
-  ctas:
-    - label: "Bilety dla publiczności"
-      href: "https://sklep.ebilet.pl/559853728677494785"
-      variant: "primary"
+  ctas: []
   sidebarHelp:
     title: "Szybki dostęp"
     description: "Regulaminy, pliki i dodatkowe informacje organizacyjne znajdziesz poniżej."
@@ -23,7 +20,6 @@ pl:
       body: |
         Międzynarodowe Mistrzostwa Cheerleadingu – Kraków, 7 marca 2026.
 
-        Najlepsze drużyny, niesamowite akrobacje i energia, która porwie całe miasto.
     files:
       title: "Pliki i dokumenty"
       icon: "folder_open"
@@ -83,10 +79,7 @@ en:
   dateStart: "2026-03-07"
   dateEnd: "2026-03-07"
   location: "Kraków"
-  ctas:
-    - label: "Bilety dla publiczności"
-      href: "https://sklep.ebilet.pl/559853728677494785"
-      variant: "primary"
+  ctas: []
   sidebarHelp:
     title: "Quick access"
     description: "Find regulations, files, and extra event information below."
@@ -99,7 +92,6 @@ en:
       body: |
         International Cheerleading Championships – Kraków, March 7, 2026.
 
-        The best teams, breathtaking stunts, and energy that will electrify the whole city.
     files:
       title: "Files and documents"
       icon: "folder_open"

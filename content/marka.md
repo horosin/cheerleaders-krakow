@@ -1,7 +1,6 @@
 ---
-eyebrow: "Brand Assets"
 title: "Nasza Tożsamość"
-description: "Zbiór oficjalnych materiałów graficznych, logotypów oraz wytycznych dotyczących identyfikacji wizualnej Cheerleaders Krakow."
+description: "Kolory, typografia i zasady identyfikacji wizualnej Cheerleaders Kraków."
 palette:
   - name: "Brand Magenta"
     hex: "#EC4899"
@@ -28,34 +27,7 @@ logoVariants:
     variant: "light"
   - title: "Wersja Negatywowa"
     variant: "dark"
-downloads:
-  - title: "Logo Vector"
-    detail: "Skalowalne"
-    format: "SVG"
-  - title: "Logo Transparent"
-    detail: "2000x2000px"
-    format: "PNG"
-  - title: "Logo White BG"
-    detail: "2000x2000px"
-    format: "JPG"
-  - title: "Brand Book"
-    detail: "Dokumentacja"
-    format: "PDF"
-visualTiles:
-  - title: "Minimal Card"
-    description: "Gradienty, miękkie światło, subtelny layout."
-    variant: "minimal"
-  - title: "Bold"
-    description: "Mocny kontrast i gradientowe akcenty."
-    variant: "bold"
-  - title: "Editorial"
-    description: "Układ oparty o fotografie i typografię."
-    variant: "editorial"
-  - title: "Soft Accents"
-    description: "Delikatne tła i świetliste akcenty."
-    variant: "soft"
 guidelines:
   title: "Wytyczne"
   description: "Prosimy o nieedytowanie kolorów logo, zachowanie odpowiedniego pola ochronnego oraz stosowanie wyłącznie oficjalnych fontów marki."
-  ctaLabel: "Pobierz pełny PDF z wytycznymi (2.4 MB)"
 ---

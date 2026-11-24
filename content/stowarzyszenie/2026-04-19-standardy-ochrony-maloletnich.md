@@ -7,9 +7,9 @@ order: 1000
   
 
 
-# **STANDARDY OCHRONY MAŁOLETNICH**
+## **STANDARDY OCHRONY MAŁOLETNICH**
 
-# **w Stowarzyszeniu Cheerleaders Kraków**
+## **w Stowarzyszeniu Cheerleaders Kraków**
 
   
 
@@ -90,7 +90,7 @@ tym członka stowarzyszenia, lub zagrożenie dobra małoletniego/małoletniej, w
   
 
 
-# **Krzywdzeniem jest:**
+## **Krzywdzeniem jest:**
 
   
   
@@ -116,7 +116,7 @@ tym członka stowarzyszenia, lub zagrożenie dobra małoletniego/małoletniej, w
   
 
 
-# **Rozdział II**
+## **Rozdział II**
 
   
   
@@ -143,7 +143,7 @@ tym członka stowarzyszenia, lub zagrożenie dobra małoletniego/małoletniej, w
   
 
 
-# **Rozdział III**
+## **Rozdział III**
 
   
   
@@ -193,7 +193,7 @@ tym członka stowarzyszenia, lub zagrożenie dobra małoletniego/małoletniej, w
   
 
 
-# **Rozdział IV**
+## **Rozdział IV**
 
   
 
@@ -219,7 +219,7 @@ tym członka stowarzyszenia, lub zagrożenie dobra małoletniego/małoletniej, w
   
 
 
-# **Rozdział V Monitoring stosowania polityki**
+## **Rozdział V Monitoring stosowania polityki**
 
 § 7.
 
@@ -238,7 +238,7 @@ tym członka stowarzyszenia, lub zagrożenie dobra małoletniego/małoletniej, w
   
 
 
-# **Rozdział VII Przepisy końcowe**
+## **Rozdział VII Przepisy końcowe**
 
 § 8.
 

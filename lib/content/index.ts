@@ -30,6 +30,10 @@ function readMarkdownFile<T>(filePath: string) {
   }
 }
 
+function contentDate(value?: string | Date) {
+  return value instanceof Date ? value.toISOString().slice(0, 10) : value ?? ""
+}
+
 function getMarkdownFiles(dirPath: string) {
   return fs
     .readdirSync(dirPath)
@@ -131,6 +135,9 @@ function normalizeChampionshipContent(localized: ChampionshipLocalizedContent) {
   return {
     page: {
       ...page,
+      dateStart: contentDate(page.dateStart),
+      dateEnd: contentDate(page.dateEnd),
+      ctas: page.ctas ?? [],
       richText: page.richText?.trim() || undefined,
     },
     sections: normalizedSections,
@@ -147,17 +154,12 @@ function getChampionshipEntries(): ChampionshipFileEntry[] {
       const { data } = readMarkdownFile<ChampionshipRecord>(
         path.join(dirPath, file)
       )
-      const parsedYearFromDate = data.pl?.dateStart
-        ? Number(data.pl.dateStart.slice(0, 4))
-        : null
-      const yearFromDate =
-        parsedYearFromDate !== null && Number.isFinite(parsedYearFromDate)
-          ? parsedYearFromDate
-          : null
+      const dateStart = contentDate(data.pl?.dateStart ?? data.en?.dateStart)
+      const yearFromDate = Number(dateStart.slice(0, 4)) || null
       return {
         slug,
         year: getYearFromSlug(slug) ?? yearFromDate,
-        dateStart: data.pl?.dateStart ?? data.en?.dateStart ?? "",
+        dateStart,
         data,
       }
     })
@@ -195,35 +197,27 @@ export function getNewsIndex(): NewsIndex {
   )
 }
 
+function readNewsPost(filePath: string, slug: string): NewsPost {
+  const { data, content } = readMarkdownFile<Omit<NewsPost, "slug" | "date"> & { date: string | Date }>(filePath)
+  return {
+    ...data,
+    slug,
+    date: contentDate(data.date),
+    body: content,
+  }
+}
+
 export function getAllNewsPosts(): NewsPost[] {
   const dirPath = path.join(contentRoot, "news")
   return getMarkdownFiles(dirPath)
     .filter((file) => file !== "index.md")
-    .map((file) => {
-      const slug = file.replace(/\.md$/, "")
-      const { data, content } = readMarkdownFile<Omit<NewsPost, "slug">>(
-        path.join(dirPath, file)
-      )
-      return {
-        slug,
-        ...data,
-        body: content,
-      }
-    })
-    .sort((a, b) => (a.date < b.date ? 1 : -1))
+    .map((file) => readNewsPost(path.join(dirPath, file), file.replace(/\.md$/, "")))
+    .sort((a, b) => b.date.localeCompare(a.date))
 }
 
 export function getNewsPostBySlug(slug: string): NewsPost | null {
   const filePath = path.join(contentRoot, "news", `${slug}.md`)
-  if (!fs.existsSync(filePath)) {
-    return null
-  }
-  const { data, content } = readMarkdownFile<Omit<NewsPost, "slug">>(filePath)
-  return {
-    slug,
-    ...data,
-    body: content,
-  }
+  return fs.existsSync(filePath) ? readNewsPost(filePath, slug) : null
 }
 
 export function getChampionshipSlugs() {
@@ -248,8 +242,8 @@ export function getChampionshipContentBySlug(
   lang: "pl" | "en"
 ) {
   const entry = getChampionshipEntries().find((item) => item.slug === slug)
-  if (!entry) return null
-  return normalizeChampionshipContent(entry.data[lang])
+  const content = entry?.data[lang]
+  return content ? normalizeChampionshipContent(content) : null
 }
 
 export function getChampionshipContent(lang: "pl" | "en") {
@@ -277,7 +271,9 @@ export function getVideosIndex(): VideoIndex {
 
 export function getVideos(): VideoEntry[] {
   const site = getSiteConfig()
-  return [...(site.videosIndex?.videos ?? [])].sort((a, b) => a.order - b.order)
+  return (site.videosIndex?.videos ?? [])
+    .map((video) => ({ ...video, date: contentDate(video.date) }))
+    .sort((a, b) => a.order - b.order)
 }
 
 export function getFundingIndex(): FundingIndex {
