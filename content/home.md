@@ -1,8 +1,8 @@
 ---
 hero:
-  eyebrow: Cheerleading sportowy w Krakowie
+  eyebrow: Cheerleading sportowy
   title: Cheerleaders Kraków
-  subtitle: Trenujemy, startujemy w zawodach i rozwijamy cheerleading sportowy w Krakowie od 25 lat.
+  subtitle: Trenujemy w Krakowie i startujemy w zawodach w Polsce i za granicą.
   image: /uploads/cheer.jpg
   imageAlt: Zawodniczki Chilli z żółtymi pomponami pozują na podium.
   imageCaption: Chilli · Wicemistrzynie Polski 2026

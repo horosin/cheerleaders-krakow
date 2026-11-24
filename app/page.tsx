@@ -64,7 +64,6 @@ export default function HomePage() {
         <section className="event-strip" aria-labelledby="home-championship">
           <div className="site-shell event-strip-inner">
             <div>
-              <p className="eyebrow">Championship</p>
               <h2 id="home-championship">{championship.page.title}</h2>
             </div>
             <div className="event-strip-details">
